@@ -1,0 +1,42 @@
+[
+{
+    "model": "academy.AcademicPeriod",
+    "pk": 1,
+    "fields": {
+        "academic_major": 1,
+        "period": 1
+    }
+},
+{
+    "model": "academy.AcademicPeriod",
+    "pk": 2,
+    "fields": {
+        "academic_major": 2,
+        "period": 1
+    }
+},
+{
+    "model": "academy.AcademicPeriod",
+    "pk": 3,
+    "fields": {
+        "academic_major": 3,
+        "period": 1
+    }
+},
+{
+    "model": "academy.AcademicPeriod",
+    "pk": 4,
+    "fields": {
+        "academic_major": 4,
+        "period": 1
+    }
+},
+{
+    "model": "academy.AcademicPeriod",
+    "pk": 5,
+    "fields": {
+        "academic_major": 5,
+        "period": 1
+    }
+}
+]

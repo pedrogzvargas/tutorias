@@ -1,0 +1,7 @@
+# General
+# ------------------------------------------------------------------------------
+USE_DOCKER=yes
+IPYTHONDIR=/app/.ipython
+
+DJANGO_READ_DOT_ENV_FILE=True
+DATABASE_URL=postgres://oBlJulxZTmIrrojKnFJrGTTbghQTSlnT:pedy1qU99r9u7lM0F3p2GaC6Dan4NiJpaFJdr7CA9RTaCpYMY0j0etmB1BRuvRAr@127.0.0.1:5434/tutorias_itsvc

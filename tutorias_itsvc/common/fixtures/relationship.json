@@ -1,0 +1,23 @@
+[
+  {
+    "model": "common.Relationship",
+    "pk": 1,
+    "fields": {
+      "name": "Buena"
+    }
+  },
+  {
+    "model": "common.Relationship",
+    "pk": 2,
+    "fields": {
+      "name": "Regular"
+    }
+  },
+  {
+    "model": "common.Relationship",
+    "pk": 3,
+    "fields": {
+      "name": "Mala"
+    }
+  }
+]

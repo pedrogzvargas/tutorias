@@ -1,0 +1,30 @@
+[
+  {
+    "model": "common.Disability",
+    "pk": 1,
+    "fields": {
+      "name": "Visual"
+    }
+  },
+  {
+    "model": "common.Disability",
+    "pk": 2,
+    "fields": {
+      "name": "Auditiva"
+    }
+  },
+  {
+    "model": "common.Disability",
+    "pk": 3,
+    "fields": {
+      "name": "Lingüística"
+    }
+  },
+  {
+    "model": "common.Disability",
+    "pk": 4,
+    "fields": {
+      "name": "Otro"
+    }
+  }
+]

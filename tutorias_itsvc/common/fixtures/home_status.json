@@ -1,0 +1,30 @@
+[
+  {
+    "model": "common.HomeStatus",
+    "pk": 1,
+    "fields": {
+      "name": "Propia"
+    }
+  },
+  {
+    "model": "common.HomeStatus",
+    "pk": 2,
+    "fields": {
+      "name": "Rentada"
+    }
+  },
+  {
+    "model": "common.HomeStatus",
+    "pk": 3,
+    "fields": {
+      "name": "Prestada"
+    }
+  },
+  {
+    "model": "common.HomeStatus",
+    "pk": 4,
+    "fields": {
+      "name": "Otro"
+    }
+  }
+]

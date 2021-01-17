@@ -1,0 +1,51 @@
+[
+  {
+    "model": "academy.SubjectFailureMetric",
+    "pk": 1,
+    "fields": {
+      "name": "Reprobación (bajo rendimiento)"
+    }
+  },
+  {
+    "model": "academy.SubjectFailureMetric",
+    "pk": 2,
+    "fields": {
+      "name": "Inasistencias"
+    }
+  },
+  {
+    "model": "academy.SubjectFailureMetric",
+    "pk": 3,
+    "fields": {
+      "name": "Indisciplina"
+    }
+  },
+  {
+    "model": "academy.SubjectFailureMetric",
+    "pk": 4,
+    "fields": {
+      "name": "No entrega trabajos/pract"
+    }
+  },
+  {
+    "model": "academy.SubjectFailureMetric",
+    "pk": 5,
+    "fields": {
+      "name": "Apoyo psicológico"
+    }
+  },
+  {
+    "model": "academy.SubjectFailureMetric",
+    "pk": 6,
+    "fields": {
+      "name": "Problemas económicos"
+    }
+  },
+  {
+    "model": "academy.SubjectFailureMetric",
+    "pk": 7,
+    "fields": {
+      "name": "Otros"
+    }
+  }
+]

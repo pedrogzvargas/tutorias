@@ -1,0 +1,16 @@
+[
+  {
+    "model": "common.SchoolCycle",
+    "pk": 1,
+    "fields": {
+      "name": "Enero - Junio 2020"
+    }
+  },
+  {
+    "model": "common.SchoolCycle",
+    "pk": 2,
+    "fields": {
+      "name": "Agosto - Diciembre 2020"
+    }
+  }
+]

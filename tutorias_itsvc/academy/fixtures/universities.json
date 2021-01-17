@@ -1,0 +1,20 @@
+[
+  {
+    "model": "academy.university",
+    "pk": 1,
+    "fields": {
+      "name": "Instituto Tecnológico Superior de Venustiano Carranza",
+      "acronym": "ITSVC",
+      "is_active": true,
+      "created_at": "2020-02-24T02:59:54.622Z",
+      "updated_at": "2020-03-22T04:47:30.426Z",
+      "majors": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  }
+]

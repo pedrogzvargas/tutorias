@@ -1,0 +1,646 @@
+[
+  {
+    "model": "academy.Subject",
+    "pk": 1,
+    "fields": {
+      "name": "Cálculo Diferencial",
+      "code": "ACF-0901",
+      "first_value": 3,
+      "second_value": 2,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-24T02:59:54.622Z",
+      "updated_at": "2020-02-24T03:00:24.591Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 2,
+    "fields": {
+      "name": "Fundamentos de Programación",
+      "code": "SCD-1008",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-24T02:59:54.622Z",
+      "updated_at": "2020-02-24T03:00:24.591Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 3,
+    "fields": {
+      "name": "Taller de Ética",
+      "code": "ACA-0907",
+      "first_value": 0,
+      "second_value": 4,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-24T02:59:54.622Z",
+      "updated_at": "2020-02-24T03:00:24.591Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 4,
+    "fields": {
+      "name": "Matemáticas Discretas",
+      "code": "AEF-1041",
+      "first_value": 3,
+      "second_value": 2,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-24T02:59:54.622Z",
+      "updated_at": "2020-02-24T03:00:24.591Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 5,
+    "fields": {
+      "name": "Taller de Administración",
+      "code": "SCH-1024",
+      "first_value": 1,
+      "second_value": 3,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-24T02:59:54.622Z",
+      "updated_at": "2020-02-24T03:00:24.591Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 6,
+    "fields": {
+      "name": "Fundamentos de Investigación",
+      "code": "ACC-0906",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-24T02:59:54.622Z",
+      "updated_at": "2020-02-24T03:00:24.591Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 7,
+    "fields": {
+      "name": "Cálculo Integral",
+      "code": "ACF-0902",
+      "first_value": 3,
+      "second_value": 2,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:20:17.046Z",
+      "updated_at": "2020-02-28T02:20:17.047Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 8,
+    "fields": {
+      "name": "Programación orientada a objetos",
+      "code": "SCD-1020",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:21:14.459Z",
+      "updated_at": "2020-02-28T02:21:14.459Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 9,
+    "fields": {
+      "name": "Contabilidad Financiera",
+      "code": "AEC-1008",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:21:48.897Z",
+      "updated_at": "2020-02-28T02:21:48.897Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 10,
+    "fields": {
+      "name": "Química",
+      "code": "AEC-1058",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:22:29.977Z",
+      "updated_at": "2020-02-28T02:22:29.977Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 11,
+    "fields": {
+      "name": "Algebra Lineal",
+      "code": "ACF-0903",
+      "first_value": 3,
+      "second_value": 2,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:23:07.112Z",
+      "updated_at": "2020-02-28T02:23:07.112Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 12,
+    "fields": {
+      "name": "Probabilidad y Estadística",
+      "code": "AEF-1052",
+      "first_value": 3,
+      "second_value": 2,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:23:41.603Z",
+      "updated_at": "2020-02-28T02:23:41.603Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 13,
+    "fields": {
+      "name": "Calculo Vectorial",
+      "code": "ACF-0904",
+      "first_value": 3,
+      "second_value": 2,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:24:44.000Z",
+      "updated_at": "2020-02-28T02:24:44.000Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 14,
+    "fields": {
+      "name": "Estructura de Datos",
+      "code": "AED-1026",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:25:13.375Z",
+      "updated_at": "2020-02-28T02:25:13.375Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 15,
+    "fields": {
+      "name": "Cultura Empresarial",
+      "code": "SCC-1005",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:25:44.695Z",
+      "updated_at": "2020-02-28T02:25:44.696Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 16,
+    "fields": {
+      "name": "Investigación de Operaciones",
+      "code": "SCC-1013",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:26:24.678Z",
+      "updated_at": "2020-02-28T02:26:24.678Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 17,
+    "fields": {
+      "name": "Sistemas Operativos",
+      "code": "AEC-1061",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:27:00.796Z",
+      "updated_at": "2020-02-28T02:27:00.796Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 18,
+    "fields": {
+      "name": "Física General",
+      "code": "SCF-1006",
+      "first_value": 3,
+      "second_value": 2,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:27:33.250Z",
+      "updated_at": "2020-02-28T02:27:33.250Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 19,
+    "fields": {
+      "name": "Ecuaciones Diferenciales",
+      "code": "ACF-0905",
+      "first_value": 3,
+      "second_value": 2,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:28:16.050Z",
+      "updated_at": "2020-02-28T02:28:16.050Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 20,
+    "fields": {
+      "name": "Métodos Numéricos",
+      "code": "SCC-1017",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:28:45.434Z",
+      "updated_at": "2020-02-28T02:28:45.434Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 21,
+    "fields": {
+      "name": "Tópicos Avanzados De Programación",
+      "code": "SCD-1027",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:29:17.289Z",
+      "updated_at": "2020-02-28T02:29:17.289Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 22,
+    "fields": {
+      "name": "Fundamentos de Base de Datos",
+      "code": "AEF-1031",
+      "first_value": 3,
+      "second_value": 2,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:29:50.787Z",
+      "updated_at": "2020-02-28T02:29:50.787Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 23,
+    "fields": {
+      "name": "Taller de Sistemas Operativos",
+      "code": "SCA-1026",
+      "first_value": 0,
+      "second_value": 4,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:30:18.527Z",
+      "updated_at": "2020-02-28T02:30:18.527Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 24,
+    "fields": {
+      "name": "Principios Eléctricos y Aplicaciones Digitales",
+      "code": "SCD-1018",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:30:52.982Z",
+      "updated_at": "2020-02-28T02:30:52.982Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 25,
+    "fields": {
+      "name": "Desarrollo Sustentable",
+      "code": "ACD-0908",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:31:26.685Z",
+      "updated_at": "2020-02-28T02:31:26.685Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 26,
+    "fields": {
+      "name": "Fundamentos deTelecomunicaciones",
+      "code": "AEC-1034",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:31:59.124Z",
+      "updated_at": "2020-02-28T02:31:59.124Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 27,
+    "fields": {
+      "name": "Taller de bases De datos",
+      "code": "SCA-1025",
+      "first_value": 0,
+      "second_value": 4,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:32:42.122Z",
+      "updated_at": "2020-02-28T02:32:42.122Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 28,
+    "fields": {
+      "name": "Simulación",
+      "code": "SCD-1022",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:33:18.825Z",
+      "updated_at": "2020-02-28T02:33:18.825Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 29,
+    "fields": {
+      "name": "Fundamentos de Ing. de Software",
+      "code": "SCC-1007",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:33:49.710Z",
+      "updated_at": "2020-02-28T02:33:49.710Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 30,
+    "fields": {
+      "name": "Arquitectura de Computadoras",
+      "code": "SCD-1003",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:34:33.561Z",
+      "updated_at": "2020-02-28T02:34:33.561Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 31,
+    "fields": {
+      "name": "Lenguajes y Autómatas I",
+      "code": "SCD-1015",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:35:19.818Z",
+      "updated_at": "2020-02-28T02:35:19.818Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 32,
+    "fields": {
+      "name": "Redes de Computadora",
+      "code": "SCD-1021",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:35:49.268Z",
+      "updated_at": "2020-02-28T02:35:49.268Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 33,
+    "fields": {
+      "name": "Administración de Bases de Datos",
+      "code": "SCB-1001",
+      "first_value": 1,
+      "second_value": 4,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:36:25.562Z",
+      "updated_at": "2020-02-28T02:36:25.562Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 34,
+    "fields": {
+      "name": "Graficación",
+      "code": "SCC-1010",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:36:49.811Z",
+      "updated_at": "2020-02-28T02:36:49.811Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 35,
+    "fields": {
+      "name": "Ingeniería de Software",
+      "code": "SCD-1011",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:37:20.662Z",
+      "updated_at": "2020-02-28T02:37:20.662Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 36,
+    "fields": {
+      "name": "Lenguajes de Interfaz",
+      "code": "SCC-1014",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:38:07.304Z",
+      "updated_at": "2020-02-28T02:38:07.304Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 37,
+    "fields": {
+      "name": "Lenguajes y Autómatas II",
+      "code": "SCD-1016",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:39:54.744Z",
+      "updated_at": "2020-02-28T02:39:54.744Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 38,
+    "fields": {
+      "name": "Conmutación y Enrutamiento de Redes de Datos",
+      "code": "SCD-1004",
+      "first_value": 2,
+      "second_value": 3,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:40:31.341Z",
+      "updated_at": "2020-02-28T02:40:31.341Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 39,
+    "fields": {
+      "name": "Taller de Investigación I",
+      "code": "ACA-0909",
+      "first_value": 0,
+      "second_value": 4,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:41:08.095Z",
+      "updated_at": "2020-02-28T02:41:08.095Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 40,
+    "fields": {
+      "name": "Gestión de Proyectos De Software",
+      "code": "SCG-1009",
+      "first_value": 3,
+      "second_value": 3,
+      "total_value": 6,
+      "is_active": true,
+      "created_at": "2020-02-28T02:41:44.928Z",
+      "updated_at": "2020-02-28T02:41:44.928Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 41,
+    "fields": {
+      "name": "Sistemas Programables",
+      "code": "SCC-1023",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:42:14.331Z",
+      "updated_at": "2020-02-28T02:42:14.331Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 42,
+    "fields": {
+      "name": "Programación Lógica y Funcional",
+      "code": "SCC-1019",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:42:55.725Z",
+      "updated_at": "2020-02-28T02:42:55.725Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 43,
+    "fields": {
+      "name": "Administración de Redes",
+      "code": "SCA-1002",
+      "first_value": 0,
+      "second_value": 4,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:43:25.502Z",
+      "updated_at": "2020-02-28T02:43:25.502Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 44,
+    "fields": {
+      "name": "Taller de Investigación II",
+      "code": "ACA-0910",
+      "first_value": 0,
+      "second_value": 4,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:43:53.904Z",
+      "updated_at": "2020-02-28T02:43:53.904Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 45,
+    "fields": {
+      "name": "Programación WEB",
+      "code": "AEB-1055",
+      "first_value": 1,
+      "second_value": 4,
+      "total_value": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T02:44:22.357Z",
+      "updated_at": "2020-02-28T02:44:22.357Z"
+    }
+  },
+  {
+    "model": "academy.Subject",
+    "pk": 46,
+    "fields": {
+      "name": "Inteligencia Artificial",
+      "code": "SCC-1012",
+      "first_value": 2,
+      "second_value": 2,
+      "total_value": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T02:44:54.145Z",
+      "updated_at": "2020-02-28T02:44:54.145Z"
+    }
+  }
+]

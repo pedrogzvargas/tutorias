@@ -1,0 +1,23 @@
+[
+  {
+    "model": "academy.SubjectType",
+    "pk": 1,
+    "fields": {
+      "name": "Normal"
+    }
+  },
+  {
+    "model": "academy.SubjectType",
+    "pk": 2,
+    "fields": {
+      "name": "Repite"
+    }
+  },
+  {
+    "model": "academy.SubjectType",
+    "pk": 3,
+    "fields": {
+      "name": "Extraordinario"
+    }
+  }
+]

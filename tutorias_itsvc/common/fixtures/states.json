@@ -1,0 +1,226 @@
+[
+  {
+    "model": "common.State",
+    "pk": 1,
+    "fields": {
+      "name": "Aguascalientes"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 2,
+    "fields": {
+      "name": "Baja California Sur"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 3,
+    "fields": {
+      "name": "Baja California"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 4,
+    "fields": {
+      "name": "Campeche"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 5,
+    "fields": {
+      "name": "Colima"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 6,
+    "fields": {
+      "name": "Coahuila de Zaragoza"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 7,
+    "fields": {
+      "name": "Ciudad de México"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 8,
+    "fields": {
+      "name": "Chiapas"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 9,
+    "fields": {
+      "name": "Durango"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 10,
+    "fields": {
+      "name": "Chihuahua"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 11,
+    "fields": {
+      "name": "Guerrero"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 12,
+    "fields": {
+      "name": "Hidalgo"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 13,
+    "fields": {
+      "name": "Jalisco"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 14,
+    "fields": {
+      "name": "Guanajuato"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 15,
+    "fields": {
+      "name": "Nayarit"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 16,
+    "fields": {
+      "name": "Morelos"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 17,
+    "fields": {
+      "name": "México"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 18,
+    "fields": {
+      "name": "Nuevo León"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 19,
+    "fields": {
+      "name": "Michoacán de Ocampo"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 20,
+    "fields": {
+      "name": "Querétaro"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 21,
+    "fields": {
+      "name": "Puebla"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 22,
+    "fields": {
+      "name": "Oaxaca"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 23,
+    "fields": {
+      "name": "Quintana Roo"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 24,
+    "fields": {
+      "name": "Sinaloa"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 25,
+    "fields": {
+      "name": "San Luis Potosí"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 26,
+    "fields": {
+      "name": "Tabasco"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 27,
+    "fields": {
+      "name": "Tlaxcala"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 28,
+    "fields": {
+      "name": "Tamaulipas"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 29,
+    "fields": {
+      "name": "Yucatán"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 30,
+    "fields": {
+      "name": "Zacatecas"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 31,
+    "fields": {
+      "name": "Sonora"
+    }
+  },
+  {
+    "model": "common.State",
+    "pk": 32,
+    "fields": {
+      "name": "Veracruz de Ignacio de la Llave"
+    }
+  }
+]

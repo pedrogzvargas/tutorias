@@ -1,0 +1,16 @@
+[
+  {
+    "model": "common.HousingType",
+    "pk": 1,
+    "fields": {
+      "name": "Casa"
+    }
+  },
+  {
+    "model": "common.HousingType",
+    "pk": 2,
+    "fields": {
+      "name": "Departamento"
+    }
+  }
+]

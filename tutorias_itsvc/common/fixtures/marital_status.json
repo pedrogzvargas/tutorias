@@ -1,0 +1,51 @@
+[
+  {
+    "model": "common.MaritalStatus",
+    "pk": 1,
+    "fields": {
+      "name": "Soltero"
+    }
+  },
+  {
+    "model": "common.MaritalStatus",
+    "pk": 2,
+    "fields": {
+      "name": "Noviazgo"
+    }
+  },
+  {
+    "model": "common.MaritalStatus",
+    "pk": 3,
+    "fields": {
+      "name": "Unión Libre"
+    }
+  },
+  {
+    "model": "common.MaritalStatus",
+    "pk": 4,
+    "fields": {
+      "name": "Casado"
+    }
+  },
+  {
+    "model": "common.MaritalStatus",
+    "pk": 5,
+    "fields": {
+      "name": "Divorciado"
+    }
+  },
+  {
+    "model": "common.MaritalStatus",
+    "pk": 6,
+    "fields": {
+      "name": "Viudo"
+    }
+  },
+  {
+    "model": "common.MaritalStatus",
+    "pk": 7,
+    "fields": {
+        "name": "Otro"
+    }
+}
+]

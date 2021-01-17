@@ -1,0 +1,508 @@
+[
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 1,
+    "fields": {
+      "academic_period_number": 1,
+      "subject": 1,
+      "is_active": true,
+      "created_at": "2020-02-28T01:56:49.657Z",
+      "updated_at": "2020-02-28T01:56:49.657Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 2,
+    "fields": {
+      "academic_period_number": 1,
+      "subject": 2,
+      "is_active": true,
+      "created_at": "2020-02-28T01:58:05.476Z",
+      "updated_at": "2020-02-28T01:58:05.476Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 3,
+    "fields": {
+      "academic_period_number": 1,
+      "subject": 3,
+      "is_active": true,
+      "created_at": "2020-02-28T01:58:14.519Z",
+      "updated_at": "2020-02-28T01:58:14.519Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 4,
+    "fields": {
+      "academic_period_number": 1,
+      "subject": 4,
+      "is_active": true,
+      "created_at": "2020-02-28T01:58:25.187Z",
+      "updated_at": "2020-02-28T01:58:25.187Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 5,
+    "fields": {
+      "academic_period_number": 1,
+      "subject": 5,
+      "is_active": true,
+      "created_at": "2020-02-28T01:58:36.684Z",
+      "updated_at": "2020-02-28T01:58:36.684Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 6,
+    "fields": {
+      "academic_period_number": 1,
+      "subject": 6,
+      "is_active": true,
+      "created_at": "2020-02-28T01:58:50.499Z",
+      "updated_at": "2020-02-28T01:58:50.499Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 7,
+    "fields": {
+      "academic_period_number": 2,
+      "subject": 7,
+      "is_active": true,
+      "created_at": "2020-02-28T02:45:33.073Z",
+      "updated_at": "2020-02-28T02:45:33.073Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 8,
+    "fields": {
+      "academic_period_number": 2,
+      "subject": 8,
+      "is_active": true,
+      "created_at": "2020-02-28T02:45:46.362Z",
+      "updated_at": "2020-02-28T02:45:46.362Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 9,
+    "fields": {
+      "academic_period_number": 2,
+      "subject": 9,
+      "is_active": true,
+      "created_at": "2020-02-28T02:46:16.610Z",
+      "updated_at": "2020-02-28T02:46:16.610Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 10,
+    "fields": {
+      "academic_period_number": 2,
+      "subject": 10,
+      "is_active": true,
+      "created_at": "2020-02-28T02:46:30.398Z",
+      "updated_at": "2020-02-28T02:46:30.398Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 11,
+    "fields": {
+      "academic_period_number": 2,
+      "subject": 11,
+      "is_active": true,
+      "created_at": "2020-02-28T02:46:51.204Z",
+      "updated_at": "2020-02-28T02:46:51.204Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 12,
+    "fields": {
+      "academic_period_number": 2,
+      "subject": 12,
+      "is_active": true,
+      "created_at": "2020-02-28T02:47:19.614Z",
+      "updated_at": "2020-02-28T02:47:19.614Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 13,
+    "fields": {
+      "academic_period_number": 3,
+      "subject": 13,
+      "is_active": true,
+      "created_at": "2020-02-28T02:47:47.679Z",
+      "updated_at": "2020-02-28T02:47:47.679Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 14,
+    "fields": {
+      "academic_period_number": 3,
+      "subject": 14,
+      "is_active": true,
+      "created_at": "2020-02-28T02:48:08.130Z",
+      "updated_at": "2020-02-28T02:48:08.130Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 15,
+    "fields": {
+      "academic_period_number": 3,
+      "subject": 15,
+      "is_active": true,
+      "created_at": "2020-02-28T02:48:26.029Z",
+      "updated_at": "2020-02-28T02:48:26.029Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 16,
+    "fields": {
+      "academic_period_number": 3,
+      "subject": 16,
+      "is_active": true,
+      "created_at": "2020-02-28T02:48:40.095Z",
+      "updated_at": "2020-02-28T02:48:40.095Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 17,
+    "fields": {
+      "academic_period_number": 3,
+      "subject": 17,
+      "is_active": true,
+      "created_at": "2020-02-28T02:48:55.493Z",
+      "updated_at": "2020-02-28T02:48:55.493Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 18,
+    "fields": {
+      "academic_period_number": 3,
+      "subject": 18,
+      "is_active": true,
+      "created_at": "2020-02-28T02:49:09.950Z",
+      "updated_at": "2020-02-28T02:49:09.950Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 19,
+    "fields": {
+      "academic_period_number": 4,
+      "subject": 19,
+      "is_active": true,
+      "created_at": "2020-02-28T02:49:40.724Z",
+      "updated_at": "2020-02-28T02:49:40.724Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 20,
+    "fields": {
+      "academic_period_number": 4,
+      "subject": 20,
+      "is_active": true,
+      "created_at": "2020-02-28T02:49:55.974Z",
+      "updated_at": "2020-02-28T02:49:55.974Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 21,
+    "fields": {
+      "academic_period_number": 4,
+      "subject": 21,
+      "is_active": true,
+      "created_at": "2020-02-28T02:50:12.574Z",
+      "updated_at": "2020-02-28T02:50:12.574Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 22,
+    "fields": {
+      "academic_period_number": 4,
+      "subject": 22,
+      "is_active": true,
+      "created_at": "2020-02-28T02:50:29.096Z",
+      "updated_at": "2020-02-28T02:50:29.096Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 23,
+    "fields": {
+      "academic_period_number": 4,
+      "subject": 23,
+      "is_active": true,
+      "created_at": "2020-02-28T02:50:48.381Z",
+      "updated_at": "2020-02-28T02:50:48.381Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 24,
+    "fields": {
+      "academic_period_number": 4,
+      "subject": 24,
+      "is_active": true,
+      "created_at": "2020-02-28T02:51:06.942Z",
+      "updated_at": "2020-02-28T02:51:06.942Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 25,
+    "fields": {
+      "academic_period_number": 5,
+      "subject": 25,
+      "is_active": true,
+      "created_at": "2020-02-28T02:51:30.694Z",
+      "updated_at": "2020-02-28T02:51:30.694Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 26,
+    "fields": {
+      "academic_period_number": 5,
+      "subject": 26,
+      "is_active": true,
+      "created_at": "2020-02-28T02:51:48.412Z",
+      "updated_at": "2020-02-28T02:51:48.412Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 27,
+    "fields": {
+      "academic_period_number": 5,
+      "subject": 27,
+      "is_active": true,
+      "created_at": "2020-02-28T02:52:22.421Z",
+      "updated_at": "2020-02-28T02:52:22.421Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 28,
+    "fields": {
+      "academic_period_number": 5,
+      "subject": 28,
+      "is_active": true,
+      "created_at": "2020-02-28T02:52:38.600Z",
+      "updated_at": "2020-02-28T02:52:38.600Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 29,
+    "fields": {
+      "academic_period_number": 5,
+      "subject": 29,
+      "is_active": true,
+      "created_at": "2020-02-28T02:52:56.905Z",
+      "updated_at": "2020-02-28T02:52:56.906Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 30,
+    "fields": {
+      "academic_period_number": 5,
+      "subject": 30,
+      "is_active": true,
+      "created_at": "2020-02-28T02:53:18.687Z",
+      "updated_at": "2020-02-28T02:53:18.687Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 31,
+    "fields": {
+      "academic_period_number": 6,
+      "subject": 31,
+      "is_active": true,
+      "created_at": "2020-02-28T03:09:31.263Z",
+      "updated_at": "2020-02-28T03:09:31.263Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 32,
+    "fields": {
+      "academic_period_number": 6,
+      "subject": 32,
+      "is_active": true,
+      "created_at": "2020-02-28T03:09:54.101Z",
+      "updated_at": "2020-02-28T03:09:54.101Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 33,
+    "fields": {
+      "academic_period_number": 6,
+      "subject": 33,
+      "is_active": true,
+      "created_at": "2020-02-28T03:10:16.829Z",
+      "updated_at": "2020-02-28T03:10:16.829Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 34,
+    "fields": {
+      "academic_period_number": 6,
+      "subject": 34,
+      "is_active": true,
+      "created_at": "2020-02-28T03:10:35.902Z",
+      "updated_at": "2020-02-28T03:10:35.902Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 35,
+    "fields": {
+      "academic_period_number": 6,
+      "subject": 35,
+      "is_active": true,
+      "created_at": "2020-02-28T03:10:56.010Z",
+      "updated_at": "2020-02-28T03:10:56.010Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 36,
+    "fields": {
+      "academic_period_number": 6,
+      "subject": 36,
+      "is_active": true,
+      "created_at": "2020-02-28T03:11:18.776Z",
+      "updated_at": "2020-02-28T03:11:18.776Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 37,
+    "fields": {
+      "academic_period_number": 7,
+      "subject": 37,
+      "is_active": true,
+      "created_at": "2020-02-28T03:11:39.840Z",
+      "updated_at": "2020-02-28T03:11:39.840Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 38,
+    "fields": {
+      "academic_period_number": 7,
+      "subject": 38,
+      "is_active": true,
+      "created_at": "2020-02-28T03:12:06.247Z",
+      "updated_at": "2020-02-28T03:12:06.247Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 39,
+    "fields": {
+      "academic_period_number": 7,
+      "subject": 39,
+      "is_active": true,
+      "created_at": "2020-02-28T03:12:25.349Z",
+      "updated_at": "2020-02-28T03:12:25.349Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 40,
+    "fields": {
+      "academic_period_number": 7,
+      "subject": 40,
+      "is_active": true,
+      "created_at": "2020-02-28T03:12:44.362Z",
+      "updated_at": "2020-02-28T03:12:44.362Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 41,
+    "fields": {
+      "academic_period_number": 7,
+      "subject": 41,
+      "is_active": true,
+      "created_at": "2020-02-28T03:13:04.174Z",
+      "updated_at": "2020-02-28T03:13:04.174Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 42,
+    "fields": {
+      "academic_period_number": 8,
+      "subject": 42,
+      "is_active": true,
+      "created_at": "2020-02-28T03:13:26.097Z",
+      "updated_at": "2020-02-28T03:13:26.097Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 43,
+    "fields": {
+      "academic_period_number": 8,
+      "subject": 43,
+      "is_active": true,
+      "created_at": "2020-02-28T03:13:41.207Z",
+      "updated_at": "2020-02-28T03:13:41.207Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 44,
+    "fields": {
+      "academic_period_number": 8,
+      "subject": 44,
+      "is_active": true,
+      "created_at": "2020-02-28T03:13:56.439Z",
+      "updated_at": "2020-02-28T03:13:56.439Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 45,
+    "fields": {
+      "academic_period_number": 8,
+      "subject": 45,
+      "is_active": true,
+      "created_at": "2020-02-28T03:14:17.347Z",
+      "updated_at": "2020-02-28T03:14:17.347Z"
+    }
+  },
+  {
+    "model": "academy.AcademicSubject",
+    "pk": 46,
+    "fields": {
+      "academic_period_number": 9,
+      "subject": 46,
+      "is_active": true,
+      "created_at": "2020-02-28T03:14:35.769Z",
+      "updated_at": "2020-02-28T03:14:35.769Z"
+    }
+  }
+]

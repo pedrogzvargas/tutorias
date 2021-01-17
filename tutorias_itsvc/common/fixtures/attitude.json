@@ -1,0 +1,23 @@
+[
+  {
+    "model": "common.Attitude",
+    "pk": 1,
+    "fields": {
+      "name": "Buena"
+    }
+  },
+  {
+    "model": "common.Attitude",
+    "pk": 2,
+    "fields": {
+      "name": "Regular"
+    }
+  },
+  {
+    "model": "common.Attitude",
+    "pk": 3,
+    "fields": {
+      "name": "Mala"
+    }
+  }
+]

@@ -1,0 +1,362 @@
+[
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 1,
+    "fields": {
+      "academic_period": 1,
+      "period_number": 1
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 2,
+    "fields": {
+      "academic_period": 1,
+      "period_number": 2
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 3,
+    "fields": {
+      "academic_period": 1,
+      "period_number": 3
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 4,
+    "fields": {
+      "academic_period": 1,
+      "period_number": 4
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 5,
+    "fields": {
+      "academic_period": 1,
+      "period_number": 5
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 6,
+    "fields": {
+      "academic_period": 1,
+      "period_number": 6
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 7,
+    "fields": {
+      "academic_period": 1,
+      "period_number": 7
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 8,
+    "fields": {
+      "academic_period": 1,
+      "period_number": 8
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 9,
+    "fields": {
+      "academic_period": 1,
+      "period_number": 9
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 10,
+    "fields": {
+      "academic_period": 2,
+      "period_number": 1
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 11,
+    "fields": {
+      "academic_period": 2,
+      "period_number": 2
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 12,
+    "fields": {
+      "academic_period": 2,
+      "period_number": 3
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 13,
+    "fields": {
+      "academic_period": 2,
+      "period_number": 4
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 14,
+    "fields": {
+      "academic_period": 2,
+      "period_number": 5
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 15,
+    "fields": {
+      "academic_period": 2,
+      "period_number": 6
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 16,
+    "fields": {
+      "academic_period": 2,
+      "period_number": 7
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 17,
+    "fields": {
+      "academic_period": 2,
+      "period_number": 8
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 18,
+    "fields": {
+      "academic_period": 2,
+      "period_number": 9
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 19,
+    "fields": {
+      "academic_period": 3,
+      "period_number": 1
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 20,
+    "fields": {
+      "academic_period": 3,
+      "period_number": 2
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 21,
+    "fields": {
+      "academic_period": 3,
+      "period_number": 3
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 22,
+    "fields": {
+      "academic_period": 3,
+      "period_number": 4
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 23,
+    "fields": {
+      "academic_period": 3,
+      "period_number": 5
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 24,
+    "fields": {
+      "academic_period": 3,
+      "period_number": 6
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 25,
+    "fields": {
+      "academic_period": 3,
+      "period_number": 7
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 26,
+    "fields": {
+      "academic_period": 3,
+      "period_number": 8
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 27,
+    "fields": {
+      "academic_period": 3,
+      "period_number": 9
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 28,
+    "fields": {
+      "academic_period": 4,
+      "period_number": 1
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 29,
+    "fields": {
+      "academic_period": 4,
+      "period_number": 2
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 30,
+    "fields": {
+      "academic_period": 4,
+      "period_number": 3
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 31,
+    "fields": {
+      "academic_period": 4,
+      "period_number": 4
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 32,
+    "fields": {
+      "academic_period": 4,
+      "period_number": 5
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 33,
+    "fields": {
+      "academic_period": 4,
+      "period_number": 6
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 34,
+    "fields": {
+      "academic_period": 4,
+      "period_number": 7
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 35,
+    "fields": {
+      "academic_period": 4,
+      "period_number": 8
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 36,
+    "fields": {
+      "academic_period": 4,
+      "period_number": 9
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 37,
+    "fields": {
+      "academic_period": 5,
+      "period_number": 1
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 38,
+    "fields": {
+      "academic_period": 5,
+      "period_number": 2
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 39,
+    "fields": {
+      "academic_period": 5,
+      "period_number": 3
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 40,
+    "fields": {
+      "academic_period": 5,
+      "period_number": 4
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 41,
+    "fields": {
+      "academic_period": 5,
+      "period_number": 5
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 42,
+    "fields": {
+      "academic_period": 5,
+      "period_number": 6
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 43,
+    "fields": {
+      "academic_period": 5,
+      "period_number": 7
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 44,
+    "fields": {
+      "academic_period": 5,
+      "period_number": 8
+    }
+  },
+  {
+    "model": "academy.AcademicPeriodNumber",
+    "pk": 45,
+    "fields": {
+      "academic_period": 5,
+      "period_number": 9
+    }
+  }
+]

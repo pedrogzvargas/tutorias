@@ -1,0 +1,65 @@
+[
+  {
+    "model": "common.AcademicDegree",
+    "pk": 1,
+    "fields": {
+      "name": "Sin estudios"
+    }
+  },
+  {
+    "model": "common.AcademicDegree",
+    "pk": 2,
+    "fields": {
+      "name": "Primaria"
+    }
+  },
+  {
+    "model": "common.AcademicDegree",
+    "pk": 3,
+    "fields": {
+      "name": "Secundaria"
+    }
+  },
+  {
+    "model": "common.AcademicDegree",
+    "pk": 4,
+    "fields": {
+      "name": "Preparatoria"
+    }
+  },
+  {
+    "model": "common.AcademicDegree",
+    "pk": 5,
+    "fields": {
+      "name": "Bachillerato Técnico"
+    }
+  },
+  {
+    "model": "common.AcademicDegree",
+    "pk": 6,
+    "fields": {
+      "name": "CECyTE"
+    }
+  },
+  {
+    "model": "common.AcademicDegree",
+    "pk": 7,
+    "fields": {
+      "name": "Técnico"
+    }
+  },
+  {
+    "model": "common.AcademicDegree",
+    "pk": 8,
+    "fields": {
+      "name": "Licenciatura"
+    }
+  },
+  {
+    "model": "common.AcademicDegree",
+    "pk": 9,
+    "fields": {
+      "name": "Posgrado"
+    }
+  }
+]
