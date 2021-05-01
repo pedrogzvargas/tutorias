@@ -32,31 +32,25 @@ class User(AbstractUser):
 
 
 class PersonalInformation(models.Model):
+    user = models.OneToOneField(User, related_name='personal_information', on_delete=models.CASCADE)
     place_birth = models.CharField(max_length=255, null=True, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     has_children = models.BooleanField(null=True, blank=True, default=None)
     number_of_children = models.IntegerField(null=True, blank=True, default=None)
     gender = models.ForeignKey(Gender, related_name='gender', null=True, blank=True, on_delete=models.CASCADE)
+    marital_status = models.ForeignKey(MaritalStatus, on_delete=models.CASCADE)
+    marital_status_description = models.TextField(null=True, blank=True)
     height = models.FloatField(null=True, blank=True)
     weight = models.FloatField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
 
-class UserPersonalInformation(models.Model):
-    user = models.OneToOneField(User, related_name='personal_information', on_delete=models.CASCADE)
-    personal_information = models.OneToOneField(
-        PersonalInformation,
-        related_name='personal_information',
-        on_delete=models.CASCADE
-    )
-
-
 class Person(models.Model):
-    first_name = models.CharField(max_length=100, null=True)
-    second_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    second_name = models.CharField(max_length=100, null=True, blank=True)
     last_name = models.CharField(max_length=100)
-    second_last_name = models.CharField(max_length=100)
+    second_last_name = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 

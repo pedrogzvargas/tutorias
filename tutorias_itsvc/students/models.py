@@ -11,7 +11,7 @@ from tutorias_itsvc.common.models import (
     AcademicDegree,
     Phone,
     Disability,
-    MaritalStatus,
+    # MaritalStatus,
     SchoolCycle
 )
 from tutorias_itsvc.academy.models import (
@@ -59,7 +59,7 @@ class StudentAcademicInformation(models.Model):
 
 
 class StudentAddress(Address):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    student = models.OneToOneField(Student, on_delete=models.CASCADE)
     housing_type = models.ForeignKey(HousingType, on_delete=models.CASCADE)
     home_status = models.ForeignKey(HomeStatus, on_delete=models.CASCADE)
     home_status_description = models.CharField(max_length=255, null=True, blank=True)
@@ -76,7 +76,7 @@ class StudentAddress(Address):
 
 class StudentPhone(Phone):
     student = models.ForeignKey(Student, related_name='student_phone', on_delete=models.CASCADE)
-    order = models.PositiveIntegerField(default=1)
+    # order = models.PositiveIntegerField(default=1)
 
     class Meta:
         default_permissions = ()
@@ -86,8 +86,8 @@ class StudentInstitute(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     institute_name = models.CharField(max_length=255)
     academic_degree = models.ForeignKey(AcademicDegree, on_delete=models.CASCADE)
-    start_date = models.IntegerField(null=True, blank=True)
-    end_date = models.IntegerField(null=True, blank=True)
+    start_date = models.DateTimeField(null=True, blank=True)
+    end_date = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         default_permissions = ()
@@ -125,15 +125,15 @@ class StudentMedicalInformation(models.Model):
         default_permissions = ()
 
 
-class StudentMaritalStatus(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    marital_status = models.ForeignKey(MaritalStatus, on_delete=models.CASCADE)
-    description = models.TextField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
-    history = HistoricalRecords()
-
-    class Meta:
-        default_permissions = ()
+# class StudentMaritalStatus(models.Model):
+#     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+#     marital_status = models.ForeignKey(MaritalStatus, on_delete=models.CASCADE)
+#     description = models.TextField(null=True, blank=True)
+#     created_at = models.DateTimeField(auto_now_add=True, null=True)
+#     history = HistoricalRecords()
+#
+#     class Meta:
+#         default_permissions = ()
 
 
 class StudentParent(Person):

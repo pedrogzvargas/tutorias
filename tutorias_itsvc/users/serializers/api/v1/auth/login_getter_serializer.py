@@ -5,6 +5,8 @@ from tutorias_itsvc.users.serializers.api.v1.user import GroupSerializer, RoleSe
 
 class LoginGetterSerializer(serializers.ModelSerializer):
     token = serializers.CharField(source="key")
+    fullname = serializers.CharField(read_only=True)
+    profile_image = serializers.ImageField(read_only=True)
     groups = GroupSerializer(source='user.groups', many=True, read_only=True)
     roles = RoleSerializer(many=True, read_only=True)
 
@@ -13,6 +15,8 @@ class LoginGetterSerializer(serializers.ModelSerializer):
         fields = [
             'user_id',
             'token',
+            'fullname',
+            'profile_image',
             'roles',
             'groups',
         ]

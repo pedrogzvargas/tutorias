@@ -4,7 +4,7 @@ from simple_history.models import HistoricalRecords
 
 class Phone(models.Model):
     HOME_PHONE = "home_phone"
-    MOBILE_PHONE = "mobil_phone"
+    MOBILE_PHONE = "mobile_phone"
     PHONE_TYPES = [
         (HOME_PHONE, "Teléfono de Casa"),
         (MOBILE_PHONE, "Teléfono Celular"),

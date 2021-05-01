@@ -12,7 +12,7 @@ class ProfileImageApi(APIView):
 
     def get(self, request, user_id):
         repository = ProfileImageRepository()
-        serializer = GetterSerializerService(ProfileImageSerializer, {"request": request})
+        serializer = GetterSerializerService(ProfileImageSerializer, context={"request": request})
         response = ResponseService()
         controller = ProfileImageGetterController(
             repository=repository,

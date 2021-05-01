@@ -14,9 +14,10 @@ class PeriodNumberFilterController:
 
     def __call__(self, **kwargs):
         try:
-            period = self.__service(**kwargs)
-            if period:
-                serializer_data = self.__serializer(period)
+            periods = self.__service(**kwargs)
+            if periods:
+                periods = periods.order_by('id')
+                serializer_data = self.__serializer(periods)
                 response_data = dict(
                     success=True,
                     message="All Ok",

@@ -14,9 +14,10 @@ class GroupFilterController:
 
     def __call__(self, **kwargs):
         try:
-            group = self.__service(**kwargs)
-            if group:
-                serializer_data = self.__serializer(group)
+            groups = self.__service(**kwargs)
+            if groups:
+                groups = groups.order_by('id')
+                serializer_data = self.__serializer(groups)
                 response_data = dict(
                     success=True,
                     message="All Ok",

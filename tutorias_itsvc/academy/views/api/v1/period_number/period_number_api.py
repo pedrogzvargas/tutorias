@@ -24,6 +24,6 @@ class PeriodNumberApi(APIView):
         response = controller(
             academic_period_number__academic_period__academic_major__university_id=university_id,
             academic_period_number__academic_period__academic_major__major_id=major_id,
-            academic_period_number__academic_period_id=period_id
+            academic_period_number__academic_period__period__id=period_id
         )
         return response

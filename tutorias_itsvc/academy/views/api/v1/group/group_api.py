@@ -24,7 +24,8 @@ class GroupApi(APIView):
         response = controller(
             academic_group__academic_period_number__academic_period__academic_major__university_id=university_id,
             academic_group__academic_period_number__academic_period__academic_major__major_id=major_id,
-            academic_group__academic_period_number__academic_period_id=period_id,
-            academic_group__academic_period_number_id=period_number_id
+            academic_group__academic_period_number__academic_period__period__id=period_id,
+            academic_group__academic_period_number__period_number__id=period_number_id,
+            academic_group__is_active=True
         )
         return response

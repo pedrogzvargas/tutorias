@@ -13,11 +13,11 @@ class LoginApi(APIView):
     """
     permission_classes = [AllowAny]
     def post(self, request):
-        request = RequestService(request.data, LoginCreatorSerializer)
+        request_service = RequestService(request.data, LoginCreatorSerializer)
         response = ResponseService()
-        serializer = GetterSerializerService(LoginGetterSerializer)
+        serializer = GetterSerializerService(LoginGetterSerializer, context={"request": request})
         login_controller = LoginController(
-            request=request,
+            request=request_service,
             serializer=serializer,
             response=response
         )
