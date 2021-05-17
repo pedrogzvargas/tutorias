@@ -7,7 +7,7 @@ from tutorias_itsvc.common.models import (
     Address,
     HousingType,
     HomeStatus,
-    Income,
+    # Income,
     AcademicDegree,
     Phone,
     Disability,
@@ -56,6 +56,7 @@ class StudentAcademicInformation(models.Model):
         default_permissions = ()
         verbose_name = 'Carrera de estudiante'
         verbose_name_plural = 'Carreras de estudiante'
+        unique_together = ('student', 'is_active')
 
 
 class StudentAddress(Address):
@@ -101,18 +102,25 @@ class StudentSibling(models.Model):
         default_permissions = ()
 
 
-class StudentIncome(Income):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+# class StudentIncome(Income):
+#     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+#
+#     class Meta:
+#         default_permissions = ()
+#
+#
+# class FamilyIncome(Income):
+#     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+#
+#     class Meta:
+#         default_permissions = ()
 
-    class Meta:
-        default_permissions = ()
-
-
-class FamilyIncome(Income):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-
-    class Meta:
-        default_permissions = ()
+class StudentIncome(models.Model):
+    student = models.OneToOneField(Student, on_delete=models.PROTECT)
+    income = models.FloatField(null=True)
+    family_income = models.FloatField(null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class StudentMedicalInformation(models.Model):
@@ -152,7 +160,7 @@ class StudentParent(Person):
     type_of_job = models.CharField(max_length=255, null=True, blank=True)
     profession_occupation = models.CharField(max_length=255, null=True, blank=True)
     is_alive = models.BooleanField(null=True, blank=True)
-    address = models.ForeignKey(Address, null=True, blank=True, on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, null=True, blank=True, on_delete=models.SET_NULL)
 
     class Meta:
         default_permissions = ()

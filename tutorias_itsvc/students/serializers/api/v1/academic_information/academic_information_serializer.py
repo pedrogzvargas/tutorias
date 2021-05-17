@@ -4,19 +4,24 @@ from tutorias_itsvc.students.models import StudentAcademicInformation
 
 class AcademicInformationSerializer(serializers.ModelSerializer):
     university = serializers.CharField(
-        source='academic_information.academic_period_number.academic_period.academic_major.university.name')
+        source='academic_information.academic_period_number.academic_period.academic_major.university.name',
+        read_only=True)
     university_id = serializers.IntegerField(
         source='academic_information.academic_period_number.academic_period.academic_major.university_id')
     major = serializers.CharField(
-        source='academic_information.academic_period_number.academic_period.academic_major.major.name')
+        source='academic_information.academic_period_number.academic_period.academic_major.major.name',
+        read_only=True)
     major_id = serializers.IntegerField(
         source='academic_information.academic_period_number.academic_period.academic_major.major_id'
     )
-    period = serializers.CharField(source='academic_information.academic_period_number.academic_period.period.name')
+    period = serializers.CharField(source='academic_information.academic_period_number.academic_period.period.name',
+                                   read_only=True)
     period_id = serializers.IntegerField(source='academic_information.academic_period_number.academic_period.period_id')
-    period_number = serializers.CharField(source='academic_information.academic_period_number.period_number.name')
+    period_number = serializers.CharField(source='academic_information.academic_period_number.period_number.name',
+                                          read_only=True)
     period_number_id = serializers.IntegerField(source='academic_information.academic_period_number.period_number.id')
-    group = serializers.CharField(source='academic_information.group.name')
+    group = serializers.CharField(source='academic_information.group.name',
+                                  read_only=True)
     group_id = serializers.IntegerField(source='academic_information.group_id')
 
     class Meta:
@@ -35,17 +40,6 @@ class AcademicInformationSerializer(serializers.ModelSerializer):
             'period_number_id',
             'group',
             'group_id',
-            'is_active',
-            'registered_at',
-        ]
-        read_only_fields = [
-            'id',
-            'student_id',
-            'university',
-            'major',
-            'period',
-            'period_number',
-            'group',
             'is_active',
             'registered_at',
         ]

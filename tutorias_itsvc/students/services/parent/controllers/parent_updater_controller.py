@@ -14,10 +14,14 @@ class ParentUpdaterController:
         self.__response = response
         self.__service = service or ParentUpdaterService(self.__repository)
 
+    def get_parent(self, student_id, type):
+        getter_service = ParentGetterService(self.__repository)
+        parent = getter_service(student_id=student_id, type=type)
+        return parent
+
     def __call__(self, student_id, type):
         try:
-            getter_service = ParentGetterService(self.__repository)
-            parent = getter_service(student_id=student_id, type=type)
+            parent = self.get_parent(student_id, type)
             if not parent:
                 raise Exception("Parent dont exist")
             fields = self.__request.get_data()

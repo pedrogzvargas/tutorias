@@ -5,6 +5,10 @@ from .general_information import urlpatterns as general_information_urlpatterns
 from .medical_information import urlpatterns as medical_information_urlpatterns
 from .address import urlpatterns as address_urlpatterns
 from .parent import urlpatterns as parent_urlpatterns
+from .student import urlpatterns as student_urlpatterns
+from .personal_information import urlpatterns as personal_information_urlpatterns
+from .phone import urlpatterns as phone_urlpatterns
+from .income import urlpatterns as income_urlpatterns
 
 
 urlpatterns = []
@@ -15,6 +19,10 @@ urlpatterns += general_information_urlpatterns
 urlpatterns += medical_information_urlpatterns
 urlpatterns += address_urlpatterns
 urlpatterns += parent_urlpatterns
+urlpatterns += student_urlpatterns
+urlpatterns += personal_information_urlpatterns
+urlpatterns += phone_urlpatterns
+urlpatterns += income_urlpatterns
 
 
 __all__ = [

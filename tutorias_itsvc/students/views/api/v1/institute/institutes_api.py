@@ -13,10 +13,9 @@ from tutorias_itsvc.students.services.institute.controllers import (
 
 
 class InstitutesApi(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = ()
 
-    def post(self, request):
-        user = request.user
+    def post(self, request, student_id):
         repository = StudentInstituteRepository()
         response = ResponseService()
         request = RequestService(request.data, InstituteSerializer)
@@ -25,11 +24,10 @@ class InstitutesApi(APIView):
             repository=repository,
             response=response,
         )
-        response = creator_controller(student_id=user.student.id)
+        response = creator_controller(student_id=student_id)
         return response
 
-    def get(self, request):
-        user = request.user
+    def get(self, request, student_id):
         repository = StudentInstituteRepository()
         serializer = GetterSerializerService(InstituteSerializer, many=True)
         response = ResponseService()
@@ -40,5 +38,5 @@ class InstitutesApi(APIView):
             serializer=serializer,
             response=response
         )
-        response = getter_controller(student_id=user.student.id)
+        response = getter_controller(student_id=student_id)
         return response

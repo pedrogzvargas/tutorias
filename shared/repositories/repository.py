@@ -56,7 +56,7 @@ class Repository:
             log.exception(f'Error {self.__model}, err:{err}')
             raise err
 
-    def delete(self, id: str):
+    def delete(self, id: int):
         try:
             record = self.__model.objects.get(id=id)
             record.delete()

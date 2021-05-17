@@ -1,23 +1,19 @@
 version: '3'
 
-volumes:
-  local_postgres_data: {}
-  local_postgres_data_backups: {}
 
 services:
   django:
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
-    image: tutorias_itsvc_local_django
+    image: tutorias_app
     container_name: django_pit
     depends_on:
       - postgres
     volumes:
       - .:/app:z
     env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - .env
     ports:
       - "8000:8000"
     command: /start
@@ -26,24 +22,24 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
-    image: tutorias_itsvc_production_postgres
+    image: tutorias_postgres
     container_name: postgres_pit
     volumes:
-      - local_postgres_data:/var/lib/postgresql/data:Z
-      - local_postgres_data_backups:/backups:z
+      - ${POSTGRES_DATA}:/var/lib/postgresql/data:Z
+      - ${POSTGRES_BACKUPS}:/backups:z
     env_file:
-      - ./.envs/.local/.postgres
+      - .env
     ports:
-      - "5434:5432"
+      - "5432:5432"
 
   docs:
-    image: tutorias_itsvc_local_docs
+    image: tutorias_docs
     container_name: docs_pit
     build:
       context: .
       dockerfile: ./compose/local/docs/Dockerfile
     env_file:
-      - ./.envs/.local/.django
+      - .env
     volumes:
       - ./docs:/docs:z
       - ./config:/app/config:z

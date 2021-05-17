@@ -14,9 +14,9 @@ class MedicalInformationGetterController:
 
     def __call__(self, **kwargs):
         try:
-            institute = self.__service(**kwargs)
-            if institute:
-                serializer_data = self.__serializer(institute)
+            medical_information = self.__service(**kwargs)
+            if medical_information:
+                serializer_data = self.__serializer(medical_information)
                 response_data = dict(
                     success=True,
                     message="All Ok",

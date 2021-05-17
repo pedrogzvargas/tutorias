@@ -14,9 +14,9 @@ class ParentGetterController:
 
     def __call__(self, **kwargs):
         try:
-            institute = self.__service(**kwargs)
-            if institute:
-                serializer_data = self.__serializer(institute)
+            parent = self.__service(**kwargs)
+            if parent:
+                serializer_data = self.__serializer(parent)
                 response_data = dict(
                     success=True,
                     message="All Ok",

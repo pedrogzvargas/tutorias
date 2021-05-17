@@ -2,6 +2,7 @@ from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
 from tutorias_itsvc.students.services.address import AddressCreatorService
+from tutorias_itsvc.students.services.address import AddressGetterService
 
 log = get_logger(__file__)
 
@@ -13,10 +14,18 @@ class AddressCreatorController:
         self.__response = response
         self.__service = service or AddressCreatorService(self.__repository)
 
+    def get_address(self, student_id):
+        getter_service = AddressGetterService(self.__repository)
+        address = getter_service(student_id=student_id)
+        return address
+
     def __call__(self, student_id):
         try:
             fields = self.__request.get_data()
             fields.update(dict(student_id=student_id))
+            address = self.get_address(student_id)
+            if address:
+                raise Exception("Ya existe una dirección registrada")
             self.__service(**fields)
             response_data = dict(
                 success=True,

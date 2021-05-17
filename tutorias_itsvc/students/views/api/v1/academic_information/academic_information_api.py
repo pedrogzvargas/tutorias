@@ -5,6 +5,7 @@ from shared.responses import ResponseService
 from shared.requests import RequestService
 from tutorias_itsvc.students.repositories import AcademicInformationRepository
 from tutorias_itsvc.students.services.academic_information.controllers import AcademicInformationGetterController
+from tutorias_itsvc.students.services.academic_information.controllers import AcademicInformationUpdaterController
 from tutorias_itsvc.students.serializers.api.v1.academic_information import AcademicInformationSerializer
 from tutorias_itsvc.utils import query_debugger
 
@@ -12,15 +13,27 @@ from tutorias_itsvc.utils import query_debugger
 class AcademicInformationApi(APIView):
     permission_classes = [AllowAny]
 
-    @query_debugger
-    def get(self, request, student_id):
+    # @query_debugger
+    # def get(self, request, student_id):
+    #     repository = AcademicInformationRepository()
+    #     serializer = GetterSerializerService(AcademicInformationSerializer)
+    #     response = ResponseService()
+    #     controller = AcademicInformationGetterController(
+    #         repository=repository,
+    #         serializer=serializer,
+    #         response=response,
+    #     )
+    #     response = controller(student_id=student_id)
+    #     return response
+
+    def put(self, request, student_id, academic_information_id):
         repository = AcademicInformationRepository()
-        serializer = GetterSerializerService(AcademicInformationSerializer)
         response = ResponseService()
-        controller = AcademicInformationGetterController(
+        request = RequestService(request.data, AcademicInformationSerializer)
+        creator_controller = AcademicInformationUpdaterController(
+            request=request,
             repository=repository,
-            serializer=serializer,
             response=response,
         )
-        response = controller(id=student_id)
+        response = creator_controller(student_id=student_id, academic_information_id=academic_information_id)
         return response
