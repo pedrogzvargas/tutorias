@@ -6,6 +6,11 @@ from .parent_address_creator_controller import ParentAddressCreatorController
 from .parent_address_getter_controller import ParentAddressGetterController
 from .parent_address_updater_controller import ParentAddressUpdaterController
 from .parent_address_deleter_controller import ParentAddressDeleterController
+from .parent_phone_creator_controller import ParentPhoneCreatorController
+from .parent_phone_getter_controller import ParentPhoneGetterController
+from .parent_phone_filter_controller import ParentPhoneFilterController
+from .parent_phone_updater_controller import ParentPhoneUpdaterController
+from .parent_phone_deleter_controller import ParentPhoneDeleterController
 
 
 __all__ = [
@@ -17,4 +22,9 @@ __all__ = [
     'ParentAddressGetterController',
     'ParentAddressUpdaterController',
     'ParentAddressDeleterController',
+    'ParentPhoneCreatorController',
+    'ParentPhoneGetterController',
+    'ParentPhoneFilterController',
+    'ParentPhoneUpdaterController',
+    'ParentPhoneDeleterController',
 ]

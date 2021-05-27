@@ -6,11 +6,11 @@ log = get_logger(__file__)
 
 
 class ParentGetterController:
-    def __init__(self, repository, serializer, response, getter_service=None):
+    def __init__(self, repository, serializer, response, service=None):
         self.__repository = repository
         self.__serializer = serializer
         self.__response = response
-        self.__service = getter_service or ParentGetterService(self.__repository)
+        self.__service = service or ParentGetterService(self.__repository)
 
     def __call__(self, **kwargs):
         try:

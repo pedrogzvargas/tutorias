@@ -6,6 +6,8 @@ from .medical_information_repository import MedicalInformationRepository
 from .address import AddressRepository
 from .parent_repository import ParentRepository
 from .student_income_repository import StudentIncomeRepository
+from .student_sibling_repository import StudentSiblingRepository
+from .student_subject_repository import StudentSubjectRepository
 
 
 __all__ = [
@@ -17,4 +19,6 @@ __all__ = [
     'AddressRepository',
     'ParentRepository',
     'StudentIncomeRepository',
+    'StudentSiblingRepository',
+    'StudentSubjectRepository',
 ]

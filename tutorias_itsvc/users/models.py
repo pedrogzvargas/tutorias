@@ -63,7 +63,7 @@ class Person(models.Model):
 
 class PersonPhone(Phone):
     person = models.ForeignKey(Person, related_name='phones', on_delete=models.CASCADE)
-    order = models.PositiveIntegerField(default=1)
+    # order = models.PositiveIntegerField(default=1)
 
     class Meta:
         default_permissions = ()

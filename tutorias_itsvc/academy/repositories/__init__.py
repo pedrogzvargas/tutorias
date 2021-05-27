@@ -6,6 +6,7 @@ from .period_number_repository import PeriodNumberRepository
 from .group_repository import GroupRepository
 from .academic_major_repository import AcademicMajorRepository
 from .academic_group_repository import AcademicGroupRepository
+from .academic_subject_repository import AcademicSubjectRepository
 
 
 __all__ = [
@@ -17,4 +18,5 @@ __all__ = [
     'GroupRepository',
     'AcademicMajorRepository',
     'AcademicGroupRepository',
+    'AcademicSubjectRepository',
 ]
