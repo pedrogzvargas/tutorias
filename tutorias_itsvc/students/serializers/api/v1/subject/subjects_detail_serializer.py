@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 
 class SubjectsDetailSerializer(serializers.Serializer):
+    subjects = serializers.IntegerField()
     taking_subjects = serializers.IntegerField()
     approved_subjects = serializers.IntegerField()
     failed_subjects = serializers.IntegerField()

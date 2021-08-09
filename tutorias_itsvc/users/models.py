@@ -18,8 +18,8 @@ class User(AbstractUser):
     """Default user for tutorias_itsvc."""
 
     #: First and last name do not cover name patterns around the globe
-    second_name = CharField(_("Second Name of User"), blank=True, max_length=255)
-    second_last_name = CharField(_("Second Last Name of User"), blank=True, max_length=255)
+    second_name = CharField(_("Second Name of User"), null=True, blank=True, max_length=255)
+    second_last_name = CharField(_("Second Last Name of User"), null=True, blank=True, max_length=255)
 
     def get_absolute_url(self):
         """Get url for user's detail view.

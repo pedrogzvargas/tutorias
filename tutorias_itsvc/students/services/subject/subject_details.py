@@ -5,11 +5,19 @@ from tutorias_itsvc.students.services.student import StudentGetterService
 from tutorias_itsvc.students.services.subject import StudentSubjectFilterService
 from tutorias_itsvc.academy.repositories import AcademicSubjectRepository
 from tutorias_itsvc.academy.services.academic_subject import AcademicSubjectFilterService
+from tutorias_itsvc.students.services.academic_information import AcademicInformationGetterService
+from tutorias_itsvc.students.repositories import AcademicInformationRepository
 
 
 class SubjectDetailsService:
     def __init__(self, student_id):
         self.__student_id = student_id
+
+    def get_academic_information(self):
+        repository = AcademicInformationRepository()
+        getter_service = AcademicInformationGetterService(repository)
+        academic_information = getter_service(student_id=self.__student_id, is_active=True)
+        return academic_information
 
     def get_subjects(self, major_id):
         repository = AcademicSubjectRepository()
@@ -57,16 +65,16 @@ class SubjectDetailsService:
         student = self.get_student()
         if not student:
             raise Exception('Usuario no encontrado')
-        major_id = student.academic_information
-        print("CARRERA", major_id)
-        # subjects = self.get_subjects(major_id)
+        academic_information = self.get_academic_information()
+        major_id = academic_information.academic_information.academic_period_number.academic_period.academic_major.major.id
+        subjects = self.get_subjects(major_id)
         taking_subjects = self.get_taking_subjects()
         approved_subjects = self.get_approved_subjects()
         failed_subjects = self.get_failed_subjects()
         approved_subjects_points = self.get_approved_subjects_points(approved_subjects)
         taking_subjects_points = self.get_taking_subjects_points(taking_subjects)
         subject_details = dict(
-            # subjects=subjects.count(),
+            subjects=subjects.count(),
             taking_subjects=taking_subjects.count(),
             approved_subjects=approved_subjects.count(),
             failed_subjects=failed_subjects.count(),

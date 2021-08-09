@@ -87,8 +87,8 @@ class StudentInstitute(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     institute_name = models.CharField(max_length=255)
     academic_degree = models.ForeignKey(AcademicDegree, on_delete=models.CASCADE)
-    start_date = models.DateTimeField(null=True, blank=True)
-    end_date = models.DateTimeField(null=True, blank=True)
+    start_date = models.DateField(null=True, blank=True)
+    end_date = models.DateField(null=True, blank=True)
 
     class Meta:
         default_permissions = ()

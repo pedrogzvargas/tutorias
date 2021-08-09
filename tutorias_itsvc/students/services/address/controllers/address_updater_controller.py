@@ -23,7 +23,7 @@ class AddressUpdaterController:
             getter_service = AddressGetterService(repository)
             address = getter_service(student_id=student_id)
             if not address:
-                raise Exception("Address no exuste")
+                raise Exception("Address no existe")
             self.__service(id=address.id, **fields)
             response_data = dict(
                 success=True,

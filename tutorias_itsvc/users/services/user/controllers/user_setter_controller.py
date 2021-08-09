@@ -1,7 +1,7 @@
 from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
-from tutorias_itsvc.users.services.user import UserSetterService
+from tutorias_itsvc.users.services.user import UserUpdaterService
 
 log = get_logger(__file__)
 
@@ -11,7 +11,7 @@ class UserSetterController:
         self.__request = request
         self.__repository = repository
         self.__response = response
-        self.__setter_service = setter_service or UserSetterService(self.__repository)
+        self.__setter_service = setter_service or UserUpdaterService(self.__repository)
 
     def __call__(self, user_id):
         try:

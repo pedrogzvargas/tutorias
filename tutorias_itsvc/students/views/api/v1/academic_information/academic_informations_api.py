@@ -23,7 +23,7 @@ class AcademicInformationsApi(APIView):
             serializer=serializer,
             response=response,
         )
-        response = controller(student_id=student_id)
+        response = controller(student_id=student_id, is_active=True)
         return response
 
     def post(self, request, student_id):

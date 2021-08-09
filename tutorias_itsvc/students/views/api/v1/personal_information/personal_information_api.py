@@ -12,7 +12,7 @@ from tutorias_itsvc.students.services.personal_information.controllers import Pe
 
 
 class PersonalInformationApi(APIView):
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
 
     def post(self, request, student_id):
         repository = PersonalInformationRepository()
@@ -27,7 +27,6 @@ class PersonalInformationApi(APIView):
         return response
 
     def get(self, request, student_id):
-        user = request.user
         repository = PersonalInformationRepository()
         serializer = GetterSerializerService(PersonalInformationSerializer)
         response = ResponseService()
@@ -36,7 +35,7 @@ class PersonalInformationApi(APIView):
             serializer=serializer,
             response=response,
         )
-        response = controller(user_id=user.id)
+        response = controller(student_id=student_id)
         return response
 
     def put(self, request, student_id):

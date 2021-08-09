@@ -66,6 +66,7 @@ DJANGO_APPS = [
     "tutorias_itsvc.common",
     "tutorias_itsvc.academy",
     "tutorias_itsvc.students",
+    "tutorias_itsvc.tutor",
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -75,6 +76,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
+    "django_filters",
 ]
 
 LOCAL_APPS = [
@@ -280,6 +282,8 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup

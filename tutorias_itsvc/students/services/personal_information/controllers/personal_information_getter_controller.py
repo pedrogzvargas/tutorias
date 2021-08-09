@@ -1,5 +1,7 @@
 from rest_framework import status
 from shared.utils import get_logger
+from tutorias_itsvc.students.repositories import StudentRepository
+from tutorias_itsvc.students.services import StudentGetterService
 from tutorias_itsvc.users.services.personal_information import PersonalInformationGetterService
 
 log = get_logger(__file__)
@@ -12,9 +14,18 @@ class PersonalInformationGetterController:
         self.__response = response
         self.__service = getter_service or PersonalInformationGetterService(self.__repository)
 
-    def __call__(self, **kwargs):
+    def get_student(self, student_id):
+        respository = StudentRepository()
+        getter_service = StudentGetterService(respository)
+        student = getter_service(id=student_id)
+        return student
+
+    def __call__(self, student_id):
         try:
-            personal_information = self.__service(**kwargs)
+            student = self.get_student(student_id)
+            if not student:
+                raise Exception("Usuario no existe")
+            personal_information = self.__service(user_id=student.user.id)
             if personal_information:
                 serializer_data = self.__serializer(personal_information)
                 response_data = dict(
