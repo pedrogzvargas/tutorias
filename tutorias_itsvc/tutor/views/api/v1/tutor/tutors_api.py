@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from shared.responses import ResponseService
 from shared.requests import RequestService
 from shared.serializers import GetterSerializerService
@@ -15,7 +15,7 @@ from tutorias_itsvc.tutor.services.tutor.controllers import TutorFilterControlle
 
 
 class TutorsApi(APIView):
-    permission_classes = (AllowAny, )
+    permission_classes = (IsAuthenticated, )
 
     def post(self, request):
         user_repository = UserRepository()

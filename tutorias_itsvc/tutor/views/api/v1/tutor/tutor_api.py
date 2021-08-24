@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from shared.responses import ResponseService
 from shared.requests import RequestService
 from shared.serializers import GetterSerializerService
@@ -13,7 +13,7 @@ from tutorias_itsvc.tutor.services.tutor.controllers import TutorDeleterControll
 
 
 class TutorApi(APIView):
-    permission_classes = (AllowAny, )
+    permission_classes = (IsAuthenticated, )
 
     def get(self, request, tutor_id):
         repository = TutorRepository()

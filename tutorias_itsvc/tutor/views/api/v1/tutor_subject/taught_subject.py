@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from shared.responses import ResponseService
 from shared.requests import RequestService
 from shared.serializers import GetterSerializerService
@@ -9,11 +9,14 @@ from tutorias_itsvc.tutor.services.tutor_subject.controllers import TutorSubject
 from tutorias_itsvc.tutor.services.tutor_subject.controllers import TutorSubjectUpdaterController
 from tutorias_itsvc.tutor.services.tutor_subject.controllers import TutorSubjectDeleterController
 
+from tutorias_itsvc.utils import query_debugger
 
-class TutorSubjectApi(APIView):
-    permission_classes = (AllowAny, )
 
-    def get(self, request, tutor_subject_id):
+class TaughtSubjectApi(APIView):
+    permission_classes = (IsAuthenticated, )
+
+    @query_debugger
+    def get(self, request, taught_subject_id):
         repository = TutorSubjectRepository()
         serializer = GetterSerializerService(TutorSubjectSerializer)
         response = ResponseService()
@@ -22,10 +25,10 @@ class TutorSubjectApi(APIView):
             serializer=serializer,
             response=response
         )
-        response = getter_controller(id=tutor_subject_id)
+        response = getter_controller(id=taught_subject_id)
         return response
 
-    def put(self, request, tutor_subject_id):
+    def put(self, request, taught_subject_id):
         repository = TutorSubjectRepository()
         response = ResponseService()
         request = RequestService(request.data, TutorSubjectSerializer)
@@ -34,15 +37,15 @@ class TutorSubjectApi(APIView):
             request=request,
             response=response,
         )
-        response = controller(tutor_subject_id)
+        response = controller(taught_subject_id)
         return response
 
-    def delete(self, request, tutor_subject_id):
+    def delete(self, request, taught_subject_id):
         repository = TutorSubjectRepository()
         response = ResponseService()
-        getter_controller = TutorSubjectDeleterController(
+        deleter_controller = TutorSubjectDeleterController(
             repository=repository,
             response=response
         )
-        response = getter_controller(tutor_subject_id=tutor_subject_id)
+        response = deleter_controller(taught_subject_id=taught_subject_id)
         return response

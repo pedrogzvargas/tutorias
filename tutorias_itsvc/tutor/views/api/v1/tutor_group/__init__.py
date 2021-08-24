@@ -1,10 +1,12 @@
+from .advised_groups import AdvisedGroupsApi
+from .advised_group import AdvisedGroupApi
+from .advised_group_detail import AdvisedGroupDetailApi
 from .tutor_groups import TutorGroupsApi
-from .tutor_group import TutorGroupApi
-from .tutor_group_detail import TutorGroupDetailApi
 
 
 __all__ = [
+    'AdvisedGroupsApi',
+    'AdvisedGroupApi',
+    'AdvisedGroupDetailApi',
     'TutorGroupsApi',
-    'TutorGroupApi',
-    'TutorGroupDetailApi',
 ]

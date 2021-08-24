@@ -13,11 +13,11 @@ class TutorGroupDeleterController:
         self.__response = response
         self.__service = service or TutorGroupDeleterService(self.__repository)
 
-    def __call__(self, tutor_group_id):
+    def __call__(self, advised_group_id):
         try:
-            if not self.__repository.get(id=tutor_group_id):
+            if not self.__repository.get(id=advised_group_id):
                 raise Exception("No existe el registro")
-            self.__service(tutor_group_id)
+            self.__service(advised_group_id)
             response_data = dict(
                 success=True,
                 message="All Ok",

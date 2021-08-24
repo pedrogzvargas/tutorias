@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from shared.responses import ResponseService
 from shared.requests import RequestService
 from shared.serializers import GetterSerializerService
@@ -12,10 +12,10 @@ from tutorias_itsvc.tutor.services.tutor_group.controllers import TutorGroupGett
 from tutorias_itsvc.tutor.services.tutor_group.controllers import TutorGroupDeleterController
 
 
-class TutorGroupApi(APIView):
-    permission_classes = (AllowAny, )
+class AdvisedGroupApi(APIView):
+    permission_classes = (IsAuthenticated, )
 
-    def get(self, request, tutor_group_id):
+    def get(self, request, advised_group_id):
         repository = TutorGroupRepository()
         serializer = GetterSerializerService(TutorGroupSerializer)
         response = ResponseService()
@@ -24,10 +24,10 @@ class TutorGroupApi(APIView):
             serializer=serializer,
             response=response
         )
-        response = getter_controller(id=tutor_group_id)
+        response = getter_controller(id=advised_group_id)
         return response
 
-    def put(self, request, tutor_group_id):
+    def put(self, request, advised_group_id):
         tutor_group_repository = TutorGroupRepository()
         academic_group_repository = AcademicGroupRepository()
         response = ResponseService()
@@ -38,15 +38,15 @@ class TutorGroupApi(APIView):
             request=request,
             response=response,
         )
-        response = controller(tutor_group_id=tutor_group_id)
+        response = controller(advised_group_id=advised_group_id)
         return response
 
-    def delete(self, request, tutor_group_id):
+    def delete(self, request, advised_group_id):
         repository = TutorGroupRepository()
         response = ResponseService()
         getter_controller = TutorGroupDeleterController(
             repository=repository,
             response=response
         )
-        response = getter_controller(tutor_group_id=tutor_group_id)
+        response = getter_controller(advised_group_id=advised_group_id)
         return response

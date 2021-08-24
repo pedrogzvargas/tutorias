@@ -27,10 +27,10 @@ class TutorGroupUpdaterController:
         )
         return academic
 
-    def __call__(self, tutor_group_id):
+    def __call__(self, advised_group_id):
         try:
             fields = self.__request.get_data()
-            if not self.__tutor_group_repository.get(id=tutor_group_id):
+            if not self.__tutor_group_repository.get(id=advised_group_id):
                 raise Exception("No existe el registro")
             academic = self.get_academic(
                 university_id=fields.get("university_id"),
@@ -46,7 +46,7 @@ class TutorGroupUpdaterController:
                 academic_group_id=academic.id,
                 school_cycle_id=fields.get("school_cycle_id"),
             )
-            self.__service(tutor_group_id, **fields)
+            self.__service(advised_group_id, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",

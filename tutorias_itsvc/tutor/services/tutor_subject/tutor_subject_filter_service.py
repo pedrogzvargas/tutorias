@@ -6,4 +6,5 @@ class TutorSubjectFilterService:
         self.__repository = repository
 
     def __call__(self, **kwargs):
-        return self.__repository.filter(**kwargs)
+        select_related = ["tutor", "subject", "school_cycle"]
+        return self.__repository.filter(select_related=select_related, **kwargs)

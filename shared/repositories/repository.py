@@ -20,9 +20,9 @@ class Repository:
             log.exception(f'Error {self.__model}, err:{err}')
             raise err
 
-    def filter(self, **fields):
+    def filter(self, select_related=[], **fields):
         try:
-            return self.__model.objects.filter(**fields)
+            return self.__model.objects.select_related(*select_related).filter(**fields)
         except Exception as err:
             log.exception(f'Error {self.__model}, err:{err}')
             raise err

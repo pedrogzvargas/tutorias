@@ -1,13 +1,15 @@
 from django.urls import path
+from tutorias_itsvc.tutor.views.api.v1.tutor_subject import TaughtSubjectsApi
+from tutorias_itsvc.tutor.views.api.v1.tutor_subject import TaughtSubjectApi
+from tutorias_itsvc.tutor.views.api.v1.tutor_subject import TaughtSubjectDetailApi
 from tutorias_itsvc.tutor.views.api.v1.tutor_subject import TutorSubjectsApi
-from tutorias_itsvc.tutor.views.api.v1.tutor_subject import TutorSubjectApi
-from tutorias_itsvc.tutor.views.api.v1.tutor_subject import TutorSubjectDetailApi
 
 
 app_name = "tutor_subject"
 
 urlpatterns = [
-    path("subject/", TutorSubjectsApi.as_view()),
-    path("subject/<int:tutor_subject_id>/", TutorSubjectApi.as_view()),
-    path("subject/<int:tutor_subject_id>/detail/", TutorSubjectDetailApi.as_view()),
+    path("subject/", TaughtSubjectsApi.as_view()),
+    path("subject/<int:taught_subject_id>/", TaughtSubjectApi.as_view()),
+    path("subject/<int:taught_subject_id>/detail/", TaughtSubjectDetailApi.as_view()),
+    path("<int:tutor_id>/subject/", TutorSubjectsApi.as_view()),
 ]

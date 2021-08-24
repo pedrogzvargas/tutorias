@@ -13,11 +13,11 @@ class TutorSubjectDeleterController:
         self.__response = response
         self.__service = service or TutorSubjectDeleterService(self.__repository)
 
-    def __call__(self, tutor_subject_id):
+    def __call__(self, taught_subject_id):
         try:
-            if not self.__repository.get(id=tutor_subject_id):
+            if not self.__repository.get(id=taught_subject_id):
                 raise Exception("No existe el registro")
-            self.__service(tutor_subject_id)
+            self.__service(taught_subject_id)
             response_data = dict(
                 success=True,
                 message="All Ok",
