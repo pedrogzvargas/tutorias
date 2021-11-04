@@ -4,11 +4,11 @@ from shared.serializers import GetterSerializerService
 from shared.responses import ResponseService
 from shared.requests import RequestService
 from tutorias_itsvc.students.repositories import StudentRepository
-from tutorias_itsvc.students.serializers.api.v1.student import StudentCreatorSerializer
+from tutorias_itsvc.students.serializers.api.v1.student import StudentUpdaterSerializer
 from tutorias_itsvc.students.serializers.api.v1.student import StudentSerializer
-from tutorias_itsvc.students.services.profile.controllers import ProfileGetterController, ProfileSetterController
 from tutorias_itsvc.students.services.student.controllers import StudentGetterController
-from tutorias_itsvc.students.services.student.controllers import StudentCreatorController
+from tutorias_itsvc.students.services.student.controllers import StudentUpdaterController
+from tutorias_itsvc.students.services.student.controllers import StudentDeleterController
 
 
 class StudentApi(APIView):
@@ -26,14 +26,20 @@ class StudentApi(APIView):
         response = controller(id=student_id)
         return response
 
-    # def post(self, request):
-    #     repository = StudentRepository()
-    #     response = ResponseService()
-    #     request = RequestService(request.data, StudentCreatorSerializer)
-    #     controller = StudentCreatorController(
-    #         request=request,
-    #         repository=repository,
-    #         response=response,
-    #     )
-    #     response = controller()
-    #     return response
+    def put(self, request, student_id):
+        response = ResponseService()
+        request = RequestService(request.data, StudentUpdaterSerializer)
+        controller = StudentUpdaterController(
+            request=request,
+            response=response,
+        )
+        response = controller(student_id=student_id)
+        return response
+
+    def delete(self, request, student_id):
+        response = ResponseService()
+        controller = StudentDeleterController(
+            response=response,
+        )
+        response = controller(student_id=student_id)
+        return response

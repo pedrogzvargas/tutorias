@@ -11,13 +11,11 @@ class AcademicInformationApi(APIView):
     permission_classes = [AllowAny]
 
     def put(self, request, student_id, academic_information_id):
-        repository = AcademicInformationRepository()
         response = ResponseService()
         request = RequestService(request.data, AcademicInformationSerializer)
-        creator_controller = AcademicInformationUpdaterController(
+        updater_controller = AcademicInformationUpdaterController(
             request=request,
-            repository=repository,
             response=response,
         )
-        response = creator_controller(student_id=student_id, academic_information_id=academic_information_id)
+        response = updater_controller(student_id=student_id, academic_information_id=academic_information_id)
         return response

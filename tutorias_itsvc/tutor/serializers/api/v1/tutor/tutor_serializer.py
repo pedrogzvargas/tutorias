@@ -8,6 +8,7 @@ class TutorSerializer(serializers.ModelSerializer):
     last_name = serializers.CharField(source="user.last_name")
     second_last_name = serializers.CharField(source="user.second_last_name")
     username = serializers.CharField(source="user.username")
+    email = serializers.CharField(source="user.email")
     university_id = serializers.IntegerField(source="academic.university_id")
 
     class Meta:
@@ -20,6 +21,7 @@ class TutorSerializer(serializers.ModelSerializer):
             'second_last_name',
             'username',
             'university_id',
+            'email',
             'is_active',
             'academic_id',
         ]

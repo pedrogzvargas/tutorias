@@ -41,10 +41,9 @@ class Student(models.Model):
 
 
 class StudentAcademicInformation(models.Model):
-    student = models.ForeignKey(Student, related_name="academic_information", on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, related_name="academic", on_delete=models.CASCADE)
     academic_information = models.ForeignKey(
         AcademicGroup,
-        related_name='academic_information',
         null=True,
         blank=True,
         on_delete=models.CASCADE
@@ -60,7 +59,7 @@ class StudentAcademicInformation(models.Model):
 
 
 class StudentAddress(Address):
-    student = models.OneToOneField(Student, on_delete=models.CASCADE)
+    student = models.OneToOneField(Student, related_name="address", on_delete=models.CASCADE)
     housing_type = models.ForeignKey(HousingType, on_delete=models.CASCADE)
     home_status = models.ForeignKey(HomeStatus, on_delete=models.CASCADE)
     home_status_description = models.CharField(max_length=255, null=True, blank=True)
@@ -116,7 +115,7 @@ class StudentSibling(models.Model):
 #         default_permissions = ()
 
 class StudentIncome(models.Model):
-    student = models.OneToOneField(Student, on_delete=models.PROTECT)
+    student = models.OneToOneField(Student, related_name="income", on_delete=models.PROTECT)
     income = models.FloatField(null=True)
     family_income = models.FloatField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -171,13 +170,12 @@ class StudentParent(Person):
 
 class StudentSubject(models.Model):
     student = models.ForeignKey(Student, related_name='subject', on_delete=models.CASCADE)
-    subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    tutor_subject = models.ForeignKey("tutor.TutorSubject", on_delete=models.CASCADE, null=True)
     type = models.ForeignKey(SubjectType, on_delete=models.CASCADE)
     approved = models.BooleanField(null=True)
     final_score = models.FloatField(null=True)
-    failure_metric = models.ForeignKey(SubjectFailureMetric, null=True, on_delete=models.CASCADE)
+    failure_metric = models.ForeignKey(SubjectFailureMetric, null=True, blank=True, on_delete=models.CASCADE)
     comment = models.TextField(null=True)
-    semester_added = models.ForeignKey(PeriodNumber, on_delete=models.CASCADE)
     school_cycle = models.ForeignKey(SchoolCycle, on_delete=models.CASCADE)
     unsubscribed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
@@ -185,4 +183,9 @@ class StudentSubject(models.Model):
 
     class Meta:
         default_permissions = ()
+        verbose_name = 'Materia de estudiante'
+        verbose_name_plural = 'Materias de estudiante'
         # permissions = student_permissions
+
+    def __str__(self):
+        return f"{self.student.user.first_name}"

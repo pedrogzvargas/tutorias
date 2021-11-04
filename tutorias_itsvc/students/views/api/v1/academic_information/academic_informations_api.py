@@ -27,12 +27,10 @@ class AcademicInformationsApi(APIView):
         return response
 
     def post(self, request, student_id):
-        repository = AcademicInformationRepository()
         response = ResponseService()
         request = RequestService(request.data, AcademicInformationSerializer)
         creator_controller = AcademicInformationCreatorController(
             request=request,
-            repository=repository,
             response=response,
         )
         response = creator_controller(student_id=student_id)
