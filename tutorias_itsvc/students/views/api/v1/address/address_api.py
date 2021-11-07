@@ -27,24 +27,20 @@ class AddressApi(APIView):
         return response
 
     def post(self, request, student_id):
-        repository = AddressRepository()
         response = ResponseService()
         request = RequestService(request.data, AddressSerializer)
         creator_controller = AddressCreatorController(
             request=request,
-            repository=repository,
             response=response,
         )
         response = creator_controller(student_id=student_id)
         return response
 
     def put(self, request, student_id):
-        repository = AddressRepository()
         response = ResponseService()
         request = RequestService(request.data, AddressSerializer)
         updater_controller = AddressUpdaterController(
             request=request,
-            repository=repository,
             response=response,
         )
         response = updater_controller(student_id=student_id)

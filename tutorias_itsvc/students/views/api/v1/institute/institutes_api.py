@@ -16,12 +16,10 @@ class InstitutesApi(APIView):
     permission_classes = ()
 
     def post(self, request, student_id):
-        repository = StudentInstituteRepository()
         response = ResponseService()
         request = RequestService(request.data, InstituteSerializer)
         creator_controller = InstituteCreatorController(
             request=request,
-            repository=repository,
             response=response,
         )
         response = creator_controller(student_id=student_id)

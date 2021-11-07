@@ -26,22 +26,18 @@ class InstituteApi(APIView):
         return response
 
     def put(self, request, student_id, institute_id):
-        repository = StudentInstituteRepository()
         response = ResponseService()
         request = RequestService(request.data, InstituteSerializer)
         updater_controller = InstituteUpdaterController(
             request=request,
-            repository=repository,
             response=response,
         )
         response = updater_controller(student_id=student_id, institute_id=institute_id)
         return response
 
     def delete(self, request, student_id, institute_id):
-        repository = StudentInstituteRepository()
         response = ResponseService()
         deleter_controller = InstituteDeleterController(
-            repository=repository,
             response=response
         )
         response = deleter_controller(student_id=student_id, institute_id=institute_id)

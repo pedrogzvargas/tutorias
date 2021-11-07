@@ -27,24 +27,20 @@ class IncomeApi(APIView):
         return response
 
     def post(self, request, student_id):
-        repository = StudentIncomeRepository()
         response = ResponseService()
         request = RequestService(request.data, IncomeSerializer)
         controller = IncomeCreatorController(
             request=request,
-            repository=repository,
             response=response,
         )
         response = controller(student_id=student_id)
         return response
 
     def put(self, request, student_id):
-        repository = StudentIncomeRepository()
         response = ResponseService()
         request = RequestService(request.data, IncomeSerializer)
         controller = IncomeUpdaterController(
             request=request,
-            repository=repository,
             response=response,
         )
         response = controller(student_id=student_id)
@@ -54,7 +50,6 @@ class IncomeApi(APIView):
         repository = StudentIncomeRepository()
         response = ResponseService()
         deleter_controller = IncomeDeleterController(
-            repository=repository,
             response=response
         )
         response = deleter_controller(student_id=student_id)

@@ -27,11 +27,9 @@ class ParentAddressApi(APIView):
         return response
 
     def post(self, request, student_id, type):
-        repository = AddressRepository()
         response = ResponseService()
         request = RequestService(request.data, AddressSerializer)
         controller = ParentAddressCreatorController(
-            repository=repository,
             request=request,
             response=response,
         )

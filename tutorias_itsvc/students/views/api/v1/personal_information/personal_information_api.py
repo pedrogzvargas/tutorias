@@ -15,11 +15,9 @@ class PersonalInformationApi(APIView):
     # permission_classes = (IsAuthenticated, )
 
     def post(self, request, student_id):
-        repository = PersonalInformationRepository()
         response = ResponseService()
         request = RequestService(request.data, PersonalInformationSerializer)
         controller = PersonalInformationCreatorController(
-            repository=repository,
             request=request,
             response=response,
         )
@@ -39,11 +37,9 @@ class PersonalInformationApi(APIView):
         return response
 
     def put(self, request, student_id):
-        repository = PersonalInformationRepository()
         response = ResponseService()
         request = RequestService(request.data, PersonalInformationSerializer)
         controller = PersonalInformationUpdaterController(
-            repository=repository,
             request=request,
             response=response,
         )
@@ -51,10 +47,8 @@ class PersonalInformationApi(APIView):
         return response
 
     def delete(self, request, student_id):
-        repository = PersonalInformationRepository()
         response = ResponseService()
         controller = PersonalInformationDeleterController(
-            repository=repository,
             response=response,
         )
         response = controller(student_id=student_id)

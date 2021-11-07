@@ -2,36 +2,41 @@ from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
 from tutorias_itsvc.students.services.medical_information import MedicalInformationUpdaterService
-from tutorias_itsvc.students.services.medical_information import MedicalInformationGetterService
+from tutorias_itsvc.students.repositories import StudentRepository
+from tutorias_itsvc.students.repositories import MedicalInformationRepository
+from tutorias_itsvc.common.repositories import DisabilityRepository
 
 log = get_logger(__file__)
 
 
 class MedicalInformationUpdaterController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self,
+                 request,
+                 response,
+                 medical_information_repository=None,
+                 student_repository=None,
+                 disability_repository=None,
+                 service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or MedicalInformationUpdaterService(self.__repository)
-
-    def get_medical_information(self, student_id, medical_information_id):
-        getter_service = MedicalInformationGetterService(self.__repository)
-        medical_information = getter_service(id=medical_information_id, student_id=student_id)
-        return medical_information
+        self.__medical_information_repository = medical_information_repository or MedicalInformationRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__disability_repository = disability_repository or DisabilityRepository()
+        self.__service = service or MedicalInformationUpdaterService(
+            medical_information_repository=self.__medical_information_repository,
+            student_repository=self.__student_repository,
+            disability_repository=self.__disability_repository,
+        )
 
     def __call__(self, student_id, medical_information_id):
         try:
             fields = self.__request.get_data()
-            fields.update(dict(student_id=student_id))
-            medical_information = self.get_medical_information(student_id, medical_information_id)
-            if not medical_information:
-                raise Exception("Medical information not exist")
-            self.__service(id=medical_information_id, **fields)
+            self.__service(medical_information_id=medical_information_id, student_id=student_id, **fields)
             response_data = dict(
-                success=True,
-                message="All Ok",
-                data={},
-            )
+                    success=True,
+                    message="All Ok",
+                    data={},
+                )
             return self.__response(response_data, http_status=status.HTTP_201_CREATED)
         except SerializerApiException as err:
             response_data = dict(

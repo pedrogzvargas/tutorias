@@ -1,31 +1,28 @@
 from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
-from tutorias_itsvc.students.services.income import IncomeGetterService
 from tutorias_itsvc.students.services.income import IncomeUpdaterService
+from tutorias_itsvc.students.repositories import StudentIncomeRepository
+from tutorias_itsvc.students.repositories import StudentRepository
 
 log = get_logger(__file__)
 
 
 class IncomeUpdaterController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self, request, response, student_income_repository=None, student_repository=None, service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or IncomeUpdaterService(self.__repository)
-
-    def get_income(self, student_id):
-        getter_service = IncomeGetterService(self.__repository)
-        income = getter_service(student_id=student_id)
-        return income
+        self.__student_income_repository = student_income_repository or StudentIncomeRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__service = service or IncomeUpdaterService(
+            student_income_repository=self.__student_income_repository,
+            student_repository=self.__student_repository
+        )
 
     def __call__(self, student_id):
         try:
             fields = self.__request.get_data()
-            income = self.get_income(student_id)
-            if not income:
-                raise Exception("Income not found")
-            self.__service(id=income.id, **fields)
+            self.__service(student_id=student_id, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",

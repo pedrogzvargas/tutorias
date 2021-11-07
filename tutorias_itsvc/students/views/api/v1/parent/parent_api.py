@@ -27,11 +27,9 @@ class ParentApi(APIView):
         return response
 
     def post(self, request, student_id, type):
-        repository = ParentRepository()
         response = ResponseService()
         request = RequestService(request.data, ParentSerializer)
         controller = ParentCreatorController(
-            repository=repository,
             request=request,
             response=response,
         )
@@ -39,11 +37,9 @@ class ParentApi(APIView):
         return response
 
     def put(self, request, student_id, type):
-        repository = ParentRepository()
         response = ResponseService()
         request = RequestService(request.data, ParentSerializer)
         controller = ParentUpdaterController(
-            repository=repository,
             request=request,
             response=response,
         )
@@ -51,10 +47,8 @@ class ParentApi(APIView):
         return response
 
     def delete(self, request, student_id, type):
-        repository = ParentRepository()
         response = ResponseService()
         controller = ParentDeleterController(
-            repository=repository,
             response=response,
         )
         response = controller(student_id=student_id, type=type)

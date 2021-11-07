@@ -25,11 +25,9 @@ class MedicalInformationsApi(APIView):
         return response
 
     def post(self, request, student_id):
-        repository = MedicalInformationRepository()
         response = ResponseService()
         request = RequestService(request.data, MedicalInformationSerializer)
         controller = MedicalInformationCreatorController(
-            repository=repository,
             request=request,
             response=response,
         )

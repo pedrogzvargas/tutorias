@@ -1,34 +1,41 @@
 from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
-from tutorias_itsvc.users.services.personal_information import PersonalInformationCreatorService
 from tutorias_itsvc.students.repositories import StudentRepository
-from tutorias_itsvc.students.services.student import StudentGetterService
+from tutorias_itsvc.common.repositories import GenderRepository
+from tutorias_itsvc.common.repositories import MaritalStatusRepository
+from tutorias_itsvc.users.repositories import PersonalInformationRepository
+from tutorias_itsvc.students.services.personal_information import PersonalInformationCreatorService
 
 log = get_logger(__file__)
 
 
 class PersonalInformationCreatorController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self,
+                 request,
+                 response,
+                 personal_information_repository=None,
+                 student_repository=None,
+                 gender_repository=None,
+                 marital_status_repository=None,
+                 service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or PersonalInformationCreatorService(self.__repository)
-
-    def get_student(self, student_id):
-        respository = StudentRepository()
-        getter_service = StudentGetterService(respository)
-        student = getter_service(id=student_id)
-        return student
+        self.__personal_information_repository = personal_information_repository or PersonalInformationRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__gender_repository = gender_repository or GenderRepository()
+        self.__marital_status_repository = marital_status_repository or MaritalStatusRepository()
+        self.__service = service or PersonalInformationCreatorService(
+            personal_information_repository=self.__personal_information_repository,
+            student_repository=self.__student_repository,
+            gender_repository=self.__gender_repository,
+            marital_status_repository=self.__marital_status_repository,
+        )
 
     def __call__(self, student_id):
         try:
-            student = self.get_student(student_id)
-            if not student:
-                raise Exception("Usuario no existe")
             fields = self.__request.get_data()
-            fields.update(dict(user_id=student.user.id))
-            self.__service(**fields)
+            self.__service(student_id=student_id, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",
