@@ -37,11 +37,9 @@ class ParentAddressApi(APIView):
         return response
 
     def put(self, request, student_id, type):
-        repository = AddressRepository()
         response = ResponseService()
         request = RequestService(request.data, AddressSerializer)
         controller = ParentAddressUpdaterController(
-            repository=repository,
             request=request,
             response=response,
         )
@@ -49,10 +47,8 @@ class ParentAddressApi(APIView):
         return response
 
     def delete(self, request, student_id, type):
-        repository = AddressRepository()
         response = ResponseService()
         controller = ParentAddressDeleterController(
-            repository=repository,
             response=response,
         )
         response = controller(student_id=student_id, type=type)

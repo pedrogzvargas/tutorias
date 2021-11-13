@@ -2,32 +2,51 @@ from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
 from tutorias_itsvc.users.repositories import SiblingRepository
-from tutorias_itsvc.users.services.siblings import SiblingCreatorService
+from tutorias_itsvc.students.repositories import StudentRepository
+from tutorias_itsvc.students.repositories import StudentSiblingRepository
+from tutorias_itsvc.common.repositories import GenderRepository
+from tutorias_itsvc.common.repositories import AcademicDegreeRepository
+from tutorias_itsvc.common.repositories import RelationshipRepository
+from tutorias_itsvc.common.repositories import AttitudeRepository
 from tutorias_itsvc.students.services.siblings import StudentSiblingCreatorService
 
 log = get_logger(__file__)
 
 
 class SiblingCreatorController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self,
+                 request,
+                 response,
+                 sibling_repository=None,
+                 student_repository=None,
+                 student_sibling_repository=None,
+                 gender_repository=None,
+                 academic_degree_repository=None,
+                 relationship_repository=None,
+                 attitude_repository=None,
+                 service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or StudentSiblingCreatorService(self.__repository)
-
-    def create_sibling(self, payload):
-        repository = SiblingRepository()
-        creator_service = SiblingCreatorService(repository)
-        sibling = creator_service(**payload)
-        return sibling
+        self.__sibling_repository = sibling_repository or SiblingRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__student_sibling_repository = student_sibling_repository or StudentSiblingRepository()
+        self.__gender_repository = gender_repository or GenderRepository()
+        self.__academic_degree_repository = academic_degree_repository or AcademicDegreeRepository()
+        self.__relationship_repository = relationship_repository or RelationshipRepository()
+        self.__attitude_repository = attitude_repository or AttitudeRepository()
+        self.__service = service or StudentSiblingCreatorService(
+            sibling_repository=self.__sibling_repository,
+            student_repository=self.__student_repository,
+            student_sibling_repository=self.__student_sibling_repository,
+            gender_repository=self.__gender_repository,
+            academic_degree_repository=self.__academic_degree_repository,
+            relationship_repository=self.__relationship_repository,
+            attitude_repository=self.__attitude_repository)
 
     def __call__(self, student_id):
         try:
             fields = self.__request.get_data()
-            sibling = self.create_sibling(fields)
-            if not sibling:
-                raise Exception('Error al crear el hermano')
-            self.__service(student_id=student_id, sibling_id=sibling.id)
+            self.__service(student_id=student_id, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",

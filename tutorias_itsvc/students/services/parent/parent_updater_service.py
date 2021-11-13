@@ -28,8 +28,7 @@ class ParentUpdaterService:
                  second_name=None,
                  second_last_name=None,
                  workplace=None,
-                 type_of_job=None,
-                 address_id=None):
+                 type_of_job=None):
 
         if not self.__student_repository.get(id=student_id):
             raise StudentNotExist(f"No existe un estudiante con el id {student_id}")
@@ -55,6 +54,5 @@ class ParentUpdaterService:
                                                workplace=workplace,
                                                type_of_job=type_of_job,
                                                profession_occupation=profession_occupation,
-                                               is_alive=is_alive,
-                                               address_id=address_id,
+                                               is_alive=is_alive
                                                )

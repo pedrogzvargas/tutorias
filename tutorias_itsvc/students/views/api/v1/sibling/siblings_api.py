@@ -25,12 +25,10 @@ class SiblingsApi(APIView):
         return response
 
     def post(self, request, student_id):
-        repository = StudentSiblingRepository()
         response = ResponseService()
         request = RequestService(request.data, SiblingSerializer)
         controller = SiblingCreatorController(
             request=request,
-            repository=repository,
             response=response,
         )
         response = controller(student_id)

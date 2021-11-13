@@ -4,6 +4,7 @@ from shared.serializers import GetterSerializerService
 from shared.responses import ResponseService
 from shared.requests import RequestService
 from tutorias_itsvc.students.repositories import StudentPhoneRepository
+from tutorias_itsvc.students.serializers.api.v1.phone import StudentPhoneSerializer
 from tutorias_itsvc.students.serializers.api.v1.phone import PhoneSerializer
 from tutorias_itsvc.students.services.phone.controllers import PhoneGetterController
 from tutorias_itsvc.students.services.phone.controllers import PhoneCreatorController
@@ -14,11 +15,9 @@ class PhonesApi(APIView):
     permission_classes = (AllowAny, )
 
     def post(self, request, student_id):
-        repository = StudentPhoneRepository()
         response = ResponseService()
-        request = RequestService(request.data, PhoneSerializer)
+        request = RequestService(request.data, StudentPhoneSerializer)
         controller = PhoneCreatorController(
-            repository=repository,
             request=request,
             response=response,
         )

@@ -8,6 +8,8 @@ from .parent_repository import ParentRepository
 from .student_income_repository import StudentIncomeRepository
 from .student_sibling_repository import StudentSiblingRepository
 from .student_subject_repository import StudentSubjectRepository
+from .student_job_repository import StudentJobRepository
+from .student_scholarship_repository import StudentScholarshipRepository
 
 
 __all__ = [
@@ -21,4 +23,6 @@ __all__ = [
     'StudentIncomeRepository',
     'StudentSiblingRepository',
     'StudentSubjectRepository',
+    'StudentJobRepository',
+    'StudentScholarshipRepository',
 ]

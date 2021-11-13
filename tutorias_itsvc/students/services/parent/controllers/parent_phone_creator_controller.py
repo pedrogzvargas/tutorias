@@ -1,37 +1,36 @@
 from rest_framework import status
-
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
-
-from tutorias_itsvc.users.services.person_phone import PersonPhoneCreatorService
-
+from tutorias_itsvc.students.services.parent import ParentPhonesCreatorOrUpdaterService
 from tutorias_itsvc.students.repositories import ParentRepository
-from tutorias_itsvc.students.services.parent import ParentGetterService
+from tutorias_itsvc.students.repositories import StudentRepository
+from tutorias_itsvc.users.repositories import PersonPhoneRepository
 
 log = get_logger(__file__)
 
 
 class ParentPhoneCreatorController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self,
+                 request,
+                 response,
+                 parent_repository=None,
+                 student_repository=None,
+                 person_phone_repository=None,
+                 service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or PersonPhoneCreatorService(self.__repository)
-
-    def get_parent(self, student_id, type):
-        repository = ParentRepository()
-        getter_service = ParentGetterService(repository)
-        parent = getter_service(student_id=student_id, type=type)
-        return parent
+        self.__parent_repository = parent_repository or ParentRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__person_phone_repository = person_phone_repository or PersonPhoneRepository()
+        self.__service = service or ParentPhonesCreatorOrUpdaterService(
+            parent_repository=self.__parent_repository,
+            student_repository=self.__student_repository,
+            person_phone_repository=self.__person_phone_repository)
 
     def __call__(self, student_id, type):
         try:
-            parent = self.get_parent(student_id, type)
-            if not parent:
-                raise Exception("No existe el padre")
             fields = self.__request.get_data()
-            fields.update(dict(person_id=parent.id))
-            self.__service(**fields)
+            self.__service(student_id=student_id, type=type, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",

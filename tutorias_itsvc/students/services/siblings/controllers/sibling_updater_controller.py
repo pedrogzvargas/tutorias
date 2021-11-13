@@ -1,44 +1,57 @@
 from rest_framework import status
 from shared.utils import get_logger
+from tutorias_itsvc.users.repositories import SiblingRepository
+from tutorias_itsvc.students.repositories import StudentRepository
 from tutorias_itsvc.students.repositories import StudentSiblingRepository
-from tutorias_itsvc.users.services.siblings import SiblingUpdaterService
-from tutorias_itsvc.students.services.siblings import StudentSiblingGetterService
+from tutorias_itsvc.common.repositories import GenderRepository
+from tutorias_itsvc.common.repositories import AcademicDegreeRepository
+from tutorias_itsvc.common.repositories import RelationshipRepository
+from tutorias_itsvc.common.repositories import AttitudeRepository
+from tutorias_itsvc.students.services.siblings import StudentSiblingUpdaterService
 
 log = get_logger(__file__)
 
 
 class SiblingUpdaterController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self,
+                 request,
+                 response,
+                 sibling_repository=None,
+                 student_repository=None,
+                 student_sibling_repository=None,
+                 gender_repository=None,
+                 academic_degree_repository=None,
+                 relationship_repository=None,
+                 attitude_repository=None,
+                 service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or SiblingUpdaterService(self.__repository)
-
-    def get_sibling(self, student_id, sibling_id):
-        repository = StudentSiblingRepository()
-        getter_service = StudentSiblingGetterService(repository)
-        sibling = getter_service(student_id=student_id, sibling_id=sibling_id)
-        return sibling
+        self.__sibling_repository = sibling_repository or SiblingRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__student_sibling_repository = student_sibling_repository or StudentSiblingRepository()
+        self.__gender_repository = gender_repository or GenderRepository()
+        self.__academic_degree_repository = academic_degree_repository or AcademicDegreeRepository()
+        self.__relationship_repository = relationship_repository or RelationshipRepository()
+        self.__attitude_repository = attitude_repository or AttitudeRepository()
+        self.__service = service or StudentSiblingUpdaterService(
+            sibling_repository=self.__sibling_repository,
+            student_repository=self.__student_repository,
+            student_sibling_repository=self.__student_sibling_repository,
+            gender_repository=self.__gender_repository,
+            academic_degree_repository=self.__academic_degree_repository,
+            relationship_repository=self.__relationship_repository,
+            attitude_repository=self.__attitude_repository)
 
     def __call__(self, student_id, sibling_id):
         try:
             fields = self.__request.get_data()
-            student_sibling = self.get_sibling(student_id, sibling_id)
-            if student_sibling:
-                self.__service(student_sibling.sibling_id, **fields)
-                response_data = dict(
-                    success=True,
-                    message="All Ok",
-                    data={},
-                )
-                http_status = status.HTTP_200_OK
-            else:
-                response_data = dict(
-                    success=False,
-                    message="Not Found",
-                    data={},
-                )
-                http_status = status.HTTP_404_NOT_FOUND
+            self.__service(student_id=student_id, sibling_id=sibling_id, **fields)
+            response_data = dict(
+                success=True,
+                message="All Ok",
+                data={},
+            )
+            http_status = status.HTTP_200_OK
             return self.__response(response_data, http_status=http_status)
         except Exception as err:
             log.exception(f"Error in SiblingUpdaterController::__call__, error: {err}")

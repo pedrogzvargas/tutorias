@@ -47,7 +47,6 @@ class IncomeApi(APIView):
         return response
 
     def delete(self, request, student_id):
-        repository = StudentIncomeRepository()
         response = ResponseService()
         deleter_controller = IncomeDeleterController(
             response=response

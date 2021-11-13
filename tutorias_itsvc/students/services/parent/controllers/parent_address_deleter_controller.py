@@ -1,40 +1,31 @@
 from rest_framework import status
 from shared.utils import get_logger
+from tutorias_itsvc.students.services.parent import ParentAddressDeleterService
 from tutorias_itsvc.students.repositories import ParentRepository
-from tutorias_itsvc.students.services.parent import ParentGetterService
-from tutorias_itsvc.common.services.address import AddressDeleterService
-from tutorias_itsvc.common.services.address import AddressGetterService
+from tutorias_itsvc.students.repositories import StudentRepository
+from tutorias_itsvc.common.repositories import AddressRepository
 
 log = get_logger(__file__)
 
 
 class ParentAddressDeleterController:
-    def __init__(self, repository, response, service=None):
-        self.__repository = repository
+    def __init__(self,
+                 response,
+                 parent_repository=None,
+                 student_repository=None,
+                 address_repository=None,
+                 service=None):
         self.__response = response
-        self.__service = service or AddressDeleterService(self.__repository)
-
-    def get_parent(self, student_id, type):
-        repository = ParentRepository()
-        getter_service = ParentGetterService(repository)
-        parent = getter_service(student_id=student_id, type=type)
-        if not parent:
-            raise Exception("No existe el padre")
-        return parent
-
-    def get_address(self, address_id):
-        getter_service = AddressGetterService(self.__repository)
-        address = getter_service(id=address_id)
-        return address
+        self.__parent_repository = parent_repository or ParentRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__address_repository = address_repository or AddressRepository()
+        self.__service = service or ParentAddressDeleterService(parent_repository=self.__parent_repository,
+                                                                student_repository=self.__student_repository,
+                                                                address_repository=self.__address_repository)
 
     def __call__(self, student_id, type):
         try:
-            parent = self.get_parent(student_id, type)
-            if not parent:
-                raise Exception("No existe un padre registrado")
-            if not parent.address_id:
-                raise Exception("No existe dirección")
-            self.__service(id=parent.address_id)
+            self.__service(student_id=student_id, type=type)
             response_data = dict(
                 success=True,
                 message="All Ok",

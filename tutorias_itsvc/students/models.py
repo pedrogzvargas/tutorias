@@ -132,6 +132,30 @@ class StudentMedicalInformation(models.Model):
         default_permissions = ()
 
 
+class StudentScholarship(models.Model):
+    student = models.OneToOneField(Student, related_name="scholarship", on_delete=models.PROTECT)
+    has_scholarship = models.BooleanField(null=False, default=False)
+    institute_name = models.CharField(null=True, blank=True, max_length=150)
+    dependence_name = models.CharField(null=True, blank=True, max_length=150)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        default_permissions = ()
+
+
+class StudentJob(models.Model):
+    student = models.OneToOneField(Student, related_name="job", on_delete=models.PROTECT)
+    has_job = models.BooleanField(null=False, default=False)
+    company_name = models.CharField(null=True, blank=True, max_length=150)
+    schedule = models.CharField(null=True, blank=True, max_length=150)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        default_permissions = ()
+
+
 # class StudentMaritalStatus(models.Model):
 #     student = models.ForeignKey(Student, on_delete=models.CASCADE)
 #     marital_status = models.ForeignKey(MaritalStatus, on_delete=models.CASCADE)

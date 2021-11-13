@@ -1,23 +1,28 @@
 from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
-from tutorias_itsvc.students.services.phone import PhoneCreatorService
+from tutorias_itsvc.students.services.phone import StudentPhonesCreatorOrUpdaterService
+from tutorias_itsvc.students.repositories import StudentPhoneRepository
+from tutorias_itsvc.students.repositories import StudentRepository
 
 log = get_logger(__file__)
 
 
 class PhoneCreatorController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self, request, response, student_repository=None, student_phone_repository=None, service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or PhoneCreatorService(self.__repository)
+        self.__student_repository = student_repository or StudentRepository()
+        self.__student_phone_repository = student_phone_repository or StudentPhoneRepository()
+        self.__service = service or StudentPhonesCreatorOrUpdaterService(
+            student_phone_repository=self.__student_phone_repository,
+            student_repository=self.__student_repository,
+        )
 
     def __call__(self, student_id):
         try:
             fields = self.__request.get_data()
-            fields.update(dict(student_id=student_id))
-            self.__service(**fields)
+            self.__service(student_id=student_id, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",

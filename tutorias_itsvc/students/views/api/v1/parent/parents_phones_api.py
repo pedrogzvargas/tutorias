@@ -9,6 +9,7 @@ from tutorias_itsvc.users.repositories import PersonPhoneRepository
 
 from tutorias_itsvc.students.services.parent.controllers import ParentPhoneCreatorController
 from tutorias_itsvc.students.services.parent.controllers import ParentPhoneFilterController
+from tutorias_itsvc.students.serializers.api.v1.phone import PhoneSerializer
 from tutorias_itsvc.students.serializers.api.v1.phone import PersonPhoneSerializer
 
 
@@ -17,7 +18,7 @@ class ParentPhonesApi(APIView):
 
     def get(self, request, student_id, type):
         repository = PersonPhoneRepository()
-        serializer = GetterSerializerService(PersonPhoneSerializer, many=True)
+        serializer = GetterSerializerService(PhoneSerializer, many=True)
         response = ResponseService()
         controller = ParentPhoneFilterController(
             repository=repository,
@@ -28,11 +29,9 @@ class ParentPhonesApi(APIView):
         return response
 
     def post(self, request, student_id, type):
-        repository = PersonPhoneRepository()
         response = ResponseService()
         request = RequestService(request.data, PersonPhoneSerializer)
         controller = ParentPhoneCreatorController(
-            repository=repository,
             request=request,
             response=response,
         )
