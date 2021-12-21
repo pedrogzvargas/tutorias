@@ -67,6 +67,7 @@ DJANGO_APPS = [
     "tutorias_itsvc.academy",
     "tutorias_itsvc.students",
     "tutorias_itsvc.tutor",
+    "tutorias_itsvc.courses",
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
