@@ -199,7 +199,7 @@ class StudentSubject(models.Model):
     approved = models.BooleanField(null=True)
     final_score = models.FloatField(null=True)
     failure_metric = models.ForeignKey(SubjectFailureMetric, null=True, blank=True, on_delete=models.CASCADE)
-    comment = models.TextField(null=True)
+    comment = models.TextField(null=True, blank=True)
     school_cycle = models.ForeignKey(SchoolCycle, on_delete=models.CASCADE)
     unsubscribed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True, null=True)

@@ -27,6 +27,11 @@ class TutorFilterController(GenericAPIView):
             tutor = self.__service(**kwargs)
             tutor = self.filter_queryset(tutor)
             if tutor:
+                get_all = self.request.query_params.get('get_all', False)
+                if get_all:
+                    serializer_data = self.__serializer(tutor)
+                    return self.__response(serializer_data, http_status=status.HTTP_200_OK)
+
                 page = self.paginate_queryset(tutor)
                 if page:
                     serializer_data = self.__serializer(page)

@@ -5,7 +5,11 @@ from shared.responses import ResponseService
 from shared.requests import RequestService
 from tutorias_itsvc.users.repositories import UserRepository
 from tutorias_itsvc.users.serializers.api.v1.user import ProfileSerializer
-from tutorias_itsvc.users.services.user.controllers import UserGetterController, UserSetterController
+from tutorias_itsvc.users.services.user.controllers import UserSetterController
+
+
+from tutorias_itsvc.users.services.profile.controllers import ProfileGetterController
+from tutorias_itsvc.users.services.profile.controllers import ProfileUpdaterController
 
 
 class ProfileApi(APIView):
@@ -15,21 +19,19 @@ class ProfileApi(APIView):
         repository = UserRepository()
         serializer = GetterSerializerService(ProfileSerializer)
         response = ResponseService()
-        controller = UserGetterController(
+        controller = ProfileGetterController(
             repository=repository,
             serializer=serializer,
             response=response,
         )
-        response = controller(id=user_id)
+        response = controller(user_id=user_id)
         return response
 
     def put(self, request, user_id):
-        repository = UserRepository()
         response = ResponseService()
         request = RequestService(request.data, ProfileSerializer)
-        controller = UserSetterController(
+        controller = ProfileUpdaterController(
             request=request,
-            repository=repository,
             response=response,
         )
         response = controller(user_id=user_id)
