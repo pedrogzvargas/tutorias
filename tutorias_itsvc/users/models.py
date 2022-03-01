@@ -45,6 +45,9 @@ class PersonalInformation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
+    class Meta:
+        default_permissions = ()
+
 
 class Person(models.Model):
     first_name = models.CharField(max_length=100)

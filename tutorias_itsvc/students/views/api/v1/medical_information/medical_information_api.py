@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from shared.serializers import GetterSerializerService
 from shared.responses import ResponseService
 from shared.requests import RequestService
@@ -8,10 +8,13 @@ from tutorias_itsvc.students.services.medical_information.controllers import Med
 from tutorias_itsvc.students.services.medical_information.controllers import MedicalInformationDeleterController
 from tutorias_itsvc.students.serializers.api.v1.medical_information import MedicalInformationSerializer
 from tutorias_itsvc.students.repositories import MedicalInformationRepository
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class MedicalInformationApi(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id, medical_information_id):
         repository = MedicalInformationRepository()

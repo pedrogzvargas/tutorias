@@ -6,12 +6,24 @@ log = get_logger(__file__)
 
 
 class InterviewGetterController:
-    def __init__(self, request, repository, serializer, response, getter_service=None):
+    def __init__(
+        self,
+        request,
+        student_repository,
+        parent_repository,
+        serializer,
+        response,
+        getter_service=None
+    ):
         self.__request = request
-        self.__repository = repository
+        self.__student_repository = student_repository
+        self.__parent_repository = parent_repository
         self.__serializer = serializer
         self.__response = response
-        self.__service = getter_service or InterviewGetterService(request=self.__request, repository=self.__repository)
+        self.__service = getter_service or InterviewGetterService(
+            request=self.__request,
+            student_repository=self.__student_repository,
+            parent_repository=self.__parent_repository)
 
     def __call__(self, **kwargs):
         try:

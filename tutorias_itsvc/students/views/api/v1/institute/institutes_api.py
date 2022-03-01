@@ -10,10 +10,13 @@ from tutorias_itsvc.students.services.institute.controllers import (
     InstituteCreatorController,
     InstituteGetterController
 )
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class InstitutesApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def post(self, request, student_id):
         response = ResponseService()

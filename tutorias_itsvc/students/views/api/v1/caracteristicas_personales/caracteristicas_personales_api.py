@@ -4,14 +4,25 @@ from shared.serializers import GetterSerializerService
 from shared.responses import ResponseService
 from shared.requests import RequestService
 from tutorias_itsvc.students.serializers.api.v1.caracterisitcas_personales import CaracteristicasPersonalesSerializer
-from tutorias_itsvc.students.services.caracteristicas_personales.controllers import CaracteristicasPersonalesGetterController
-from tutorias_itsvc.students.services.caracteristicas_personales.controllers import CaracteristicasPersonalesCreatorController
-from tutorias_itsvc.students.services.caracteristicas_personales.controllers import CaracteristicasPersonalesUpdaterController
-from tutorias_itsvc.students.services.caracteristicas_personales.controllers import CaracteristicasPersonalesDeleterController
+from tutorias_itsvc.students.services.caracteristicas_personales.controllers import (
+    CaracteristicasPersonalesGetterController,
+)
+from tutorias_itsvc.students.services.caracteristicas_personales.controllers import (
+    CaracteristicasPersonalesCreatorController,
+)
+from tutorias_itsvc.students.services.caracteristicas_personales.controllers import (
+    CaracteristicasPersonalesUpdaterController,
+)
+from tutorias_itsvc.students.services.caracteristicas_personales.controllers import (
+    CaracteristicasPersonalesDeleterController,
+)
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class CaracteristicasPersonalesApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id):
         serializer = GetterSerializerService(CaracteristicasPersonalesSerializer)

@@ -1,5 +1,7 @@
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 from shared.serializers import GetterSerializerService
 from shared.responses import ResponseService
 from shared.requests import RequestService
@@ -8,10 +10,11 @@ from tutorias_itsvc.students.services.academic_information.controllers import Ac
 from tutorias_itsvc.students.services.academic_information.controllers import AcademicInformationCreatorController
 from tutorias_itsvc.students.serializers.api.v1.academic_information import AcademicInformationSerializer
 from tutorias_itsvc.utils import query_debugger
+from tutorias_itsvc.custom_permission import StudentRecordOwner
 
 
 class AcademicInformationsApi(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     @query_debugger
     def get(self, request, student_id):

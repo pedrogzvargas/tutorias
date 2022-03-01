@@ -8,10 +8,13 @@ from tutorias_itsvc.students.serializers.api.v1.institute import InstituteSerial
 from tutorias_itsvc.students.services.institute.controllers import InstituteGetterController
 from tutorias_itsvc.students.services.institute.controllers import InstituteUpdaterController
 from tutorias_itsvc.students.services.institute.controllers import InstituteDeleterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class InstituteApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id, institute_id):
         repository = StudentInstituteRepository()

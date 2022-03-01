@@ -9,10 +9,13 @@ from tutorias_itsvc.students.services.income.controllers import IncomeGetterCont
 from tutorias_itsvc.students.services.income.controllers import IncomeCreatorController
 from tutorias_itsvc.students.services.income.controllers import IncomeUpdaterController
 from tutorias_itsvc.students.services.income.controllers import IncomeDeleterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class IncomeApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id):
         repository = StudentIncomeRepository()

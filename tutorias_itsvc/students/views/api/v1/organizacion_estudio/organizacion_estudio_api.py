@@ -8,10 +8,13 @@ from tutorias_itsvc.students.services.organizacion_estudio.controllers import Or
 from tutorias_itsvc.students.services.organizacion_estudio.controllers import OrganizacionEstudioCreatorController
 from tutorias_itsvc.students.services.organizacion_estudio.controllers import OrganizacionEstudioUpdaterController
 from tutorias_itsvc.students.services.organizacion_estudio.controllers import OrganizacionEstudioDeleterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class OrganizacionEstudioApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id):
         serializer = GetterSerializerService(OrganizacionEstudioSerializer)

@@ -8,10 +8,13 @@ from tutorias_itsvc.students.services.tecnica_estudio.controllers import Tecnica
 from tutorias_itsvc.students.services.tecnica_estudio.controllers import TecnicaEstudioCreatorController
 from tutorias_itsvc.students.services.tecnica_estudio.controllers import TecnicaEstudioUpdaterController
 from tutorias_itsvc.students.services.tecnica_estudio.controllers import TecnicaEstudioDeleterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class TecnicaEstudioApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id):
         serializer = GetterSerializerService(TecnicaEstudioSerializer)

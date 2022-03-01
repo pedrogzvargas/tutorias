@@ -8,10 +8,13 @@ from tutorias_itsvc.students.services.area_psicopedagogica.controllers import Ar
 from tutorias_itsvc.students.services.area_psicopedagogica.controllers import AreaPsicopedagogicaCreatorController
 from tutorias_itsvc.students.services.area_psicopedagogica.controllers import AreaPsicopedagogicaUpdaterController
 from tutorias_itsvc.students.services.area_psicopedagogica.controllers import AreaPsicopedagogicaDeleterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class AreaPsicopedagogicaApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id):
         serializer = GetterSerializerService(AreaPsicopedagogicaSerializer)

@@ -8,10 +8,13 @@ from tutorias_itsvc.students.services.estado_psicofisiologico.controllers import
 from tutorias_itsvc.students.services.estado_psicofisiologico.controllers import EstadoPsicofisiologicoCreatorController
 from tutorias_itsvc.students.services.estado_psicofisiologico.controllers import EstadoPsicofisiologicoUpdaterController
 from tutorias_itsvc.students.services.estado_psicofisiologico.controllers import EstadoPsicofisiologicoDeleterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class EstadoPsicofisiologicoApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id):
         serializer = GetterSerializerService(EstadoPsicofisiologicoSerializer)

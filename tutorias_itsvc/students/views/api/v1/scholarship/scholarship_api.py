@@ -8,10 +8,13 @@ from tutorias_itsvc.students.services.scholarship.controllers import StudentScho
 from tutorias_itsvc.students.services.scholarship.controllers import StudentScholarshipCreatorController
 from tutorias_itsvc.students.services.scholarship.controllers import StudentScholarshipUpdaterController
 from tutorias_itsvc.students.services.scholarship.controllers import StudentScholarshipDeleterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class ScholarshipApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id):
         serializer = GetterSerializerService(ScholarshipSerializer)

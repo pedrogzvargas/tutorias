@@ -8,10 +8,13 @@ from tutorias_itsvc.students.services.area_integracion.controllers import AreaIn
 from tutorias_itsvc.students.services.area_integracion.controllers import AreaIntegracionCreatorController
 from tutorias_itsvc.students.services.area_integracion.controllers import AreaIntegracionUpdaterController
 from tutorias_itsvc.students.services.area_integracion.controllers import AreaIntegracionDeleterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class AreaIntegracionApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id):
         serializer = GetterSerializerService(AreaIntegracionSerializer)

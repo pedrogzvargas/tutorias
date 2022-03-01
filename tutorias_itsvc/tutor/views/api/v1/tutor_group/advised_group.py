@@ -10,10 +10,12 @@ from tutorias_itsvc.tutor.repositories import TutorGroupRepository
 from tutorias_itsvc.tutor.services.tutor_group.controllers import TutorGroupUpdaterController
 from tutorias_itsvc.tutor.services.tutor_group.controllers import TutorGroupGetterController
 from tutorias_itsvc.tutor.services.tutor_group.controllers import TutorGroupDeleterController
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class AdvisedGroupApi(APIView):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = [IsAuthenticated, IsTutor | IsAdmin]
 
     def get(self, request, advised_group_id):
         repository = TutorGroupRepository()

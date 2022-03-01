@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 
 from shared.serializers import GetterSerializerService
 from shared.responses import ResponseService
@@ -10,10 +10,12 @@ from tutorias_itsvc.students.serializers.api.v1.subject import SubjectSerializer
 from tutorias_itsvc.students.services.student.controllers import StudentGetterController
 from tutorias_itsvc.students.services.subject.controllers import SubjectUpdaterController
 from tutorias_itsvc.students.services.subject.controllers import SubjectDeleterController
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class SubjectApi(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsTutor | IsAdmin]
 
     def get(self, request, student_id, subject_id):
         repository = StudentSubjectRepository()

@@ -8,10 +8,13 @@ from tutorias_itsvc.students.services.motivacion_estudio.controllers import Moti
 from tutorias_itsvc.students.services.motivacion_estudio.controllers import MotivacionEstudioCreatorController
 from tutorias_itsvc.students.services.motivacion_estudio.controllers import MotivacionEstudioUpdaterController
 from tutorias_itsvc.students.services.motivacion_estudio.controllers import MotivacionEstudioDeleterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class MotivacionEstudioApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id):
         serializer = GetterSerializerService(MotivacionEstudioSerializer)

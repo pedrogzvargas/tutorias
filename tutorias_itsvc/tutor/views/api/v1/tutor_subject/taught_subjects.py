@@ -7,12 +7,13 @@ from tutorias_itsvc.tutor.serializers.api.v1.tutor_subject import TutorSubjectSe
 from tutorias_itsvc.tutor.repositories import TutorSubjectRepository
 from tutorias_itsvc.tutor.services.tutor_subject.controllers import TutorSubjectCreatorController
 from tutorias_itsvc.tutor.services.tutor_subject.controllers import TutorSubjectFilterController
-
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 from tutorias_itsvc.utils import query_debugger
 
 
 class TaughtSubjectsApi(APIView):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = [IsAuthenticated, IsTutor | IsAdmin]
 
     def post(self, request):
         repository = TutorSubjectRepository()

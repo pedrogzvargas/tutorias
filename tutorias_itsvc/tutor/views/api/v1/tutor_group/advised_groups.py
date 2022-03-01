@@ -9,10 +9,12 @@ from tutorias_itsvc.tutor.serializers.api.v1.tutor_group import TutorGroupSerial
 from tutorias_itsvc.tutor.repositories import TutorGroupRepository
 from tutorias_itsvc.tutor.services.tutor_group.controllers import TutorGroupCreatorController
 from tutorias_itsvc.tutor.services.tutor_group.controllers import TutorGroupFilterController
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class AdvisedGroupsApi(APIView):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = [IsAuthenticated, IsTutor | IsAdmin]
 
     def post(self, request):
         tutor_group_repository = TutorGroupRepository()

@@ -127,7 +127,7 @@
       <td colspan="2">
         <table>
           <td class="bold-td">{{ student.user.last_name }}</td>
-          <td class="bold-td">{{ student.user.second_last_name }}</td>
+          <td class="bold-td">{{ student.user.second_last_name|default:"" }}</td>
           <td class="bold-td">{{ student.user.first_name }} {{ student.user.second_name|default:"" }}</td>
           <td class="bold-td">{{ student.user.personal_information.gender.name }}</td>
         </table>
@@ -146,7 +146,7 @@
     <tr>
       <td colspan="2">
         <table>
-          <td class="bold-td">{{ student.user.email }}</td>
+          <td class="bold-td">{{ student.user.email|default:"" }}</td>
           <td class="bold-td">{{ val }}</td>
           <td class="bold-td">{{ val }}</td>
           <td class="bold-td">{{ val }}</td>
@@ -167,9 +167,9 @@
       <td colspan="2">
         <table>
           <td class="bold-td">{{ student.user.personal_information.birth_date|date:"d/m/Y"|default:"Sin registro" }}</td>
-          <td class="bold-td">{{ student.user.personal_information.place_birth }}</td>
-          <td class="bold-td">{{ student.user.personal_information.marital_status.name }}</td>
-          <td class="bold-td">{{ student.user.personal_information.number_of_children }}</td>
+          <td class="bold-td">{{ student.user.personal_information.place_birth|default:"" }}</td>
+          <td class="bold-td">{{ student.user.personal_information.marital_status.name|default:"" }}</td>
+          <td class="bold-td">{{ student.user.personal_information.number_of_children|default:"" }}</td>
         </table>
       </td>
     </tr>
@@ -183,36 +183,36 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>CALLE: <span class="bold-td">{{ student.address.street }}</span></td>
+          <td>CALLE: <span class="bold-td">{{ student.address.street|default:"" }}</span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>NÚMERO INTERIOR: <span class="bold-td">{{ student.address.indoor_number }}</span></td>
-          <td>NÚMERO EXTERIOR: <span class="bold-td">{{ student.address.outdoor_number }}</span></td>
+          <td>NÚMERO INTERIOR: <span class="bold-td">{{ student.address.indoor_number|default:"" }}</span></td>
+          <td>NÚMERO EXTERIOR: <span class="bold-td">{{ student.address.outdoor_number|default:"" }}</span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>COLONIA: <span class="bold-td">{{ student.address.colony }}</span></td>
+          <td>COLONIA: <span class="bold-td">{{ student.address.colony|default:"" }}</span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>LOCALIDAD: <span class="bold-td">{{ student.address.locality }}</span></td>
+          <td>LOCALIDAD: <span class="bold-td">{{ student.address.locality|default:"" }}</span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>ESTADO: <span class="bold-td">{{ student.address.state }}</span></td>
+          <td>ESTADO: <span class="bold-td">{{ student.address.state|default:"" }}</span></td>
         </table>
       </td>
     </tr>
@@ -249,14 +249,14 @@
       <td colspan="2">
         <table>
           <td class="bold-td">{{ student.scholarship.has_scholarship|yesno:"Si, No, Sin registro" }}</td>
-          <td class="bold-td">{{ student.scholarship.dependence_name }}</td>
+          <td class="bold-td">{{ student.scholarship.dependence_name|default:"" }}</td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>NOMBRE DE LA INSTITUCIÓN: <span class="bold-td">{{ student.scholarship.institute_name }}</span></td>
+          <td>NOMBRE DE LA INSTITUCIÓN: <span class="bold-td">{{ student.scholarship.institute_name|default:"" }}</span></td>
         </table>
       </td>
     </tr>
@@ -280,8 +280,8 @@
       <td colspan="2">
         <table>
           <td class="bold-td">{{ student.job.has_job|yesno:"Si, No, Sin registro" }}</td>
-          <td class="bold-td">{{ student.job.company_name }}</td>
-          <td class="bold-td">{{ student.job.schedule }}</td>
+          <td class="bold-td">{{ student.job.company_name|default:"" }}</td>
+          <td class="bold-td">{{ student.job.schedule|default:"" }}</td>
         </table>
       </td>
     </tr>
@@ -437,7 +437,7 @@
       <td colspan="2">
         <table>
           <td class="bold-td">{{ student.job.has_job|yesno:"Si, No, Sin registro" }}</td>
-          <td class="bold-td">{{ student.job.company_name }}</td>
+          <td class="bold-td">{{ student.job.company_name|default:"" }}</td>
         </table>
       </td>
     </tr>

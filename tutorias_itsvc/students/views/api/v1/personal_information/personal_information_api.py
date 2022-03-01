@@ -9,10 +9,13 @@ from tutorias_itsvc.students.services.personal_information.controllers import Pe
 from tutorias_itsvc.students.services.personal_information.controllers import PersonalInformationUpdaterController
 from tutorias_itsvc.students.services.personal_information.controllers import PersonalInformationDeleterController
 from tutorias_itsvc.students.services.personal_information.controllers import PersonalInformationCreatorController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class PersonalInformationApi(APIView):
-    # permission_classes = (IsAuthenticated, )
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def post(self, request, student_id):
         response = ResponseService()

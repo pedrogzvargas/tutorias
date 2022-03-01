@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from shared.serializers import GetterSerializerService
 from shared.responses import ResponseService
 from shared.requests import RequestService
@@ -8,10 +8,11 @@ from tutorias_itsvc.users.serializers.api.v1.profile_image import ProfileImageSe
 from tutorias_itsvc.users.serializers.api.v1.profile_image import UploadProfileImage
 from tutorias_itsvc.users.services.profile_image.controllers import ProfileImageGetterController
 from tutorias_itsvc.users.services.profile_image.controllers import ProfileImageCreatorController
+from tutorias_itsvc.custom_permission import UserRecordOwner
 
 
 class ProfileImageApi(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, UserRecordOwner]
 
     def get(self, request, user_id):
         repository = ProfileImageRepository()

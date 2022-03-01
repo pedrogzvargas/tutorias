@@ -8,10 +8,13 @@ from tutorias_itsvc.students.services.job.controllers import StudentJobCreatorCo
 from tutorias_itsvc.students.services.job.controllers import StudentJobUpdaterController
 from tutorias_itsvc.students.services.job.controllers import StudentJobDeleterController
 from tutorias_itsvc.students.services.job.controllers import StudentJobGetterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class JobApi(APIView):
-    permission_classes = ()
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id):
         serializer = GetterSerializerService(JobSerializer)

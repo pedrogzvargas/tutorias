@@ -1,0 +1,213 @@
+<html>
+{% load static %}
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Playfair+Display&family=Raleway:wght@100;200&display=swap"
+    rel="stylesheet">
+  <title>Entrevista</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      font-family: 'PT Serif', serif;
+      font-family: 'Raleway', sans-serif;
+      font-size: small;
+    }
+
+    @media print {
+      a::after {
+        content: " (" attr(href) ") ";
+      }
+
+      pre {
+        white-space: pre-wrap;
+      }
+
+      @page {
+        margin: 0.75in;
+        size: Letter;
+
+    @bottom-right {
+      content: counter(page);
+    }
+    {#@top-center {#}
+    {#  content: url({% static 'images/images/logo-puebla.png' %});#} {
+    #}#}
+    }
+
+    {#@page :first {#}
+    {#  @top-right {#}
+    {#    content: "";#}
+    {#  }#} {
+    #}#}
+    }
+
+      @page {
+        size: Letter;
+        margin: 0in 0.44in 0.2in 0.44in;
+      }
+
+      table {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      td, th {
+        border: 1px solid #000000;
+      }
+
+      table table td {
+        border-top: none;
+        border-bottom: none;
+      }
+
+      .bold-td {
+        color: #000000;
+        font-weight: bold
+      }
+    }
+  </style>
+</head>
+<body>
+<div id="banner" style="float:left; display:inline; width:100%;">
+  <div>
+    <img style='float:left; display:inline; width:75px;height:75px;' src="{% static 'images/images/logo-tec.png' %}"
+         alt="">
+  </div>
+
+  <div>
+    <img style='margin-left:180px; float:left; display:inline; width:200px;height:75px;'
+         src="{% static 'images/images/logo-sep.png' %}" alt="">
+  </div>
+
+  <div>
+    <img style='float:right; display:inline; width:75px;height:75px;' src="{% static 'images/images/logo-puebla.png' %}"
+         alt="">
+  </div>
+</div>
+<div>
+  <h5 style="text-align: center; margin-top: 120px">Programa Institucional de Tutorias</h5>
+  <p style="text-align: center">TABLA COMPARATIVA DE ENCUESTA SOBRE HABILIDADES DE ESTUDIO</p>
+  <h4>Interpretación:</h4>
+  <ol>
+    <li>57-60 = Muy alto</li>
+    <li>52-56 = Alto</li>
+    <li>50-51 = Por encima del promedio</li>
+    <li>48-49 = Promedio alto</li>
+    <li>43-47 = Promedio</li>
+    <li>39-42 = Promedio bajo</li>
+    <li>37-38 = Por debajo del promedio</li>
+    <li>34-36 = Bajo</li>
+    <li>0-33 = Muy bajo</li>
+  </ol>
+  <table>
+    <tr>
+      <td>Organización del estudio</td>
+      <td>Técnicas de estudio</td>
+      <td>Motivación para el estudio</td>
+      <td>Calificación total</td>
+      <td>Interpretación</td>
+    </tr>
+    <tr>
+      <td style="color: #000000; font-weight:bold">{{ organizacion_count }}</td>
+      <td style="color: #000000; font-weight:bold">{{ tecnica_estudio_count }}</td>
+      <td style="color: #000000; font-weight:bold">{{ motivacion_estudio_count }}</td>
+      <td style="color: #000000; font-weight:bold">{{ total }}</td>
+      <td style="color: #000000; font-weight:bold">{{ evaluation }}</td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <p style="text-align: center">INVENTARIO SOBRE ESTILOS DE APRENDIZAJE</p>
+  <p>Este inventario es para ayudarle a descubrir su manera preferida de aprender. Cada persona
+    tiene su manera preferida de aprender. Reconocer sus preferencias le ayudará a comprender
+    sus fuerzas en cualquier situación de aprendizaje.</p>
+  <h4>Escala:</h4>
+  <ol>
+    <li>Nunca</li>
+    <li>Raramente</li>
+    <li>Ocasionalmente</li>
+    <li>Usualmente</li>
+    <li>Siempre</li>
+  </ol>
+  <table>
+    <tr>
+      <td style="color: #000000; font-weight:bold">VISUAL</td>
+      <td>Pregunta</td>
+      <td style="width: 20px">1</td>
+      <td style="width: 20px">3</td>
+      <td style="width: 20px">6</td>
+      <td style="width: 20px">9</td>
+      <td style="width: 20px">10</td>
+      <td style="width: 20px">11</td>
+      <td style="width: 20px">14</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Puntaje (1 a 5)</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p1 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p3 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p6 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p9 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p10 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p11 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p14 }}</td>
+      <td>Total visual: <span style="color: #000000; font-weight:bold">{{ total_visual }}</span></td>
+    </tr>
+
+    <tr>
+      <td style="color: #000000; font-weight:bold">AUDITIVO</td>
+      <td>Pregunta</td>
+      <td style="width: 20px">2</td>
+      <td style="width: 20px">5</td>
+      <td style="width: 20px">12</td>
+      <td style="width: 20px">15</td>
+      <td style="width: 20px">17</td>
+      <td style="width: 20px">21</td>
+      <td style="width: 20px">23</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Puntaje (1 a 5)</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p2 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p5 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p12 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p15 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p17 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p21 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p23 }}</td>
+      <td>Total auditivo: <span style="color: #000000; font-weight:bold">{{ total_auditivo }}</span></td>
+    </tr>
+    <tr>
+      <td style="color: #000000; font-weight:bold">KINESTESICO</td>
+      <td>Pregunta</td>
+      <td style="width: 20px">4</td>
+      <td style="width: 20px">7</td>
+      <td style="width: 20px">8</td>
+      <td style="width: 20px">13</td>
+      <td style="width: 20px">19</td>
+      <td style="width: 20px">22</td>
+      <td style="width: 20px">24</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Puntaje (1 a 5)</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p4 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p7 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p8 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p13 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p19 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p22 }}</td>
+      <td style="color: #000000; font-weight:bold">{{ estilo_aprendizaje.p24 }}</td>
+      <td>Total kinestésico: <span style="color: #000000; font-weight:bold">{{ total_kinestesico }}</span></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

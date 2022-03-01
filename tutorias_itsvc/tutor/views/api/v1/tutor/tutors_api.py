@@ -12,10 +12,12 @@ from tutorias_itsvc.users.repositories import GroupRepository
 
 from tutorias_itsvc.tutor.services.tutor.controllers import TutorCreatorController
 from tutorias_itsvc.tutor.services.tutor.controllers import TutorFilterController
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class TutorsApi(APIView):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = [IsAuthenticated, IsTutor | IsAdmin]
 
     def post(self, request):
         user_repository = UserRepository()

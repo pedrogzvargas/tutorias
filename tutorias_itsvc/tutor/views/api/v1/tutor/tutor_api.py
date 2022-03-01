@@ -9,10 +9,12 @@ from tutorias_itsvc.tutor.repositories import TutorRepository
 from tutorias_itsvc.tutor.services.tutor.controllers import TutorGetterController
 from tutorias_itsvc.tutor.services.tutor.controllers import TutorUpdaterController
 from tutorias_itsvc.tutor.services.tutor.controllers import TutorDeleterController
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class TutorApi(APIView):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = [IsAuthenticated, IsTutor | IsAdmin]
 
     def get(self, request, tutor_id):
         repository = TutorRepository()

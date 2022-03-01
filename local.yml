@@ -30,7 +30,7 @@ services:
     env_file:
       - .env
     ports:
-      - "5432:5432"
+      - "5434:5432"
 
   docs:
     image: tutorias_docs

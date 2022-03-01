@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from shared.serializers import GetterSerializerService
 from shared.responses import ResponseService
 from shared.requests import RequestService
@@ -8,10 +8,13 @@ from tutorias_itsvc.students.serializers.api.v1.phone import PhoneSerializer
 from tutorias_itsvc.students.services.phone.controllers import PhoneGetterController
 from tutorias_itsvc.students.services.phone.controllers import PhoneUpdaterController
 from tutorias_itsvc.students.services.phone.controllers import PhoneDeleterController
+from tutorias_itsvc.custom_permission import StudentRecordOwner
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class PhoneApi(APIView):
-    permission_classes = (AllowAny, )
+    permission_classes = [IsAuthenticated, StudentRecordOwner | IsTutor | IsAdmin]
 
     def get(self, request, student_id, phone_id):
         repository = StudentPhoneRepository()

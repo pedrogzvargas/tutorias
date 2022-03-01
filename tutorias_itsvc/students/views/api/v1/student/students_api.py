@@ -10,10 +10,12 @@ from tutorias_itsvc.students.serializers.api.v1.student import StudentCreatorSer
 from tutorias_itsvc.students.serializers.api.v1.student import StudentSerializer
 from tutorias_itsvc.students.services.student.controllers import StudentCreatorController
 from tutorias_itsvc.students.services.student.controllers import StudentFilterController
+from tutorias_itsvc.custom_permission import IsTutor
+from tutorias_itsvc.custom_permission import IsAdmin
 
 
 class StudentsApi(APIView):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = [IsAuthenticated, IsTutor | IsAdmin]
 
     def post(self, request):
         response = ResponseService()
