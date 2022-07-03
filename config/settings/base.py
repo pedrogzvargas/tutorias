@@ -41,7 +41,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {"default": env.db("DATABASE_URL", default="postgres://oBlJulxZTmIrrojKnFJrGTTbghQTSlnT:pedy1qU99r9u7lM0F3p2GaC6Dan4NiJpaFJdr7CA9RTaCpYMY0j0etmB1BRuvRAr@127.0.0.1:5434/tutorias_itsvc")}
+DATABASES = {"default": env.db("DATABASE_URL")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # URLS
@@ -160,7 +160,7 @@ STATICFILES_FINDERS = [
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = str(APPS_DIR / "media")
+MEDIA_ROOT = env.str("MEDIA_ROOT")
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
 
@@ -230,7 +230,7 @@ EMAIL_TIMEOUT = 5
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL.
-ADMIN_URL = "admin/"
+ADMIN_URL = env.str("ADMIN_URL")
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [("""itsvc""", "itsvc@example.com")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers

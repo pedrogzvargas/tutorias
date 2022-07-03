@@ -12,6 +12,7 @@ services:
       - postgres
     volumes:
       - .:/app:z
+      - ${MEDIA_DATA}:${MEDIA_ROOT}
     env_file:
       - .env
     ports:
