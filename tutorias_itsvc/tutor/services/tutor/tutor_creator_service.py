@@ -29,7 +29,7 @@ class TutorCreatorService:
             second_last_name=kwargs.get('second_last_name'),
             email=kwargs.get('email', '')
         )
-        tutors_group = self.__group_repository.get(name="student")
+        tutors_group = self.__group_repository.get(name="tutor")
         if not tutors_group:
             raise Exception("No existe el grupo para tutores")
         user.groups.add(tutors_group)
