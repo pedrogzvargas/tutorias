@@ -26,6 +26,11 @@ class SubjectFilterController(GenericAPIView):
             subject = self.__service(**kwargs)
             subject = self.filter_queryset(subject)
             if subject:
+                get_all = self.request.query_params.get('get_all', False)
+                if get_all:
+                    serializer_data = self.__serializer(subject)
+                    return self.__response(serializer_data, http_status=status.HTTP_200_OK)
+
                 page = self.paginate_queryset(subject)
                 if page:
                     serializer_data = self.__serializer(page)
