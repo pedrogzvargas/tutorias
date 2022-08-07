@@ -1,37 +1,39 @@
 from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
-from tutorias_itsvc.common.services.address import AddressCreatorService
+from tutorias_itsvc.students.services.parent import ParentAddressCreatorService
 from tutorias_itsvc.students.repositories import ParentRepository
-from tutorias_itsvc.students.services.parent import ParentGetterService
+from tutorias_itsvc.students.repositories import StudentRepository
+from tutorias_itsvc.common.repositories import AddressRepository
+from tutorias_itsvc.common.repositories import StateRepository
 
 log = get_logger(__file__)
 
 
 class ParentAddressCreatorController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self,
+                 request,
+                 response,
+                 parent_repository=None,
+                 student_repository=None,
+                 address_repository=None,
+                 state_repository=None,
+                 service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or AddressCreatorService(self.__repository)
-
-    def get_parent(self, student_id, type):
-        repository = ParentRepository()
-        getter_service = ParentGetterService(repository)
-        parent = getter_service(student_id=student_id, type=type)
-        if not parent:
-            raise Exception("No existe el padre")
-        return parent
+        self.__parent_repository = parent_repository or ParentRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__address_repository = address_repository or AddressRepository()
+        self.__state_repository = state_repository or StateRepository()
+        self.__service = service or ParentAddressCreatorService(parent_repository=self.__parent_repository,
+                                                                student_repository=self.__student_repository,
+                                                                address_repository=self.__address_repository,
+                                                                state_repository=self.__state_repository)
 
     def __call__(self, student_id, type):
         try:
-            parent = self.get_parent(student_id, type)
-            if parent.address_id:
-                raise Exception('Ya existe la dirección')
             fields = self.__request.get_data()
-            address = self.__service(**fields)
-            parent.address_id = address.id
-            parent.save()
+            self.__service(student_id=student_id, type=type, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",

@@ -18,8 +18,8 @@ class User(AbstractUser):
     """Default user for tutorias_itsvc."""
 
     #: First and last name do not cover name patterns around the globe
-    second_name = CharField(_("Second Name of User"), blank=True, max_length=255)
-    second_last_name = CharField(_("Second Last Name of User"), blank=True, max_length=255)
+    second_name = CharField(_("Second Name of User"), null=True, blank=True, max_length=255)
+    second_last_name = CharField(_("Second Last Name of User"), null=True, blank=True, max_length=255)
 
     def get_absolute_url(self):
         """Get url for user's detail view.
@@ -45,6 +45,9 @@ class PersonalInformation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
+    class Meta:
+        default_permissions = ()
+
 
 class Person(models.Model):
     first_name = models.CharField(max_length=100)
@@ -63,7 +66,7 @@ class Person(models.Model):
 
 class PersonPhone(Phone):
     person = models.ForeignKey(Person, related_name='phones', on_delete=models.CASCADE)
-    order = models.PositiveIntegerField(default=1)
+    # order = models.PositiveIntegerField(default=1)
 
     class Meta:
         default_permissions = ()

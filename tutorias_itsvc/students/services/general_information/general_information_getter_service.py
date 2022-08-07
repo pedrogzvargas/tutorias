@@ -14,18 +14,18 @@ class GeneralInformationGetterService:
         personal_information = personal_information_getter_service(user_id=self.__user_id)
         return personal_information
 
-    def get_phones(self):
-        mobile_phone = None
-        home_phone = None
-        repository = StudentPhoneRepository()
-        phone_filter_service = PhoneFilterService(repository)
-        current_mobile_phone = phone_filter_service(student__user_id=self.__user_id, type='mobile_phone').first()
-        current_home_phone = phone_filter_service(student__user_id=self.__user_id, type='home_phone').first()
-        if current_mobile_phone:
-            mobile_phone = current_mobile_phone.number
-        if current_home_phone:
-            home_phone = current_home_phone.number
-        return mobile_phone, home_phone
+    # def get_phones(self):
+    #     mobile_phone = None
+    #     home_phone = None
+    #     repository = StudentPhoneRepository()
+    #     phone_filter_service = PhoneFilterService(repository)
+    #     current_mobile_phone = phone_filter_service(student__user_id=self.__user_id, type='mobile_phone').first()
+    #     current_home_phone = phone_filter_service(student__user_id=self.__user_id, type='home_phone').first()
+    #     if current_mobile_phone:
+    #         mobile_phone = current_mobile_phone.number
+    #     if current_home_phone:
+    #         home_phone = current_home_phone.number
+    #     return mobile_phone, home_phone
 
     def __call__(self):
         general_information = dict()

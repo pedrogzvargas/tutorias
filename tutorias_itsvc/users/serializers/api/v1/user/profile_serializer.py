@@ -16,14 +16,5 @@ class ProfileSerializer(serializers.ModelSerializer):
             'second_name',
             'last_name',
             'second_last_name',
-            'username',
             'email',
-            'is_active',
-            'date_joined'
-        ]
-        read_only_fields = [
-            'id',
-            'username',
-            'email',
-            'is_active',
         ]
