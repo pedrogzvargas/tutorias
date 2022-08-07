@@ -10,6 +10,7 @@ ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 APPS_DIR = ROOT_DIR / "tutorias_itsvc"
 env = environ.Env()
 
+env.read_env(str(ROOT_DIR / ".env"))
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
 if READ_DOT_ENV_FILE:
     # OS environment variables take precedence over variables from .env
@@ -40,7 +41,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {"default": env.db("DATABASE_URL", default="postgres://oBlJulxZTmIrrojKnFJrGTTbghQTSlnT:pedy1qU99r9u7lM0F3p2GaC6Dan4NiJpaFJdr7CA9RTaCpYMY0j0etmB1BRuvRAr@127.0.0.1:5434/tutorias_itsvc")}
+DATABASES = {"default": env.db("DATABASE_URL")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # URLS
@@ -66,6 +67,8 @@ DJANGO_APPS = [
     "tutorias_itsvc.common",
     "tutorias_itsvc.academy",
     "tutorias_itsvc.students",
+    "tutorias_itsvc.tutor",
+    "tutorias_itsvc.courses",
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -75,6 +78,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
+    "django_filters",
 ]
 
 LOCAL_APPS = [
@@ -156,7 +160,7 @@ STATICFILES_FINDERS = [
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = str(APPS_DIR / "media")
+MEDIA_ROOT = env.str("MEDIA_ROOT")
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
 
@@ -226,7 +230,7 @@ EMAIL_TIMEOUT = 5
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL.
-ADMIN_URL = "admin/"
+ADMIN_URL = env.str("ADMIN_URL")
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [("""itsvc""", "itsvc@example.com")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -280,6 +284,8 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup

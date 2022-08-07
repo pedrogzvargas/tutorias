@@ -1,26 +1,36 @@
 from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
-from tutorias_itsvc.students.services.institute import InstituteUpdaterService, InstituteGetterService
+from tutorias_itsvc.students.services.institute import InstituteUpdaterService
+from tutorias_itsvc.students.repositories import StudentInstituteRepository
+from tutorias_itsvc.students.repositories import StudentRepository
+from tutorias_itsvc.common.repositories import AcademicDegreeRepository
 
 log = get_logger(__file__)
 
 
 class InstituteUpdaterController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self,
+                 request,
+                 response,
+                 student_institute_repository=None,
+                 student_repository=None,
+                 academic_degree_repository=None,
+                 service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or InstituteUpdaterService(self.__repository)
+        self.__student_institute_repository = student_institute_repository or StudentInstituteRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__academic_degree_repository = academic_degree_repository or AcademicDegreeRepository()
+        self.__service = service or InstituteUpdaterService(
+            student_institute_repository=self.__student_institute_repository,
+            student_repository=self.__student_repository,
+            academic_degree_repository=self.__academic_degree_repository)
 
     def __call__(self, student_id, institute_id):
         try:
             fields = self.__request.get_data()
-            institute_getter_service = InstituteGetterService(self.__repository)
-            institute = institute_getter_service(student_id=student_id, id=institute_id)
-            if not institute:
-                raise Exception("Institute not found")
-            self.__service(id=institute_id, **fields)
+            self.__service(institute_id=institute_id, student_id=student_id, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",

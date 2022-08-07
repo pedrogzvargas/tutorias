@@ -2,22 +2,35 @@ from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
 from tutorias_itsvc.students.services.institute import InstituteCreatorService
+from tutorias_itsvc.students.repositories import StudentInstituteRepository
+from tutorias_itsvc.students.repositories import StudentRepository
+from tutorias_itsvc.common.repositories import AcademicDegreeRepository
 
 log = get_logger(__file__)
 
 
 class InstituteCreatorController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self,
+                 request,
+                 response,
+                 student_institute_repository=None,
+                 student_repository=None,
+                 academic_degree_repository=None,
+                 service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or InstituteCreatorService(self.__repository)
+        self.__student_institute_repository = student_institute_repository or StudentInstituteRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__academic_degree_repository = academic_degree_repository or AcademicDegreeRepository()
+        self.__service = service or InstituteCreatorService(
+            student_institute_repository=self.__student_institute_repository,
+            student_repository=self.__student_repository,
+            academic_degree_repository=self.__academic_degree_repository)
 
     def __call__(self, student_id):
         try:
             fields = self.__request.get_data()
-            fields.update(dict(student_id=student_id))
-            self.__service(**fields)
+            self.__service(student_id=student_id, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",

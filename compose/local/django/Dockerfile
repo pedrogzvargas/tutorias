@@ -4,10 +4,14 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
 RUN apt-get update \
+  # pip \
+  && pip install --upgrade pip \
   # dependencies for building Python packages
   && apt-get install -y build-essential \
   # psycopg2 dependencies
   && apt-get install -y libpq-dev \
+  # Weasy
+  && apt-get install -y libpangocairo-1.0-0 \
   # Translations dependencies
   && apt-get install -y gettext \
   # cleaning up unused files

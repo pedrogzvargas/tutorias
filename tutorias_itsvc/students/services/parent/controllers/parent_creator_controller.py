@@ -2,22 +2,34 @@ from rest_framework import status
 from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
 from tutorias_itsvc.students.services.parent import ParentCreatorService
+from tutorias_itsvc.students.repositories import ParentRepository
+from tutorias_itsvc.students.repositories import StudentRepository
+from tutorias_itsvc.common.repositories import AcademicDegreeRepository
 
 log = get_logger(__file__)
 
 
 class ParentCreatorController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self,
+                 request,
+                 response,
+                 parent_repository=None,
+                 student_repository=None,
+                 academic_degree_repository=None,
+                 service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or ParentCreatorService(self.__repository)
+        self.__parent_repository = parent_repository or ParentRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__academic_degree_repository = academic_degree_repository or AcademicDegreeRepository()
+        self.__service = service or ParentCreatorService(parent_repository=self.__parent_repository,
+                                                         student_repository=self.__student_repository,
+                                                         academic_degree_repository=self.__academic_degree_repository)
 
     def __call__(self, student_id, type):
         try:
             fields = self.__request.get_data()
-            fields.update(dict(student_id=student_id, type=type))
-            self.__service(**fields)
+            self.__service(student_id=student_id, type=type, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",

@@ -1,8 +1,8 @@
-from tutorias_itsvc.users.repositories import UserRepository
+from tutorias_itsvc.students.repositories import StudentRepository
 
 
 class StudentGetterService:
-    def __init__(self, repository: UserRepository):
+    def __init__(self, repository: StudentRepository):
         self.__repository = repository
 
     def __call__(self, **kwargs):

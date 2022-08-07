@@ -3,28 +3,24 @@ from shared.utils import get_logger
 from shared.exceptions import SerializerApiException
 from tutorias_itsvc.students.services.address import AddressUpdaterService
 from tutorias_itsvc.students.repositories import AddressRepository
-from tutorias_itsvc.students.services.address import AddressGetterService
+from tutorias_itsvc.students.repositories import StudentRepository
 
 log = get_logger(__file__)
 
 
 class AddressUpdaterController:
-    def __init__(self, request, repository, response, service=None):
+    def __init__(self, request, response, address_repository=None, student_repository=None, service=None):
         self.__request = request
-        self.__repository = repository
         self.__response = response
-        self.__service = service or AddressUpdaterService(self.__repository)
+        self.__address_repository = address_repository or AddressRepository()
+        self.__student_repository = student_repository or StudentRepository()
+        self.__service = service or AddressUpdaterService(address_repository=self.__address_repository,
+                                                          student_repository=self.__student_repository)
 
     def __call__(self, student_id):
         try:
             fields = self.__request.get_data()
-            fields.update(dict(student_id=student_id))
-            repository = AddressRepository()
-            getter_service = AddressGetterService(repository)
-            address = getter_service(student_id=student_id)
-            if not address:
-                raise Exception("Address no exuste")
-            self.__service(id=address.id, **fields)
+            self.__service(student_id=student_id, **fields)
             response_data = dict(
                 success=True,
                 message="All Ok",

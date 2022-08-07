@@ -1,0 +1,12 @@
+from .caracteristicas_personales_creator_controller import CaracteristicasPersonalesCreatorController
+from .caracteristicas_personales_updater_controller import CaracteristicasPersonalesUpdaterController
+from .caracteristicas_personales_getter_controller import CaracteristicasPersonalesGetterController
+from .caracteristicas_personales_deleter_controller import CaracteristicasPersonalesDeleterController
+
+
+__all__ = [
+    "CaracteristicasPersonalesCreatorController",
+    "CaracteristicasPersonalesUpdaterController",
+    "CaracteristicasPersonalesGetterController",
+    "CaracteristicasPersonalesDeleterController",
+]
