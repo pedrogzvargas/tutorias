@@ -32,18 +32,3 @@ services:
       - .env
     ports:
       - "5434:5432"
-
-  docs:
-    image: tutorias_docs
-    container_name: docs_pit
-    build:
-      context: .
-      dockerfile: ./compose/local/docs/Dockerfile
-    env_file:
-      - .env
-    volumes:
-      - ./docs:/docs:z
-      - ./config:/app/config:z
-      - ./tutorias_itsvc:/app/tutorias_itsvc:z
-    ports:
-      - "7000:7000"
