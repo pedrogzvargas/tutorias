@@ -11,6 +11,8 @@ class SubjectFilterController(GenericAPIView):
     search_fields = [
         'tutor_subject__subject__name',
         'type__name',
+        'student__user__first_name',
+        'student__user__last_name',
     ]
     filter_backends = (filters.SearchFilter,)
 
