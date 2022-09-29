@@ -34,7 +34,8 @@ class TutorUpdaterService:
 
         if tutor.user.username != username:
             user_fields.update(dict(username=username))
-            tutor_fields.update(dict(username=username))
+            tutor_fields.update(dict(enrollment=username))
 
+        print(tutor_fields)
         self.__user_repository.update(id=tutor.user.id, **user_fields)
-        return self.__tutor_repository.update(id=tutor.user.id, **tutor_fields)
+        return self.__tutor_repository.update(id=tutor.id, **tutor_fields)
