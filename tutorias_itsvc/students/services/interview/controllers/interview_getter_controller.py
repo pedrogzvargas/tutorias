@@ -11,6 +11,7 @@ class InterviewGetterController:
         request,
         student_repository,
         parent_repository,
+        school_cycle_repository,
         serializer,
         response,
         getter_service=None
@@ -18,12 +19,15 @@ class InterviewGetterController:
         self.__request = request
         self.__student_repository = student_repository
         self.__parent_repository = parent_repository
+        self.__school_cycle_repository = school_cycle_repository
         self.__serializer = serializer
         self.__response = response
         self.__service = getter_service or InterviewGetterService(
             request=self.__request,
             student_repository=self.__student_repository,
-            parent_repository=self.__parent_repository)
+            parent_repository=self.__parent_repository,
+            school_cycle_repository=self.__school_cycle_repository,
+        )
 
     def __call__(self, **kwargs):
         try:
