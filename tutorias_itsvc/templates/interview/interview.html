@@ -89,10 +89,12 @@
 </div>
 <div>
   <h5 style="text-align: center; margin-top: 120px">Programa Institucional de Tutorias</h5>
-  <p style="text-align: center">FICHA DE IDENTIFICACIÓN DEL TUTORADO</p>
+  <h4 style="text-align: center; margin-top: -10px">COORDINACIÓN DEL PROGRAMA INSTITUCIONAL DE TUTORIAS</h4>
+  <h4 style="text-align: center; margin-top: -10px">{{ school_cycle.name }}</h4>
+  <p style="text-align: center; font-weight:bold">FICHA DE IDENTIFICACIÓN DEL TUTORADO</p>
   <p>Este documento es confidencial, tus respuestas serán utilizadas para mejorar el servicio que puede brindar el
     Instituto tecnológico.Por lo que se te pide contestar todas las preguntas con la mayor sinceridad.</p>
-  <p style="text-align: center">DATOS GENERALES</p>
+  <p style="text-align: center; font-weight:bold">DATOS GENERALES</p>
   <table>
     <tr>
       <td>Carrera a la que pertenece:</td>
@@ -166,7 +168,7 @@
     <tr>
       <td colspan="2">
         <table>
-          <td class="bold-td">{{ student.user.personal_information.birth_date|date:"d/m/Y"|default:"Sin registro" }}</td>
+          <td class="bold-td">{{ student.user.personal_information.birth_date|date:"d/m/Y"|default:"" }}</td>
           <td class="bold-td">{{ student.user.personal_information.place_birth|default:"" }}</td>
           <td class="bold-td">{{ student.user.personal_information.marital_status.name|default:"" }}</td>
           <td class="bold-td">{{ student.user.personal_information.number_of_children|default:"" }}</td>
@@ -316,8 +318,12 @@
       <td colspan="2">
         <table>
           <td>{{ val }}</td>
+          {% if father %}
           <td class="bold-td">{{ father.is_alive|yesno:"Vive, Finado, Sin registro" }}</td>
+          {% endif %}
+          {% if father %}
           <td class="bold-td">{{ mother.is_alive|yesno:"Vive, Finado, Sin registro" }}</td>
+          {% endif %}
         </table>
       </td>
     </tr>
@@ -334,8 +340,8 @@
       <td colspan="2">
         <table>
           <td></td>
-          <td class="bold-td">{{ father.workplace|default:"Sin registro" }}</td>
-          <td class="bold-td">{{ mother.workplace|default:"Sin registro" }}</td>
+          <td class="bold-td">{{ father.workplace|default:"" }}</td>
+          <td class="bold-td">{{ mother.workplace|default:"" }}</td>
         </table>
       </td>
     </tr>
@@ -359,12 +365,12 @@
     </tr>
   </table>
 
-  <p style="text-align: center">FORMATO DE ENTREVISTA</p>
+  <p style="text-align: center; font-weight:bold">FORMATO DE ENTREVISTA</p>
   <table>
     <tr>
       <td colspan="2">
         <table>
-          <td>NOMBRE: <span class="bold-td"> {{ student.user.first_name }} {{ student.user.second_name }} {{ student.user.last_name }} {{ student.user.second_last_name }}</span></td>
+          <td>NOMBRE: <span class="bold-td"> {{ student.user.first_name }} {{ student.user.second_name|default:"" }} {{ student.user.last_name }} {{ student.user.second_last_name|default:"" }}</span></td>
         </table>
       </td>
     </tr>
@@ -403,7 +409,7 @@
     <tr>
       <td colspan="2">
         <table>
-          <td class="bold-td">{{ student.user.personal_information.birth_date|date:"d/m/Y"|default:"Sin registro" }}</td>
+          <td class="bold-td">{{ student.user.personal_information.birth_date|date:"d/m/Y"|default:"" }}</td>
           <td class="bold-td">{{ student.user.personal_information.gender.name }}</td>
           <td class="bold-td">{{ val }}</td>
         </table>
@@ -534,7 +540,7 @@
       <td colspan="2">
         <table>
           <td>¿NÚMERO DE PERSONAS CON LAS QUE VIVES?</td>
-          <td>PARENTESCO:</td>
+          <td>¿CÓMO ES TU RELACIÓN CON LAS PERSONAS QUE VIVES?</td>
         </table>
       </td>
     </tr>
@@ -549,7 +555,7 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>NOMBRE DEL PADRE: <span class="bold-td">{{ father.first_name }} {{ father.second_name }} {{ father.last_name }} {{ father.second_last_name }}</span></td>
+          <td>NOMBRE DEL PADRE: <span class="bold-td">{{ father.first_name }} {{ father.second_name|default:"" }} {{ father.last_name }} {{ father.second_last_name|default:"" }}</span></td>
         </table>
       </td>
     </tr>
@@ -574,7 +580,7 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>TIPO DE TRABAJO: <span class="bold-td">{{ father.type_of_job|default:"Sin registro" }}</span></td>
+          <td>TIPO DE TRABAJO: <span class="bold-td">{{ father.type_of_job|default:"" }}</span></td>
         </table>
       </td>
     </tr>
@@ -641,7 +647,7 @@
       <td colspan="2">
         <table>
           <td class="bold-td">{{ mother.profession_occupation }}</td>
-          <td class="bold-td">{{ mother.type_of_job|default:"Sin registro" }}</td>
+          <td class="bold-td">{{ mother.type_of_job|default:"" }}</td>
         </table>
       </td>
     </tr>
@@ -690,7 +696,7 @@
       </td>
     </tr>
   </table>
-  <p style="text-align: center">NOMBRE DE TUS HERMANOS POR EDAD DEL MAYOR AL MENOR INCLUYENDOTE TÚ</p>
+  <p style="text-align: center; font-weight:bold">NOMBRE DE TUS HERMANOS POR EDAD DEL MAYOR AL MENOR INCLUYENDOTE TÚ</p>
   <table>
     <tr>
       <td colspan="2">
@@ -767,7 +773,7 @@
       </td>
     </tr>
   </table>
-  <p style="text-align: center">DATOS MÉDICOS</p>
+  <p style="text-align: center; font-weight:bold">DATOS MÉDICOS</p>
   <table>
     <tr>
       <td colspan="2">
@@ -797,7 +803,7 @@
     </tr>
     {% endfor %}
   </table>
-  <p style="text-align: center">ESTADO PSICOFISIOLÓGICOS</p>
+  <p style="text-align: center; font-weight:bold">ESTADO PSICOFISIOLÓGICOS</p>
   <table>
     <tr>
       <td colspan="2">
@@ -896,17 +902,17 @@
       </td>
     </tr>
   </table>
-  <p style="text-align: center">OBSERVACIONES DE HIGIENE</p>
+  <p style="text-align: center; font-weight:bold">OBSERVACIONES DE HIGIENE</p>
   <table>
     <tr>
       <td colspan="2">
         <table>
-          <td class="bold-td">{{ student.estado_psicofisiologico.p12|default:"Sin registro" }}</td>
+          <td class="bold-td">{{ student.estado_psicofisiologico.p12|default:"" }}</td>
         </table>
       </td>
     </tr>
   </table>
-  <p style="text-align: center">ÁREAS DE INTEGRACIÓN</p>
+  <p style="text-align: center; font-weight:bold">ÁREAS DE INTEGRACIÓN</p>
   <p>ÁREA FAMILIAR:</p>
   <table>
     <tr>
@@ -966,7 +972,7 @@
       </td>
     </tr>
   </table>
-  <p style="text-align: center">HERMANOS: CON CADA UNO DE ELLOS</p>
+  <p style="text-align: center; font-weight:bold">HERMANOS: CON CADA UNO DE ELLOS</p>
   <table>
     <tr>
       <td colspan="2">
@@ -1022,12 +1028,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>CONSIDERAS IMPORTANTE FACILITAR ALGÚN OTRO DATO SOBRE TE AMBIENTE FAMILIAR <span class="bold-td"> {{ student.area_integracion.p11 }}</span></td>
+          <td>CONSIDERAS IMPORTANTE FACILITAR ALGÚN OTRO DATO SOBRE EL AMBIENTE FAMILIAR <span class="bold-td"> {{ student.area_integracion.p11 }}</span></td>
         </table>
       </td>
     </tr>
   </table>
-  <p style="text-align: center">ÁREA SOCIAL:</p>
+  <p style="text-align: center; font-weight:bold">ÁREA SOCIAL:</p>
   <table>
     <tr>
       <td colspan="2">
@@ -1093,7 +1099,7 @@
       </td>
     </tr>
   </table>
-  <p style="text-align: center">CARACTERÍSTICAS PERSONALES</p>
+  <p style="text-align: center; font-weight:bold">CARACTERÍSTICAS PERSONALES</p>
   <table>
     <tr>
       <td colspan="2">
@@ -1296,7 +1302,7 @@
       </td>
     </tr>
   </table>
-  <p style="text-align: center">ÁREA PSICOPEDAGÓGICA</p>
+  <p style="text-align: center; font-weight:bold">ÁREA PSICOPEDAGÓGICA</p>
   <table>
     <tr>
       <td colspan="2">
@@ -1378,12 +1384,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>¿CUÁNTAS? <span class="bold-td">{{ student.area_psicopedagogica.p8_1 }}</span></td>
+          <td>¿CUÁNTAS? <span class="bold-td">{{ student.area_psicopedagogica.p8_1|default:"" }}</span></td>
         </table>
       </td>
     </tr>
   </table>
-  <p style="text-align: center">PLAN DE VIDA Y CARRERA</p>
+  <p style="text-align: center; font-weight:bold">PLAN DE VIDA Y CARRERA</p>
   <table>
     <tr>
       <td colspan="2">
@@ -1414,7 +1420,7 @@
       </td>
     </tr>
   </table>
-  <p style="text-align: center">CARACTERÍSTICAS PERSONALES</p>
+  <p style="text-align: center; font-weight:bold">CARACTERÍSTICAS PERSONALES</p>
   <table>
     <tr>
       <td colspan="2">
@@ -1501,12 +1507,12 @@
       </td>
     </tr>
   </table>
-  <p style="text-align: center">ENCUESTA SOBRE LAS HABILIDADES DE ESTUDIO</p>
+  <p style="text-align: center; font-weight:bold">ENCUESTA SOBRE LAS HABILIDADES DE ESTUDIO</p>
   <p>La presente encuesta está formada por tres breves cuestionarios, en los cuales puedes indicar los problemas
     referentes aorganización, técnicas y motivación en el estudio, que quizá perjudican tu rendimiento académico. Si
     contestas todas las preguntascon sinceridad y reflexión podrás identificar mucho de tus actuales defectos al
     estudiar</p>
-  <p style="text-align: center">ENCUESTA PARA LA ORGANIZACIÓN DEL ESTUDIO</p>
+  <p style="text-align: center; font-weight:bold">ENCUESTA PARA LA ORGANIZACIÓN DEL ESTUDIO</p>
   <table>
     <tr>
       <td colspan="2">
@@ -1518,29 +1524,48 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>A.- ¿Sueles dejar para el último la preparación de tus trabajos? <span class="bold-td">{{ student.organizacion_estudio.p1|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>A.- ¿Sueles dejar para el último la preparación de tus trabajos?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p1|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>B.- ¿Crees que el sueño o el cansancio te impidan estudiar eficazmente en muchas ocasiones? <span class="bold-td">{{ student.organizacion_estudio.p2|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>B.- ¿Crees que el sueño o el cansancio te impidan estudiar eficazmente en muchas ocasiones?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p2|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>C.- ¿Es frecuente que no termines tu tarea a tiempo? <span class="bold-td">{{ student.organizacion_estudio.p3|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>C.- ¿Es frecuente que no termines tu tarea a tiempo?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p3|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>D.- ¿Tiendes a emplear tiempo en leer revistas, ver televisión o charlar cuando debieras dedicarlos a
-            estudiar? <span class="bold-td">{{ student.organizacion_estudio.p4|yesno:"Si, No, Sin registro" }}</span>
+          <td>D.- ¿Tiendes a emplear tiempo en leer revistas, ver televisión o charlar cuando debieras dedicarlos a estudiar?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p4|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1548,22 +1573,36 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>E.- Tus actividades sociales o deportivas. ¿te llevan a descuidar, a menudo, tus tareas escolares? <span class="bold-td">{{ student.organizacion_estudio.p5|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>E.- Tus actividades sociales o deportivas. ¿te llevan a descuidar, a menudo, tus tareas escolares?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p5|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>F.- ¿Sueles dejar pasar un día o más antes de repasarlos apuntes tomados en clase? <span class="bold-td">{{ student.organizacion_estudio.p6|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>F.- ¿Sueles dejar pasar un día o más antes de repasarlos apuntes tomados en clase?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p6|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>G.- ¿Sueles dedicar tu tiempo libre entre las 4:00 de la tarde y las 9:00 de la noche a otras actividades
-            que no sean estudiar? <span class="bold-td">{{ student.organizacion_estudio.p7|yesno:"Si, No, Sin registro" }}</span>
+          <td>G.- ¿Sueles dedicar tu tiempo libre entre las 4:00 de la tarde y las 9:00 de la noche a otras actividades que no sean estudiar?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p7|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1571,28 +1610,48 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>H.- ¿Descubres algunas veces de pronto, que debes entregar una tarea antes de lo que creías? <span class="bold-td">{{ student.organizacion_estudio.p8|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>H.- ¿Descubres algunas veces de pronto, que debes entregar una tarea antes de lo que creías?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p8|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>I.- ¿Te retrasas, con frecuencia, en una asignatura debido a que tienes que estudiar otra? <span class="bold-td">{{ student.organizacion_estudio.p9|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>I.- ¿Te retrasas, con frecuencia, en una asignatura debido a que tienes que estudiar otra?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p9|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>J.- ¿Te parece que tu rendimiento es muy bajo, en relación con el tiempo que dedicas al estudio? <span class="bold-td">{{ student.organizacion_estudio.p10|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>J.- ¿Te parece que tu rendimiento es muy bajo, en relación con el tiempo que dedicas al estudio?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p10|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>K.- ¿Está situado tu escritorio directamente frente a una ventana, puerta u otra fuente de distracción? <span class="bold-td">{{ student.organizacion_estudio.p11|yesno:"Si, No, Sin registro" }}</span>
+          <td>K.- ¿Está situado tu escritorio directamente frente a una ventana, puerta u otra fuente de distracción?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p11|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1600,29 +1659,48 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>L.- ¿Sueles tener fotografías, trofeos o recuerdos sobre tu mesa de escritorio? <span class="bold-td">{{ student.organizacion_estudio.p12|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>L.- ¿Sueles tener fotografías, trofeos o recuerdos sobre tu mesa de escritorio?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p12|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>M.- ¿Sueles estudiar recostado en la cama o arrellanado en un asiento cómodo? <span class="bold-td">{{ student.organizacion_estudio.p13|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>M.- ¿Sueles estudiar recostado en la cama o arrellanado en un asiento cómodo?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p13|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>N.- ¿Produce resplandor la lámpara que utilizas al estudiar? <span class="bold-td">{{ student.organizacion_estudio.p14|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>N.- ¿Produce resplandor la lámpara que utilizas al estudiar?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p14|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>O.- Tu mesa de estudio ¿está tan desordenada y llena de objetos, que no dispones de sitio suficiente para
-            estudiar con eficacia? <span class="bold-td">{{ student.organizacion_estudio.p15|yesno:"Si, No, Sin registro" }}</span>
+          <td>O.- Tu mesa de estudio ¿está tan desordenada y llena de objetos, que no dispones de sitio suficiente para estudiar con eficacia?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p15|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1630,22 +1708,36 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>P.- ¿Sueles interrumpir tu estudio, por personas que vienen a visitarte? <span class="bold-td">{{ student.organizacion_estudio.p16|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>P.- ¿Sueles interrumpir tu estudio, por personas que vienen a visitarte?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p16|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>Q.- ¿Estudias, con frecuencia, mientras tienes puesta la televisión y/o la radio? <span class="bold-td">{{ student.organizacion_estudio.p17|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>Q.- ¿Estudias, con frecuencia, mientras tienes puesta la televisión y/o la radio?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p17|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>R.- En el lugar donde estudias, ¿se pueden ver con facilidad revistas, fotos de jóvenes o materiales
-            pertenecientes a tu afición? <span class="bold-td">{{ student.organizacion_estudio.p18|yesno:"Si, No, Sin registro" }}</span>
+          <td>R.- En el lugar donde estudias, ¿se pueden ver con facilidad revistas, fotos de jóvenes o materiales pertenecientes a tu afición?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p18|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1653,21 +1745,30 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>S.- ¿Con frecuencia, interrumpen tu estudio, actividades o ruidos que provienen del exterior? <span class="bold-td">{{ student.organizacion_estudio.p19|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>S.- ¿Con frecuencia, interrumpen tu estudio, actividades o ruidos que provienen del exterior?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p19|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>T.- ¿Suele hacerse lento tu estudio debido a que no tienes a la mano los libros ylos materiales
-            necesarios? <span class="bold-td">{{ student.organizacion_estudio.p20|yesno:"Si, No, Sin registro" }}</span>
+          <td>T.- ¿Suele hacerse lento tu estudio debido a que no tienes a la mano los libros ylos materiales necesarios?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p20|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
     </tr>
   </table>
-  <p style="text-align: center">ENCUESTA SOBRE TÉCNICAS DE ESTUDIO</p>
+  <p style="text-align: center; font-weight:bold">ENCUESTA SOBRE TÉCNICAS DE ESTUDIO</p>
   <table>
     <tr>
       <td colspan="2">
@@ -1679,8 +1780,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>A.- ¿Tiendes a comenzar la lectura de un libro de texto sin hojear previamente los subtítulos y las
-            ilustraciones? <span class="bold-td">{{ student.tecnica_estudio.p1|yesno:"Si, No, Sin registro" }}</span>
+          <td>A.- ¿Tiendes a comenzar la lectura de un libro de texto sin hojear previamente los subtítulos y las ilustraciones?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p1|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1688,22 +1793,36 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>B.- ¿Te saltas por lo general las figuras, gráficas y tablas cuando estudias un tema? <span class="bold-td">{{ student.tecnica_estudio.p2|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>B.- ¿Te saltas por lo general las figuras, gráficas y tablas cuando estudias un tema?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p2|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>C.- ¿Suelo serte difícil seleccionar los puntos de los temas de estudio? <span class="bold-td">{{ student.tecnica_estudio.p3|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>C.- ¿Suelo serte difícil seleccionar los puntos de los temas de estudio?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p3|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>D.- ¿Te sorprendes con cierta frecuencia, pensando en algo que no tiene nada que ver con lo que
-            estudias? <span class="bold-td">{{ student.tecnica_estudio.p4|yesno:"Si, No, Sin registro" }}</span>
+          <td>D.- ¿Te sorprendes con cierta frecuencia, pensando en algo que no tiene nada que ver con lo que estudias?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p4|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1711,8 +1830,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>E.- ¿Sueles tener dificultad en entender tus apuntes de clase cuando tratas de repasarlos, después de
-            cierto tiempo? <span class="bold-td">{{ student.tecnica_estudio.p5|yesno:"Si, No, Sin registro" }}</span>
+          <td>E.- ¿Sueles tener dificultad en entender tus apuntes de clase cuando tratas de repasarlos, después de cierto tiempo?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p5|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1720,8 +1843,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>F.- Al tomar notas, ¿te sueles quedar atrás con frecuencia debido a que no puedes escribir con suficiente
-            rapidez? <span class="bold-td">{{ student.tecnica_estudio.p6|yesno:"Si, No, Sin registro" }}</span>
+          <td>F.- Al tomar notas, ¿te sueles quedar atrás con frecuencia debido a que no puedes escribir con suficiente rapidez?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p6|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1729,22 +1856,36 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>G.- Poco después de comenzar un curso, ¿sueles encontrarte con tus apuntes formando un "revoltijo"? <span class="bold-td">{{ student.tecnica_estudio.p7|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>G.- Poco después de comenzar un curso, ¿sueles encontrarte con tus apuntes formando un "revoltijo"?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p7|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>H.- ¿Tomas normalmente tus apuntes tratando de escribir las palabras exactas del docente? <span class="bold-td">{{ student.tecnica_estudio.p8|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>H.- ¿Tomas normalmente tus apuntes tratando de escribir las palabras exactas del docente?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p8|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>I.- Cuando tomas notas de un libro, ¿tienes la costumbre de copiar el material necesario, palabra por
-            Palabra? <span class="bold-td">{{ student.tecnica_estudio.p9|yesno:"Si, No, Sin registro" }}</span>
+          <td>I.- Cuando tomas notas de un libro, ¿tienes la costumbre de copiar el material necesario, palabra por Palabra?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p9|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1752,29 +1893,48 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>J.- ¿Te es difícil preparar un temario apropiado para una evaluación? <span class="bold-td">{{ student.tecnica_estudio.p10|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>J.- ¿Te es difícil preparar un temario apropiado para una evaluación?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p10|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>K.- ¿Tienes problemas para organizar los datos o el contenido de una evaluación? <span class="bold-td">{{ student.tecnica_estudio.p11|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>K.- ¿Tienes problemas para organizar los datos o el contenido de una evaluación?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p11|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>L.- ¿Al repasar el temario de una evaluación formulas un resumen de este? <span class="bold-td">{{ student.tecnica_estudio.p12|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>L.- ¿Al repasar el temario de una evaluación formulas un resumen de este?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p12|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>M.- ¿Te preparas a veces para un evaluación memorizando fórmulas, definiciones o reglas que no entiendes
-            con claridad? <span class="bold-td">{{ student.tecnica_estudio.p13|yesno:"Si, No, Sin registro" }}</span>
+          <td>M.- ¿Te preparas a veces para un evaluación memorizando fórmulas, definiciones o reglas que no entiendes con claridad?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p13|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1782,15 +1942,24 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>N.- ¿Te resulta difícil decidir qué estudiar y cómo estudiarlo cuando preparas una evaluación? <span class="bold-td">{{ student.tecnica_estudio.p14|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>N.- ¿Te resulta difícil decidir qué estudiar y cómo estudiarlo cuando preparas una evaluación?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p14|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>O.- ¿Sueles tener dificultades para organizar, en un orden lógico, las asignaturas que debes estudiar por
-            temas? <span class="bold-td">{{ student.tecnica_estudio.p15|yesno:"Si, No, Sin registro" }}</span>
+          <td>O.- ¿Sueles tener dificultades para organizar, en un orden lógico, las asignaturas que debes estudiar por temas?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p15|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1798,15 +1967,24 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>P.- Al preparar evaluación, ¿sueles estudiar toda la asignatura, en el último momento? <span class="bold-td">{{ student.tecnica_estudio.p16|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>P.- Al preparar evaluación, ¿sueles estudiar toda la asignatura, en el último momento?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p16|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>Q.- ¿Sueles entregar tus exámenes sin revisarlos detenidamente, para ver si tienen algún error cometido
-            por descuido? <span class="bold-td">{{ student.tecnica_estudio.p17|yesno:"Si, No, Sin registro" }}</span>
+          <td>Q.- ¿Sueles entregar tus exámenes sin revisarlos detenidamente, para ver si tienen algún error cometido por descuido?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p17|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1814,8 +1992,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>R.- ¿Te es posible con frecuencia terminar una evaluación de exposición de un tema en el tiempo
-            prescrito? <span class="bold-td">{{ student.tecnica_estudio.p18|yesno:"Si, No, Sin registro" }}</span>
+          <td>R.- ¿Te es posible con frecuencia terminar una evaluación de exposición de un tema en el tiempo prescrito?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p18|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1823,8 +2005,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>S.- ¿Sueles perder puntos en exámenes con preguntas de ? Verdadero - falso", debido a que no lees
-            detenidamente? <span class="bold-td">{{ student.tecnica_estudio.p19|yesno:"Si, No, Sin registro" }}</span>
+          <td>S.- ¿Sueles perder puntos en exámenes con preguntas de ? Verdadero - falso", debido a que no lees detenidamente?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p19|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1832,14 +2018,18 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>T.- ¿Empleas normalmente mucho tiempo en contestar la primera mitad de la prueba y tienes que apresurarte
-            en la segunda? <span class="bold-td">{{ student.tecnica_estudio.p20|yesno:"Si, No, Sin registro" }}</span>
+          <td>T.- ¿Empleas normalmente mucho tiempo en contestar la primera mitad de la prueba y tienes que apresurarte en la segunda?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p20|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
     </tr>
   </table>
-  <p style="text-align: center">ENCUESTA SOBRE MOTIVACIÓN PAR A EL ESTUDIO</p>
+  <p style="text-align: center; font-weight:bold">ENCUESTA SOBRE MOTIVACIÓN PAR A EL ESTUDIO</p>
   <table>
     <tr>
       <td colspan="2">
@@ -1851,14 +2041,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>A.- Después de los primeros días o semanas del curso, ¿tiendes a perder interés por el estudio? <span class="bold-td">{{ student.motivacion_estudio.p1|yesno:"Si, No, Sin registro" }}</span></td>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <table>
-          <td>B.- ¿Crees que en general, basta estudiar lo necesario para obtener un "aprobado" en las asignaturas.? <span class="bold-td">{{ student.motivacion_estudio.p2|yesno:"Si, No, Sin registro" }}</span>
+          <td>A.- Después de los primeros días o semanas del curso, ¿tiendes a perder interés por el estudio?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p1|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1866,8 +2054,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>C.- ¿Te sientes frecuentemente confuso o indeciso sobre cuáles deben ser tus metas formativas y
-            profesionales? <span class="bold-td">{{ student.motivacion_estudio.p3|yesno:"Si, No, Sin registro" }}</span>
+          <td>B.- ¿Crees que en general, basta estudiar lo necesario para obtener un "aprobado" en las asignaturas.?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p2|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1875,8 +2067,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>D.- ¿Sueles pensar que no vale la pena el tiempo y el esfuerzo que son necesarios para lograr una
-            educación universitaria? <span class="bold-td">{{ student.motivacion_estudio.p4|yesno:"Si, No, Sin registro" }}</span>
+          <td>C.- ¿Te sientes frecuentemente confuso o indeciso sobre cuáles deben ser tus metas formativas y profesionales?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p3|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1884,14 +2080,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>E.- ¿Crees que es más importante divertirte y disfrutar de la vida, que estudiar? <span class="bold-td">{{ student.motivacion_estudio.p5|yesno:"Si, No, Sin registro" }}</span></td>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <table>
-          <td>F.- ¿Sueles pasar el tiempo de clase en divagaciones o soñando despierto en lugar de atender al docente? <span class="bold-td">{{ student.motivacion_estudio.p6|yesno:"Si, No, Sin registro" }}</span>
+          <td>D.- ¿Sueles pensar que no vale la pena el tiempo y el esfuerzo que son necesarios para lograr una educación universitaria?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p4|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1899,8 +2093,24 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>G.- ¿Te sientes habitualmente incapaz de concentrarte en tus estudios debido a que estas inquieto,
-            aburrido o de mal humor? <span class="bold-td">{{ student.motivacion_estudio.p7|yesno:"Si, No, Sin registro" }}</span>
+          <td>E.- ¿Crees que es más importante divertirte y disfrutar de la vida, que estudiar?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p5|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>F.- ¿Sueles pasar el tiempo de clase en divagaciones o soñando despierto en lugar de atender al docente?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p6|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1908,22 +2118,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>H.- ¿Piensas con frecuencia que las asignaturas que estudias tienen poco valor practico para ti? <span class="bold-td">{{ student.motivacion_estudio.p8|yesno:"Si, No, Sin registro" }}</span></td>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <table>
-          <td>I.- ¿Sientes, frecuentes deseos de abandonar la escuela y conseguir un trabajo? <span class="bold-td">{{ student.motivacion_estudio.p9|yesno:"Si, No, Sin registro" }}</span></td>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <table>
-          <td>J.- ¿Sueles tener la sensación de lo que se enseña en los centros docentes no te prepara para afrontar los
-            problemas de la vida adulta? <span class="bold-td">{{ student.motivacion_estudio.p10|yesno:"Si, No, Sin registro" }}</span>
+          <td>G.- ¿Te sientes habitualmente incapaz de concentrarte en tus estudios debido a que estas inquieto, aburrido o de mal humor?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p7|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1931,22 +2131,36 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>K.- ¿Sueles dedicarte de modo casual, según el estado de ánimo en que te encuentres? <span class="bold-td">{{ student.motivacion_estudio.p11|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>H.- ¿Piensas con frecuencia que las asignaturas que estudias tienen poco valor practico para ti?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p8|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>L.- ¿Te horroriza estudiar libros de textos porque son insípidos y aburridos? <span class="bold-td">{{ student.motivacion_estudio.p12|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>I.- ¿Sientes, frecuentes deseos de abandonar la escuela y conseguir un trabajo?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p9|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>M.- ¿Esperas normalmente a que te fijen la fecha de un evaluación para comenzar a estudiar los textos o
-            repasar tus apuntes declases? <span class="bold-td">{{ student.motivacion_estudio.p13|yesno:"Si, No, Sin registro" }}</span>
+          <td>J.- ¿Sueles tener la sensación de lo que se enseña en los centros docentes no te prepara para afrontar los problemas de la vida adulta?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p10|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1954,8 +2168,36 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>N - ¿Sueles pensar que los exámenes son pruebas penosas de las que no se puede escapar y respecto a las
-            cuales lo que debe hacersees sobrevivir, del modo que sea? <span class="bold-td">{{ student.motivacion_estudio.p14|yesno:"Si, No, Sin registro" }}</span>
+          <td>K.- ¿Sueles dedicarte de modo casual, según el estado de ánimo en que te encuentres?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p11|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>L.- ¿Te horroriza estudiar libros de textos porque son insípidos y aburridos?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p12|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>M.- ¿Esperas normalmente a que te fijen la fecha de un evaluación para comenzar a estudiar los textos o repasar tus apuntes declases?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p13|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1963,15 +2205,12 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>O.- ¿Sientes con frecuencia que tus docentes no comprenden las necesidades de los estudiantes? <span class="bold-td">{{ student.motivacion_estudio.p15|yesno:"Si, No, Sin registro" }}</span></td>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <table>
-          <td>P.- ¿Tienes normalmente la sensación de que tus docentes exigen demasiadas horas de estudio fuera de
-            clase? <span class="bold-td">{{ student.motivacion_estudio.p16|yesno:"Si, No, Sin registro" }}</span>
+          <td>N - ¿Sueles pensar que los exámenes son pruebas penosas de las que no se puede escapar y respecto a las cuales lo que debe hacersees sobrevivir, del modo que sea?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p14|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -1979,22 +2218,24 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>Q.- ¿Dudas por lo general, en pedir ayuda a tus docentes en tareas que te son difíciles? <span class="bold-td">{{ student.motivacion_estudio.p17|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>O.- ¿Sientes con frecuencia que tus docentes no comprenden las necesidades de los estudiantes?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p15|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>R.- ¿Sueles pensar que tus docentes no tienen contacto con los temas y sucesos de actualidad? <span class="bold-td">{{ student.motivacion_estudio.p18|yesno:"Si, No, Sin registro" }}</span></td>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <table>
-          <td>S.- ¿Te sientes reacio, por lo general, a hablar con tus docentes de tus proyectos futuros, de estudio o
-            profesionales? <span class="bold-td">{{ student.motivacion_estudio.p19|yesno:"Si, No, Sin registro" }}</span>
+          <td>P.- ¿Tienes normalmente la sensación de que tus docentes exigen demasiadas horas de estudio fuera de clase?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p16|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -2002,17 +2243,59 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>T.- ¿Criticas con frecuencia a tus docentes cuando charlas con tus compañeros? <span class="bold-td">{{ student.motivacion_estudio.p20|yesno:"Si, No, Sin registro" }}</span></td>
+          <td>Q.- ¿Dudas por lo general, en pedir ayuda a tus docentes en tareas que te son difíciles?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p17|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>R.- ¿Sueles pensar que tus docentes no tienen contacto con los temas y sucesos de actualidad?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p18|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>S.- ¿Te sientes reacio, por lo general, a hablar con tus docentes de tus proyectos futuros, de estudio o profesionales?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p19|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>T.- ¿Criticas con frecuencia a tus docentes cuando charlas con tus compañeros?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p20|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
   </table>
-  <p style="text-align: center">INVENTARIO SOBRE ESTILOS DE APRENDIZAJE</p>
+  <p style="text-align: center; font-weight:bold">INVENTARIO SOBRE ESTILOS DE APRENDIZAJE</p>
   <p>
     Este inventario es para ayudarle a descubrir su manera preferida de aprender. Cada persona tiene su manera preferida
     de aprender.Reconocer sus preferencias le ayudará a comprender sus fuerzas en cualquier situación de aprendizaje.
   </p>
-  <p style="text-align: center">ENTREVISTA SOBRE ESTILOS DE APRENDIZAJE</p>
+  <p style="text-align: center; font-weight:bold">ENTREVISTA SOBRE ESTILOS DE APRENDIZAJE</p>
   <table>
     <tr>
       <td colspan="2">
@@ -2024,113 +2307,192 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>1.- Me ayuda trazar o escribir a mano las palabras cuando tengo que aprenderlas de memoria <span class="bold-td">{{ student.estilo_aprendizaje.get_p1_display }}</span></td>
+          <td>1.- Me ayuda trazar o escribir a mano las palabras cuando tengo que aprenderlas de memoria
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p1_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>2.- Recuerdo mejor un tema al escuchar una conferencia en vez de leer un libro de texto <span class="bold-td">{{ student.estilo_aprendizaje.get_p2_display }}</span></td>
+          <td>2.- Recuerdo mejor un tema al escuchar una conferencia en vez de leer un libro de texto
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p2_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>3.- Prefiero las clases que requieren una prueba sobre lo que se lee en el libro de texto <span class="bold-td">{{ student.estilo_aprendizaje.get_p3_display }}</span></td>
+          <td>3.- Prefiero las clases que requieren una prueba sobre lo que se lee en el libro de texto
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p3_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>4.- Me gusta comer bocados y mascar chicle, cuando estudio <span class="bold-td">{{ student.estilo_aprendizaje.get_p4_display }}</span></td>
+          <td>4.- Me gusta comer bocados y mascar chicle, cuando estudio
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p4_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>5.- Al prestar atención a una conferencia, puedo recordar las ideas principales sin anotarlas <span class="bold-td">{{ student.estilo_aprendizaje.get_p5_display }}</span></td>
+          <td>5.- Al prestar atención a una conferencia, puedo recordar las ideas principales sin anotarlas
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p5_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>6.- Prefiero las instrucciones escritas sobre las orales <span class="bold-td">{{ student.estilo_aprendizaje.get_p6_display }}</span></td>
+          <td>6.- Prefiero las instrucciones escritas sobre las orales
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p6_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>7.- Yo resuelvo bien los rompecabezas y los laberintos <span class="bold-td">{{ student.estilo_aprendizaje.get_p7_display }}</span></td>
+          <td>7.- Yo resuelvo bien los rompecabezas y los laberintos
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p7_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>8.- Prefiero las clases que requieran una prueba sobre lo que se presenta durante una conferencia <span class="bold-td">{{ student.estilo_aprendizaje.get_p8_display }}</span></td>
+          <td>8.- Prefiero las clases que requieran una prueba sobre lo que se presenta durante una conferencia
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p8_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>9.- Me ayuda ver diapositivas y videos para comprender un tema <span class="bold-td">{{ student.estilo_aprendizaje.get_p9_display }}</span></td>
+          <td>9.- Me ayuda ver diapositivas y videos para comprender un tema
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p9_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>10.- Recuerdo más cuando leo un libro que cuando escucho una conferencia <span class="bold-td">{{ student.estilo_aprendizaje.get_p10_display }}</span></td>
+          <td>10.- Recuerdo más cuando leo un libro que cuando escucho una conferencia
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p10_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>11.- Por lo general, tengo que escribir los números del teléfono para recordarlos bien <span class="bold-td">{{ student.estilo_aprendizaje.get_p11_display }}</span></td>
+          <td>11.- Por lo general, tengo que escribir los números del teléfono para recordarlos bien
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p11_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>12.- Prefiero recibir las noticias escuchando la radio en vez de leerlas en un periódico <span class="bold-td">{{ student.estilo_aprendizaje.get_p12_display }}</span></td>
+          <td>12.- Prefiero recibir las noticias escuchando la radio en vez de leerlas en un periódico
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p12_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>13.- Me gusta tener algo como un bolígrafo o un lápiz en la mano cuando estudio <span class="bold-td">{{ student.estilo_aprendizaje.get_p13_display }}</span></td>
+          <td>13.- Me gusta tener algo como un bolígrafo o un lápiz en la mano cuando estudio
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p13_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>14.- Necesito copiar los ejemplos de la pizarra del maestro para examinarlos más tarde <span class="bold-td">{{ student.estilo_aprendizaje.get_p14_display }}</span></td>
+          <td>14.- Necesito copiar los ejemplos de la pizarra del maestro para examinarlos más tarde
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p14_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>15.- Prefiero las instrucciones orales del maestro a aquellas escritas en un examen o en la pizarra <span class="bold-td">{{ student.estilo_aprendizaje.get_p15_display }}</span></td>
+          <td>15.- Prefiero las instrucciones orales del maestro a aquellas escritas en un examen o en la pizarra
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p15_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>16.- Prefiero que un libro de texto tenga diagramas gráficos y cuadros porque me ayudan mejor a entender
-            el material <span class="bold-td">{{ student.estilo_aprendizaje.get_p16_display }}</span>
+          <td>16.- Prefiero que un libro de texto tenga diagramas gráficos y cuadros porque me ayudan mejor a entender el material
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p16_display }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
@@ -2138,57 +2500,96 @@
     <tr>
       <td colspan="2">
         <table>
-          <td>17.- Me gusta escuchar música al estudiar una obra, novela, etc. <span class="bold-td">{{ student.estilo_aprendizaje.get_p17_display }}</span></td>
+          <td>17.- Me gusta escuchar música al estudiar una obra, novela, etc.
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p17_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>18.- Tengo que apuntar listas de cosas que quiero hacer para recordarlas <span class="bold-td">{{ student.estilo_aprendizaje.get_p18_display }}</span></td>
+          <td>18.- Tengo que apuntar listas de cosas que quiero hacer para recordarlas
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p18_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>19.- Puedo corregir mi tarea examinándola y encontrando la mayoría de los errores <span class="bold-td">{{ student.estilo_aprendizaje.get_p19_display }}</span></td>
+          <td>19.- Puedo corregir mi tarea examinándola y encontrando la mayoría de los errores
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p19_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>20.- Prefiero leer el periódico en vez de escuchar las noticias <span class="bold-td">{{ student.estilo_aprendizaje.get_p20_display }}</span></td>
+          <td>20.- Prefiero leer el periódico en vez de escuchar las noticias
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p20_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>21.- Puedo recordar los números de teléfono cuando los oigo <span class="bold-td">{{ student.estilo_aprendizaje.get_p21_display }}</span></td>
+          <td>21.- Puedo recordar los números de teléfono cuando los oigo
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p21_display }}
+              {% endif %}
+          </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>22.- Gozo el trabajo que me exige usar la mano o herramientas <span class="bold-td">{{ student.estilo_aprendizaje.get_p22_display }}</span></td>
+          <td>22.- Gozo el trabajo que me exige usar la mano o herramientas
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p22_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>23.- Cuando escribo algo, necesito leerlo en voz alta para oír como suena <span class="bold-td">{{ student.estilo_aprendizaje.get_p23_display }}</span></td>
+          <td>23.- Cuando escribo algo, necesito leerlo en voz alta para oír como suena
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p23_display }}
+              {% endif %}
+            </span></td>
         </table>
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <table>
-          <td>24.- Puedo recordar mejor las cosas cuando puedo moverme mientras estoy aprendiéndolas, por ej. caminar al
-            estudiar, o participaren una actividad que me permita moverme, etc. <span class="bold-td">{{ student.estilo_aprendizaje.get_p24_display }}</span>
+          <td>24.- Puedo recordar mejor las cosas cuando puedo moverme mientras estoy aprendiéndolas, por ej. caminar al estudiar, o participaren una actividad que me permita moverme, etc.
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p24_display }}
+              {% endif %}
+            </span>
           </td>
         </table>
       </td>
