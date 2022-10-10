@@ -22,3 +22,4 @@ django-simple-history==2.12.0
 django-filter==2.4.0
 
 weasyprint==52.5
+pandas==1.1.4

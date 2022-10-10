@@ -22,6 +22,7 @@ from .tecnica_estudio import urlpatterns as tecnica_estudio_urlpatterns
 from .motivacion_estudio import urlpatterns as motivacion_estudio_urlpatterns
 from .estilo_aprendizaje import urlpatterns as estilo_aprendizaje_urlpatterns
 from .interview_report import urlpatterns as interview_report_urlpatterns
+from .load_data import urlpatterns as load_data_urlpatterns
 
 
 urlpatterns = []
@@ -49,6 +50,7 @@ urlpatterns += tecnica_estudio_urlpatterns
 urlpatterns += motivacion_estudio_urlpatterns
 urlpatterns += estilo_aprendizaje_urlpatterns
 urlpatterns += interview_report_urlpatterns
+urlpatterns += load_data_urlpatterns
 
 
 __all__ = [
