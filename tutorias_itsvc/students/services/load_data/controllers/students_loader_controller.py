@@ -5,6 +5,8 @@ from shared.exceptions import SerializerApiException
 from tutorias_itsvc.students.repositories import StudentRepository
 from tutorias_itsvc.users.repositories import UserRepository
 from tutorias_itsvc.users.repositories import GroupRepository
+from tutorias_itsvc.students.repositories import AcademicInformationRepository
+from tutorias_itsvc.academy.repositories import AcademicGroupRepository
 from tutorias_itsvc.students.services.load_data import StudentsLoaderService
 
 log = get_logger(__file__)
@@ -18,6 +20,8 @@ class StudentsLoaderController:
         student_repository=None,
         user_repository=None,
         group_repository=None,
+        academic_group_repository=None,
+        academic_information_repository=None,
         service=None
     ):
         self.__request = request
@@ -25,9 +29,13 @@ class StudentsLoaderController:
         self.__student_repository = student_repository or StudentRepository()
         self.__user_repository = user_repository or UserRepository()
         self.__group_repository = group_repository or GroupRepository()
+        self.__academic_group_repository = academic_group_repository or AcademicGroupRepository()
+        self.__academic_information_repository = academic_information_repository or AcademicInformationRepository()
         self.__service = service or StudentsLoaderService(student_repository=self.__student_repository,
                                                           user_repository=self.__user_repository,
-                                                          group_repository=self.__group_repository)
+                                                          group_repository=self.__group_repository,
+                                                          academic_group_repository=self.__academic_group_repository,
+                                                          academic_information_repository=self.__academic_information_repository,)
 
     @transaction.atomic
     def __call__(self):
