@@ -90,6 +90,1094 @@
 </div>{% endcomment %}
 <div>
   <h5 style="text-align: center; margin-top: 10px">Programa Institucional de Tutorias</h5>
+  <p style="text-align: center; font-weight:bold">ENCUESTA SOBRE LAS HABILIDADES DE ESTUDIO</p>
+  <p>La presente encuesta está formada por tres breves cuestionarios, en los cuales puedes indicar los problemas
+    referentes aorganización, técnicas y motivación en el estudio, que quizá perjudican tu rendimiento académico. Si
+    contestas todas las preguntascon sinceridad y reflexión podrás identificar mucho de tus actuales defectos al
+    estudiar</p>
+  <p style="text-align: center; font-weight:bold">ENCUESTA PARA LA ORGANIZACIÓN DEL ESTUDIO</p>
+  <table>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td style="text-align: center">PREGUNTAS</td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>A.- ¿Sueles dejar para el último la preparación de tus trabajos?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p1|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>B.- ¿Crees que el sueño o el cansancio te impidan estudiar eficazmente en muchas ocasiones?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p2|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>C.- ¿Es frecuente que no termines tu tarea a tiempo?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p3|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>D.- ¿Tiendes a emplear tiempo en leer revistas, ver televisión o charlar cuando debieras dedicarlos a estudiar?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p4|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>E.- Tus actividades sociales o deportivas. ¿te llevan a descuidar, a menudo, tus tareas escolares?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p5|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>F.- ¿Sueles dejar pasar un día o más antes de repasarlos apuntes tomados en clase?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p6|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>G.- ¿Sueles dedicar tu tiempo libre entre las 4:00 de la tarde y las 9:00 de la noche a otras actividades que no sean estudiar?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p7|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>H.- ¿Descubres algunas veces de pronto, que debes entregar una tarea antes de lo que creías?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p8|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>I.- ¿Te retrasas, con frecuencia, en una asignatura debido a que tienes que estudiar otra?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p9|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>J.- ¿Te parece que tu rendimiento es muy bajo, en relación con el tiempo que dedicas al estudio?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p10|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>K.- ¿Está situado tu escritorio directamente frente a una ventana, puerta u otra fuente de distracción?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p11|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>L.- ¿Sueles tener fotografías, trofeos o recuerdos sobre tu mesa de escritorio?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p12|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>M.- ¿Sueles estudiar recostado en la cama o arrellanado en un asiento cómodo?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p13|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>N.- ¿Produce resplandor la lámpara que utilizas al estudiar?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p14|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>O.- Tu mesa de estudio ¿está tan desordenada y llena de objetos, que no dispones de sitio suficiente para estudiar con eficacia?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p15|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>P.- ¿Sueles interrumpir tu estudio, por personas que vienen a visitarte?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p16|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>Q.- ¿Estudias, con frecuencia, mientras tienes puesta la televisión y/o la radio?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p17|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>R.- En el lugar donde estudias, ¿se pueden ver con facilidad revistas, fotos de jóvenes o materiales pertenecientes a tu afición?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p18|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>S.- ¿Con frecuencia, interrumpen tu estudio, actividades o ruidos que provienen del exterior?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p19|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>T.- ¿Suele hacerse lento tu estudio debido a que no tienes a la mano los libros ylos materiales necesarios?
+            <span class="bold-td">
+              {% if  student.organizacion_estudio %}
+              {{ student.organizacion_estudio.p20|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <p style="text-align: center; font-weight:bold">ENCUESTA SOBRE TÉCNICAS DE ESTUDIO</p>
+  <table>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td style="text-align: center">PREGUNTAS</td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>A.- ¿Tiendes a comenzar la lectura de un libro de texto sin hojear previamente los subtítulos y las ilustraciones?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p1|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>B.- ¿Te saltas por lo general las figuras, gráficas y tablas cuando estudias un tema?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p2|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>C.- ¿Suelo serte difícil seleccionar los puntos de los temas de estudio?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p3|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>D.- ¿Te sorprendes con cierta frecuencia, pensando en algo que no tiene nada que ver con lo que estudias?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p4|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>E.- ¿Sueles tener dificultad en entender tus apuntes de clase cuando tratas de repasarlos, después de cierto tiempo?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p5|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>F.- Al tomar notas, ¿te sueles quedar atrás con frecuencia debido a que no puedes escribir con suficiente rapidez?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p6|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>G.- Poco después de comenzar un curso, ¿sueles encontrarte con tus apuntes formando un "revoltijo"?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p7|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>H.- ¿Tomas normalmente tus apuntes tratando de escribir las palabras exactas del docente?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p8|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>I.- Cuando tomas notas de un libro, ¿tienes la costumbre de copiar el material necesario, palabra por Palabra?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p9|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>J.- ¿Te es difícil preparar un temario apropiado para una evaluación?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p10|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>K.- ¿Tienes problemas para organizar los datos o el contenido de una evaluación?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p11|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>L.- ¿Al repasar el temario de una evaluación formulas un resumen de este?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p12|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>M.- ¿Te preparas a veces para un evaluación memorizando fórmulas, definiciones o reglas que no entiendes con claridad?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p13|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>N.- ¿Te resulta difícil decidir qué estudiar y cómo estudiarlo cuando preparas una evaluación?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p14|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>O.- ¿Sueles tener dificultades para organizar, en un orden lógico, las asignaturas que debes estudiar por temas?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p15|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>P.- Al preparar evaluación, ¿sueles estudiar toda la asignatura, en el último momento?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p16|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>Q.- ¿Sueles entregar tus exámenes sin revisarlos detenidamente, para ver si tienen algún error cometido por descuido?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p17|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>R.- ¿Te es posible con frecuencia terminar una evaluación de exposición de un tema en el tiempo prescrito?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p18|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>S.- ¿Sueles perder puntos en exámenes con preguntas de ? Verdadero - falso", debido a que no lees detenidamente?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p19|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>T.- ¿Empleas normalmente mucho tiempo en contestar la primera mitad de la prueba y tienes que apresurarte en la segunda?
+            <span class="bold-td">
+              {% if  student.tecnica_estudio %}
+              {{ student.tecnica_estudio.p20|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <p style="text-align: center; font-weight:bold">ENCUESTA SOBRE MOTIVACIÓN PAR A EL ESTUDIO</p>
+  <table>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td style="text-align: center">PREGUNTAS</td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>A.- Después de los primeros días o semanas del curso, ¿tiendes a perder interés por el estudio?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p1|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>B.- ¿Crees que en general, basta estudiar lo necesario para obtener un "aprobado" en las asignaturas.?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p2|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>C.- ¿Te sientes frecuentemente confuso o indeciso sobre cuáles deben ser tus metas formativas y profesionales?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p3|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>D.- ¿Sueles pensar que no vale la pena el tiempo y el esfuerzo que son necesarios para lograr una educación universitaria?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p4|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>E.- ¿Crees que es más importante divertirte y disfrutar de la vida, que estudiar?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p5|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>F.- ¿Sueles pasar el tiempo de clase en divagaciones o soñando despierto en lugar de atender al docente?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p6|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>G.- ¿Te sientes habitualmente incapaz de concentrarte en tus estudios debido a que estas inquieto, aburrido o de mal humor?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p7|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>H.- ¿Piensas con frecuencia que las asignaturas que estudias tienen poco valor practico para ti?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p8|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>I.- ¿Sientes, frecuentes deseos de abandonar la escuela y conseguir un trabajo?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p9|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>J.- ¿Sueles tener la sensación de lo que se enseña en los centros docentes no te prepara para afrontar los problemas de la vida adulta?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p10|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>K.- ¿Sueles dedicarte de modo casual, según el estado de ánimo en que te encuentres?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p11|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>L.- ¿Te horroriza estudiar libros de textos porque son insípidos y aburridos?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p12|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>M.- ¿Esperas normalmente a que te fijen la fecha de un evaluación para comenzar a estudiar los textos o repasar tus apuntes declases?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p13|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>N - ¿Sueles pensar que los exámenes son pruebas penosas de las que no se puede escapar y respecto a las cuales lo que debe hacersees sobrevivir, del modo que sea?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p14|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>O.- ¿Sientes con frecuencia que tus docentes no comprenden las necesidades de los estudiantes?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p15|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>P.- ¿Tienes normalmente la sensación de que tus docentes exigen demasiadas horas de estudio fuera de clase?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p16|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>Q.- ¿Dudas por lo general, en pedir ayuda a tus docentes en tareas que te son difíciles?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p17|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>R.- ¿Sueles pensar que tus docentes no tienen contacto con los temas y sucesos de actualidad?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p18|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>S.- ¿Te sientes reacio, por lo general, a hablar con tus docentes de tus proyectos futuros, de estudio o profesionales?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p19|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>T.- ¿Criticas con frecuencia a tus docentes cuando charlas con tus compañeros?
+            <span class="bold-td">
+              {% if student.motivacion_estudio %}
+              {{ student.motivacion_estudio.p20|yesno:"Si, No, Sin registro" }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <p style="text-align: center; font-weight:bold">INVENTARIO SOBRE ESTILOS DE APRENDIZAJE</p>
+  <p>
+    Este inventario es para ayudarle a descubrir su manera preferida de aprender. Cada persona tiene su manera preferida
+    de aprender.Reconocer sus preferencias le ayudará a comprender sus fuerzas en cualquier situación de aprendizaje.
+  </p>
+  <p style="text-align: center; font-weight:bold">ENTREVISTA SOBRE ESTILOS DE APRENDIZAJE</p>
+  <table>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>PREGUNTAS</td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>1.- Me ayuda trazar o escribir a mano las palabras cuando tengo que aprenderlas de memoria
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p1_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>2.- Recuerdo mejor un tema al escuchar una conferencia en vez de leer un libro de texto
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p2_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>3.- Prefiero las clases que requieren una prueba sobre lo que se lee en el libro de texto
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p3_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>4.- Me gusta comer bocados y mascar chicle, cuando estudio
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p4_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>5.- Al prestar atención a una conferencia, puedo recordar las ideas principales sin anotarlas
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p5_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>6.- Prefiero las instrucciones escritas sobre las orales
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p6_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>7.- Yo resuelvo bien los rompecabezas y los laberintos
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p7_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>8.- Prefiero las clases que requieran una prueba sobre lo que se presenta durante una conferencia
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p8_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>9.- Me ayuda ver diapositivas y videos para comprender un tema
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p9_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>10.- Recuerdo más cuando leo un libro que cuando escucho una conferencia
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p10_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>11.- Por lo general, tengo que escribir los números del teléfono para recordarlos bien
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p11_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>12.- Prefiero recibir las noticias escuchando la radio en vez de leerlas en un periódico
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p12_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>13.- Me gusta tener algo como un bolígrafo o un lápiz en la mano cuando estudio
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p13_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>14.- Necesito copiar los ejemplos de la pizarra del maestro para examinarlos más tarde
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p14_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>15.- Prefiero las instrucciones orales del maestro a aquellas escritas en un examen o en la pizarra
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p15_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>16.- Prefiero que un libro de texto tenga diagramas gráficos y cuadros porque me ayudan mejor a entender el material
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p16_display }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>17.- Me gusta escuchar música al estudiar una obra, novela, etc.
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p17_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>18.- Tengo que apuntar listas de cosas que quiero hacer para recordarlas
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p18_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>19.- Puedo corregir mi tarea examinándola y encontrando la mayoría de los errores
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p19_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>20.- Prefiero leer el periódico en vez de escuchar las noticias
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p20_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>21.- Puedo recordar los números de teléfono cuando los oigo
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p21_display }}
+              {% endif %}
+          </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>22.- Gozo el trabajo que me exige usar la mano o herramientas
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p22_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>23.- Cuando escribo algo, necesito leerlo en voz alta para oír como suena
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p23_display }}
+              {% endif %}
+            </span></td>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table>
+          <td>24.- Puedo recordar mejor las cosas cuando puedo moverme mientras estoy aprendiéndolas, por ej. caminar al estudiar, o participaren una actividad que me permita moverme, etc.
+            <span class="bold-td">
+              {% if student.estilo_aprendizaje %}
+              {{ student.estilo_aprendizaje.get_p24_display }}
+              {% endif %}
+            </span>
+          </td>
+        </table>
+      </td>
+    </tr>
+  </table>
   <p style="text-align: center">TABLA COMPARATIVA DE ENCUESTA SOBRE HABILIDADES DE ESTUDIO</p>
   <h4>Interpretación:</h4>
   <ol>
