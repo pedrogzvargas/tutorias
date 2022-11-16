@@ -35,6 +35,8 @@ class StudentsSubjectLoaderService:
         dataframe_as_dict = data_frame.to_dict(orient='records')
         for subject in dataframe_as_dict:
             student_enrollment = subject.get('enrollment')
+            failure_metric_name = subject.get('failure_metric')
+            failure_metric = None
             student = self.__student_repository.get(enrollment=student_enrollment)
             if not student:
                 raise Exception(f'No existe un usuario con esta matricula {student_enrollment}')
@@ -47,9 +49,10 @@ class StudentsSubjectLoaderService:
             if not subject_type:
                 raise Exception(f'No existe un tipo de materis con el nombre {subject.get("type")}')
 
-            failure_metric = self.__failed_metric_repository.get(name=subject.get("failure_metric"))
-            if not failure_metric:
-                raise Exception(f'No existe una metrica con el nombre {subject.get("failure_metric")}')
+            if failure_metric_name:
+                failure_metric = self.__failed_metric_repository.get(name=subject.get("failure_metric"))
+                if not failure_metric:
+                    raise Exception(f'No existe una metrica con el nombre {subject.get("failure_metric")}')
 
             tutor_subject = self.__tutor_subject_repository.get(subject__code=subject.get("subject_code"), tutor__enrollment=subject.get("tutor_enrollment"))
             if not tutor_subject:
@@ -59,9 +62,9 @@ class StudentsSubjectLoaderService:
                 student_id=student.id,
                 tutor_subject_id=tutor_subject.id,
                 type_id=subject_type.id,
-                approved=subject.get('approved') if subject.get('approved') else None,
+                approved=subject.get('approved'),
                 final_score=subject.get('final_score') if subject.get('final_score') else None,
-                failure_metric_id=failure_metric.id,
+                failure_metric_id=failure_metric.id if failure_metric else None,
                 comment=subject.get('comment'),
                 school_cycle_id=school_cycle.id,
                 unsubscribed=subject.get('unsubscribed')
