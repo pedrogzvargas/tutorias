@@ -62,7 +62,7 @@ class StudentsSubjectLoaderService:
                 student_id=student.id,
                 tutor_subject_id=tutor_subject.id,
                 type_id=subject_type.id,
-                approved=subject.get('approved') if subject.get('approved') else None,
+                approved=subject.get('approved'),
                 final_score=subject.get('final_score') if subject.get('final_score') else None,
                 failure_metric_id=failure_metric.id if failure_metric else None,
                 comment=subject.get('comment'),
